@@ -1,30 +1,76 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
-const Hero = () => {
+import heroBcg from '../assets/hero-bcg-9.jpg'
+import heroBcg2 from '../assets/hero-bcg-10.jpg'
+import { FaSearch } from 'react-icons/fa'
+const Hero = ({ image, name, price, id }) => {
+
+  const [overlay, setOverlay] = useState({ open: false, image: null });
+
+  const openOverlay = (image) => {
+      setOverlay({ open: true, image: image });
+  };
+
+  const closeOverlay = () => {
+      setOverlay({ open: false, image: null });
+  };
+  const carouselTexts = [
+    {
+        title: 'Tailoring Elegance, Just for You',
+        content: 'Welcome to Cassello Jewelers, your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there\'s something for everyone. ',
+    },
+    {
+      title: 'Shaping Your Unique Sparkle',
+      content: 'Discover the magic of exquisite jewelry with Cassello Jewelers, your top-tier online store for unique and handcrafted jewelry masterpieces. We take pride in our wide array of top-notch luxury items that blend tradition and modernity. Our carefully chosen collection includes ethically mined diamonds, precious gems, and intricate gold and silver pieces.'
+  },
+  {
+    title: 'Where Precious Becomes Personal',
+    content: 'Whether you\'re searching for a stunning engagement ring, an elegant necklace, or personalized jewelry gifts, our expert team is dedicated to helping you discover the perfect piece. With a secure shopping experience, worldwide shipping, and top-notch customer service, Cassello Jewelers is your trusted jewelry partner for every occasion.',
+  },
+  {
+    title: 'Designing Your Personal Elegance',
+    content: ' From the perfect engagement ring to a memorable custom gift, our dedicated team will assist you in finding the right piece for your special moment. Experience the ease of secure shopping, international shipping, and outstanding customer service with Cassello Jewelers - your reliable partner for all jewelry needs.',
+  },
+  {
+    title: 'Molding Your Precious Moments',
+    content: 'Seeking the ultimate engagement ring or a distinctive custom gift? Our committed team at Cassello Jewelers is here to help you pinpoint the perfect selection for your unique occasion. Benefit from our user-friendly online shopping platform, international delivery options, and superior customer care. Cassello Jewelers - your dependable source for all your jewelry desires.'
+},
+{
+  title: 'Sculpting Your Jewelry Dreams',
+  content: 'From the dreamiest engagement rings to personalized keepsake gifts, our devoted team at Cassello Jewelers stands ready to guide you towards your ideal piece. Enjoy seamless shopping, worldwide shipping, and unrivaled customer service as you embark on your jewelry journey. Choose Cassello Jewelers – your trusted ally in crafting unforgettable jewelry experiences.'
+}
+    // Add more text objects here to be included in the carousel
+];
+const [currentIndex, setCurrentIndex] = useState(0);
+useEffect(() => {
+  const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselTexts.length);
+  }, 3000);
+
+  return () => clearInterval(timer);
+}, [carouselTexts.length]);
+
   return (
     <Wrapper className='section-center'>
-      <article className='content'>
-        <h1>
-          design your <br />
-          comfort zone
-        </h1>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-          sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-          aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
-          alias?
-        </p>
-        <Link to='/products' className='btn hero-btn'>
-          shop now
+     <article className='content'>
+            <h1>{carouselTexts[currentIndex].title}</h1>
+            <p>{carouselTexts[currentIndex].content}</p>
+            <Link to='/products' className='btn hero-btn'>shop now</Link>
+        </article>
+      <article className='img-container '>
+                <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
+                <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
+
+            </article>
+            {overlay.open && (
+                <div className="overlay container" onClick={closeOverlay}>
+                    <img src={overlay.image} alt='overlay' />
+                    <Link to={`/products/${id}`} className='link'>
+          <FaSearch />
         </Link>
-      </article>
-      <article className='img-container'>
-        <img src={heroBcg} alt='nice table' className='main-img' />
-        <img src={heroBcg2} alt='person working' className='accent-img' />
-      </article>
+                </div>
+            )}
     </Wrapper>
   )
 }
@@ -37,6 +83,32 @@ const Wrapper = styled.section`
     display: none;
   }
 
+  .link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--clr-primary-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+    opacity: 0;
+    cursor: pointer;
+    svg {
+      font-size: 1.25rem;
+      color: var(--clr-white);
+    }
+  }
+  .container:hover img {
+    opacity: 1;
+  }
+  .container:hover .link {
+    opacity: 1;
+  }
   p {
     line-height: 2;
     max-width: 45em;

@@ -1,5 +1,5 @@
 /*
-=============== 
+===============
 Variables
 ===============
 */
@@ -45,7 +45,7 @@ Variables
   --fixed-width: 620px;
 }
 /*
-=============== 
+===============
 Global Styles
 ===============
 */
@@ -203,4 +203,39 @@ p {
 }
 .page {
   min-height: calc(100vh - (20vh + 10rem));
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay img {
+  max-width: 80%;
+  max-height: 80%;
+}.loading-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  z-index: 9999; /* Ensure loading screen appears on top of other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white; /* White text color */
+}
+
+
+video {
+  width: 80vw;
+  max-width: 100%;
+  height: 60vh;
 }
