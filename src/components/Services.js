@@ -35,11 +35,11 @@ const Services = () => {
 const Wrapper = styled.section`
   h3,
   h4 {
-    color: var(--clr-primary-1);
+    color:  #6bd5e1;
   }
   padding: 5rem 0;
 
-  background: var(--clr-primary-10);
+  background:  #ffd98e;
 
   .header h3 {
     margin-bottom: 2rem;
@@ -55,7 +55,7 @@ const Wrapper = styled.section`
     gap: 2.5rem;
   }
   .service {
-    background: var(--clr-primary-7);
+    background: #ffb677;
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
@@ -71,7 +71,7 @@ const Wrapper = styled.section`
     place-items: center;
     margin-bottom: 1rem;
     border-radius: 50%;
-    background: var(--clr-primary-10);
+    background:  #ff8364;
     color: var(--clr-primary-1);
     svg {
       font-size: 2rem;

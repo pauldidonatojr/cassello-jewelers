@@ -56,8 +56,9 @@ useEffect(() => {
      <article className='content'>
             <h1>{carouselTexts[currentIndex].title}</h1>
             <p>{carouselTexts[currentIndex].content}</p>
-            <Link to='/products' className='btn hero-btn'>shop now</Link>
-        </article>
+            <div style={{width: '100%', display: 'grid', justifyContent: 'center'}}>
+  <Link to='/products' className='btn hero-btn'>shop now</Link>
+</div>        </article>
       <article className='img-container '>
                 <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
                 <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
@@ -76,7 +77,7 @@ useEffect(() => {
 }
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+  min-height: 80vh;
   display: grid;
   place-items: center;
   .img-container {
@@ -126,7 +127,10 @@ const Wrapper = styled.section`
     p {
       font-size: 1.25rem;
     }
+
+
     .hero-btn {
+      animation: moveUpDown 2s linear infinite;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
     }
@@ -155,7 +159,7 @@ const Wrapper = styled.section`
       position: absolute;
       width: 10%;
       height: 80%;
-      background: var(--clr-primary-9);
+      background: #ffb677;
       bottom: 0%;
       left: -8%;
       border-radius: var(--radius);
