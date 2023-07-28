@@ -1,12 +1,30 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const [NewsLetter, setNewsLetter] = useState(false);
+  const windowHeight = window.innerHeight;
+  const fullHeight = document.body.scrollHeight;
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+  
+
+    if (scrollY + windowHeight >= fullHeight) {
+      setNewsLetter(true);
+    }
+    else {
+      setNewsLetter(false);
+    }
+   
+  };
+  window.addEventListener("scroll", handleScroll);
   return (
     <Container>
       <div className="FooterInner">
@@ -39,7 +57,11 @@ const Footer = () => {
             </Grid>
 
             <Grid sm={3}>
-              <div className="FooterSub">
+              <motion.div className="FooterSub"
+               initial={{ opacity: 0, x: 100 }}
+               animate={NewsLetter ?  { opacity: 1, x: 0 } : {}}
+               transition={{type: 'spring',damping: 10, stiffness: 100, }}
+              >
                 <p className="JoinText">Join our newsletter and get 20% off</p>
                
                <div className="ButtonHolder">
@@ -51,12 +73,8 @@ const Footer = () => {
                  <Button variant="contained" className="SubButton">
                   Subscribe
                 </Button>
-               </div>
-               
-               
-
-               
-              </div>
+               </div>      
+              </motion.div>
             </Grid>
           </Grid>
         </div>
