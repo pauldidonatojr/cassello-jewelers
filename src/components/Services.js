@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react'
 const Services = () => {
   const [navbar, setnavbar] = useState(false);
+  const [TextDiv, setTextDiv] = useState(false);
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
@@ -13,19 +14,27 @@ const Services = () => {
     } else {
        setnavbar(false);
     }
+    if (scrollY > 600) {
+      setTextDiv(true);
+   } else {
+    setTextDiv(false);
+   }
   };
   window.addEventListener("scroll", handleScroll);
   return (
     <Wrapper>
       <div className='section-center'>
-        <article className='MainText'>
+        <motion.article className='MainText'
+          initial={{ opacity: 0, x: -100 }}
+          animate={TextDiv ?  { opacity: 1, x: 0 } : {}}
+          transition={{type: 'spring',damping: 10, stiffness: 100, }}>
           <p className='Title'>
           Introducing Custom Jewelry Crafted Exclusively for You!
           </p>
           <p className='SubTitle'>
           Unlock the Brilliance of Your Unique Story with Custom Jewelry
           </p>
-        </article>
+        </motion.article>
         <div className='services-center'>
           {services.map((service,index) => {
             const { id, icon, title, text } = service
@@ -97,7 +106,7 @@ const Wrapper = styled.section`
     gap: 2.5rem;
   }
   .service {
-    background: rgba(45, 64, 89, 0.75);
+    background: rgba(45, 64, 89, 0.5);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
