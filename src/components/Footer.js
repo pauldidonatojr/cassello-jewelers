@@ -89,7 +89,7 @@ const Container = styled.footer`
     height: 80%;
   }
   .Divider {
-    width: 50%;
+    width: 75%;
     opacity: 0.4;
   }
   .LowerFooterText {
