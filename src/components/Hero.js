@@ -60,6 +60,7 @@ const Hero = ({ image, name, price, id }) => {
 
   return (
     <Wrapper className="">
+       <div className="LightEffect"></div>
       <article className="content" style={{ marginTop: "20%" }}>
         <h1>{carouselTexts[currentIndex].title}</h1>
         <p>{carouselTexts[currentIndex].content}</p>
@@ -107,6 +108,18 @@ const Wrapper = styled.section`
 
   .content {
     padding-left: 10%;
+  }
+  .LightEffect {
+    border-radius: 150px 0 0 150px; /* The first two values (150px 150px) define the top-left and top-right radii, while the last two (0 0) define the bottom-left and bottom-right radii, making them 0 to create a straight edge */
+    opacity: 0.800000011920929;
+    background: #ff5722;
+    filter: blur(150px);
+    width: 150px;
+    z-index: 1;
+    height: 350px;
+    position: absolute;
+    left: 0px;
+    top: 60%;
   }
 
   .link {
