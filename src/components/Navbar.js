@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
@@ -7,26 +7,43 @@ import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
+
+
 const Nav = () => {
+
+  const [navbar, setnavbar] = useState(false);
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 50) {
+       setnavbar(true);
+    } else {
+       setnavbar(false);
+    }
+  };
+  window.addEventListener("scroll", handleScroll);
+
   const { openSidebar } = useProductsContext()
   const { myUser } = useUserContext()
   return (
-    <NavContainer>
+    <NavContainer   className={navbar ? "MainDivActive" : "MainDiv"} >
       <div className='nav-center'>
         <div className='nav-header'>
           <Link to='/'>
-            <img src={logo} alt='comfy sloth' />
+           <p className='LogoName'>Cassello </p>
           </Link>
-          <button type='button' className='nav-toggle' onClick={openSidebar}>
-            <FaBars />
-          </button>
+          
         </div>
         <ul className='nav-links'>
           {links.map((link) => {
             const { id, text, url } = link
             return (
               <li key={id}>
-                <Link to={url}>{text}</Link>
+                <Link to={url}>
+                  <p className='HeaderText'>{text}</p>
+                  
+                  </Link>
+                  
               </li>
             )
           })}
@@ -43,15 +60,24 @@ const Nav = () => {
 }
 
 const NavContainer = styled.nav`
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+
+
+  .HeaderText{
+    font-size:18px;
+    font-weight:100;
+    color:#2d4059;
+  }
+
+  .LogoName{
+    width:100%;
+    font-size:27px;
+    font-weight:100;  
+  }
 
   .nav-center {
-    width: 90vw;
-    margin: 0 auto;
-    max-width: var(--max-width);
+    width: 85%;
+    margin: 0 auto;;
   }
   .nav-header {
     display: flex;
@@ -72,11 +98,16 @@ const NavContainer = styled.nav`
     }
   }
   .nav-links {
-    display: none;
+      width:50%;
+      margin-left:10%;
+
   }
   .cart-btn-wrapper {
     display: none;
   }
+
+
+
   @media (min-width: 992px) {
     .nav-toggle {
       display: none;
@@ -98,14 +129,18 @@ const NavContainer = styled.nav`
         text-transform: capitalize;
         letter-spacing: var(--spacing);
         padding: 0.5rem;
-        &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
-        }
+       
       }
     }
     .cart-btn-wrapper {
       display: grid;
     }
+  }
+  .nav-center{
+    display: flex;
+    position:fixed;
+    justify-content:space-evenly;
+    width:100%;
   }
 `
 

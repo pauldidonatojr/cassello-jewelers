@@ -21,7 +21,7 @@ const Sidebar = () => {
           <button className='close-btn' onClick={closeSidebar}>
             <FaTimes />
           </button>
-        </div>
+        </div>331313213
         <ul className='links'>
           {links.map(({ id, text, url }) => {
             return (

@@ -12,9 +12,9 @@ const CartButton = () => {
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
-        Cart
-        <span className='cart-container'>
-          <FaShoppingCart />
+      <span className='cart-container'>
+       <p className='FunctionText'>Cart</p> 
+      
           <span className='cart-value'>{total_items}</span>
         </span>
       </Link>
@@ -28,12 +28,13 @@ const CartButton = () => {
             logout({ returnTo: window.location.origin })
           }}
         >
-          Logout <FaUserMinus />
+          Logout 
         </button>
       ) : (
-        <button type='button' className='auth-btn' onClick={loginWithRedirect}>
-          Login <FaUserPlus />
-        </button>
+        <div type='button' className='auth-btn' onClick={loginWithRedirect}>
+           <p className='FunctionText'>Login</p> 
+           
+        </div>
       )}
     </Wrapper>
   )
@@ -44,6 +45,13 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   width: 225px;
+
+  .FunctionText{
+    
+    font-weight:100;
+    font-size:18px;
+
+  }
 
   .cart-btn {
     color: var(--clr-grey-1);
@@ -66,8 +74,8 @@ const Wrapper = styled.div`
   .cart-value {
     position: absolute;
     top: -10px;
-    right: -16px;
-    background: var(--clr-primary-5);
+    right: -20px;
+    background:#222831;
     width: 16px;
     height: 16px;
     display: flex;
@@ -76,14 +84,15 @@ const Wrapper = styled.div`
     border-radius: 50%;
     font-size: 0.75rem;
     color: var(--clr-white);
-    padding: 12px;
+    padding: 10px;
   }
   .auth-btn {
     display: flex;
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    justify-content:center;
+    font-size: 20px;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

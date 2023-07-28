@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom'
 import heroBcg from '../assets/hero-bcg-9.jpg'
 import heroBcg2 from '../assets/hero-bcg-10.jpg'
 import { FaSearch } from 'react-icons/fa'
+import Button from '@mui/material/Button';
+
+
+
 const Hero = ({ image, name, price, id }) => {
 
   const [overlay, setOverlay] = useState({ open: false, image: null });
@@ -52,17 +56,29 @@ useEffect(() => {
 }, [carouselTexts.length]);
 
   return (
-    <Wrapper className='section-center'>
-     <article className='content'>
+    <Wrapper className=''>
+  
+     <article className='content' style={{marginTop:"20%"}}>
             <h1>{carouselTexts[currentIndex].title}</h1>
             <p>{carouselTexts[currentIndex].content}</p>
-            <Link to='/products' className='btn hero-btn'>shop now</Link>
+            <Link to='/products'>
+            <Button variant="contained" className="hero-btn">
+              Shop Now
+              
+              </Button>
+              
+              </Link>
         </article>
-      <article className='img-container '>
+      <article className='img-container ' style={{marginTop:"20%"}}>
                 <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
                 <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
 
             </article>
+
+          
+  
+
+  
             {overlay.open && (
                 <div className="overlay container" onClick={closeOverlay}>
                     <img src={overlay.image} alt='overlay' />
@@ -76,11 +92,20 @@ useEffect(() => {
 }
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+
+width:100%;
+
+
+
+  min-height: 100vh;
   display: grid;
   place-items: center;
   .img-container {
     display: none;
+  }
+
+  .content{
+    padding-left:10%;
   }
 
   .link {
@@ -127,8 +152,14 @@ const Wrapper = styled.section`
       font-size: 1.25rem;
     }
     .hero-btn {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
+      height:60px;
+      width:150px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      align-content:center;
+      font-weight:700;
+      background-color:#ff5722;
     }
     .img-container {
       display: block;
