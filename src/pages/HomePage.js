@@ -4,6 +4,7 @@ import citrine from '../assets/citrine-earring.mov'
 import teardrop from '../assets/tear-drop.mov'
 import xearring from '../assets/x-earrings.mov'
 import styled from 'styled-components';
+import "../Scrollbar.css";
 
 const StyledButton = styled.button`
   background-color: #3f51b5;
@@ -19,6 +20,7 @@ const StyledButton = styled.button`
     background-color: #283593;
   }
 `;
+
 
 const HomePage = () => {
   const videos = [citrine, teardrop, xearring]; // replace with your actual video sources
@@ -72,11 +74,11 @@ const HomePage = () => {
   }
 
   return (
-    <main>
+    <main style={{backgroundColor:"#eeeeee"}}>
       <Hero />
       <FeaturedProducts />
       <Services />
-      <Contact />
+      {/* <Contact /> */}
     </main>
   )
 }

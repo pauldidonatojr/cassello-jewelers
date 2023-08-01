@@ -1,57 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg-9.jpg'
-import heroBcg2 from '../assets/hero-bcg-10.jpg'
-import { FaSearch } from 'react-icons/fa'
-const Hero = ({ image, name, price, id }) => {
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import heroBcg from "../assets/hero-bcg-9.jpg";
+import heroBcg2 from "../assets/hero-bcg-10.jpg";
+import { FaSearch } from "react-icons/fa";
+import Button from "@mui/material/Button";
 
+const Hero = ({ image, name, price, id }) => {
   const [overlay, setOverlay] = useState({ open: false, image: null });
 
   const openOverlay = (image) => {
-      setOverlay({ open: true, image: image });
+    setOverlay({ open: true, image: image });
   };
 
   const closeOverlay = () => {
-      setOverlay({ open: false, image: null });
+    setOverlay({ open: false, image: null });
   };
   const carouselTexts = [
     {
-        title: 'Tailoring Elegance, Just for You',
-        content: 'Welcome to Cassello Jewelers, your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there\'s something for everyone. ',
+      title: "Tailoring Elegance, Just for You",
+      content:
+        "Welcome to Cassello Jewelers, your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone. ",
     },
     {
-      title: 'Shaping Your Unique Sparkle',
-      content: 'Discover the magic of exquisite jewelry with Cassello Jewelers, your top-tier online store for unique and handcrafted jewelry masterpieces. We take pride in our wide array of top-notch luxury items that blend tradition and modernity. Our carefully chosen collection includes ethically mined diamonds, precious gems, and intricate gold and silver pieces.'
-  },
-  {
-    title: 'Where Precious Becomes Personal',
-    content: 'Whether you\'re searching for a stunning engagement ring, an elegant necklace, or personalized jewelry gifts, our expert team is dedicated to helping you discover the perfect piece. With a secure shopping experience, worldwide shipping, and top-notch customer service, Cassello Jewelers is your trusted jewelry partner for every occasion.',
-  },
-  {
-    title: 'Designing Your Personal Elegance',
-    content: ' From the perfect engagement ring to a memorable custom gift, our dedicated team will assist you in finding the right piece for your special moment. Experience the ease of secure shopping, international shipping, and outstanding customer service with Cassello Jewelers - your reliable partner for all jewelry needs.',
-  },
-  {
-    title: 'Molding Your Precious Moments',
-    content: 'Seeking the ultimate engagement ring or a distinctive custom gift? Our committed team at Cassello Jewelers is here to help you pinpoint the perfect selection for your unique occasion. Benefit from our user-friendly online shopping platform, international delivery options, and superior customer care. Cassello Jewelers - your dependable source for all your jewelry desires.'
-},
-{
-  title: 'Sculpting Your Jewelry Dreams',
-  content: 'From the dreamiest engagement rings to personalized keepsake gifts, our devoted team at Cassello Jewelers stands ready to guide you towards your ideal piece. Enjoy seamless shopping, worldwide shipping, and unrivaled customer service as you embark on your jewelry journey. Choose Cassello Jewelers – your trusted ally in crafting unforgettable jewelry experiences.'
-}
+      title: "Shaping Your Unique Sparkle",
+      content:
+        "Discover the magic of exquisite jewelry with Cassello Jewelers, your top-tier online store for unique and handcrafted jewelry masterpieces. We take pride in our wide array of top-notch luxury items that blend tradition and modernity. Our carefully chosen collection includes ethically mined diamonds, precious gems, and intricate gold and silver pieces.",
+    },
+    {
+      title: "Where Precious Becomes Personal",
+      content:
+        "Whether you're searching for a stunning engagement ring, an elegant necklace, or personalized jewelry gifts, our expert team is dedicated to helping you discover the perfect piece. With a secure shopping experience, worldwide shipping, and top-notch customer service, Cassello Jewelers is your trusted jewelry partner for every occasion.",
+    },
+    {
+      title: "Designing Your Personal Elegance",
+      content:
+        " From the perfect engagement ring to a memorable custom gift, our dedicated team will assist you in finding the right piece for your special moment. Experience the ease of secure shopping, international shipping, and outstanding customer service with Cassello Jewelers - your reliable partner for all jewelry needs.",
+    },
+    {
+      title: "Molding Your Precious Moments",
+      content:
+        "Seeking the ultimate engagement ring or a distinctive custom gift? Our committed team at Cassello Jewelers is here to help you pinpoint the perfect selection for your unique occasion. Benefit from our user-friendly online shopping platform, international delivery options, and superior customer care. Cassello Jewelers - your dependable source for all your jewelry desires.",
+    },
+    {
+      title: "Sculpting Your Jewelry Dreams",
+      content:
+        "From the dreamiest engagement rings to personalized keepsake gifts, our devoted team at Cassello Jewelers stands ready to guide you towards your ideal piece. Enjoy seamless shopping, worldwide shipping, and unrivaled customer service as you embark on your jewelry journey. Choose Cassello Jewelers – your trusted ally in crafting unforgettable jewelry experiences.",
+    },
     // Add more text objects here to be included in the carousel
-];
-const [currentIndex, setCurrentIndex] = useState(0);
-useEffect(() => {
-  const timer = setInterval(() => {
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselTexts.length);
-  }, 3000);
+    }, 3000);
 
-  return () => clearInterval(timer);
-}, [carouselTexts.length]);
+    return () => clearInterval(timer);
+  }, [carouselTexts.length]);
 
   return (
+<<<<<<< HEAD
     <Wrapper className='section-center'>
      <article className='content'>
             <h1>{carouselTexts[currentIndex].title}</h1>
@@ -69,19 +77,73 @@ useEffect(() => {
                     <img src={overlay.image} alt='overlay' />
                     <Link to={`/products/${id}`} className='link'>
           <FaSearch />
+=======
+    <Wrapper className="">
+       <div className="LightEffect"></div>
+      <article className="content" style={{ marginTop: "20%" }}>
+        <h1>{carouselTexts[currentIndex].title}</h1>
+        <p>{carouselTexts[currentIndex].content}</p>
+        <Link to="/products">
+          <Button variant="contained" className="hero-btn">
+            Shop Now
+          </Button>
+>>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
         </Link>
-                </div>
-            )}
+      </article>
+      <article className="img-container " style={{ marginTop: "20%" }}>
+        <img
+          src={heroBcg2}
+          alt="jewelery necklace"
+          className=" main-img"
+          onClick={() => openOverlay(heroBcg2)}
+        />
+        <img
+          src={heroBcg}
+          alt="close up jewelery necklace"
+          className="accent-img"
+          onClick={() => openOverlay(heroBcg)}
+        />
+      </article>
+
+      {overlay.open && (
+        <div className="overlay container" onClick={closeOverlay}>
+          <img src={overlay.image} alt="overlay" />
+          <Link to={`/products/${id}`} className="link">
+            <FaSearch />
+          </Link>
+        </div>
+      )}
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
+<<<<<<< HEAD
   min-height: 80vh;
+=======
+  width: 100%;
+  min-height: 100vh;
+>>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
   display: grid;
   place-items: center;
   .img-container {
     display: none;
+  }
+
+  .content {
+    padding-left: 10%;
+  }
+  .LightEffect {
+    border-radius: 150px 0 0 150px; /* The first two values (150px 150px) define the top-left and top-right radii, while the last two (0 0) define the bottom-left and bottom-right radii, making them 0 to create a straight edge */
+    opacity: 0.800000011920929;
+    background: #ff5722;
+    filter: blur(150px);
+    width: 150px;
+    z-index: 1;
+    height: 350px;
+    position: absolute;
+    left: 0px;
+    top: 60%;
   }
 
   .link {
@@ -130,9 +192,20 @@ const Wrapper = styled.section`
 
 
     .hero-btn {
+<<<<<<< HEAD
       animation: moveUpDown 2s linear infinite;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+=======
+      height: 60px;
+      width: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      font-weight: 700;
+      background-color: #ff5722;
+>>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
     }
     .img-container {
       display: block;
@@ -155,7 +228,7 @@ const Wrapper = styled.section`
       border-radius: var(--radius);
     }
     .img-container::before {
-      content: '';
+      content: "";
       position: absolute;
       width: 10%;
       height: 80%;
@@ -165,6 +238,6 @@ const Wrapper = styled.section`
       border-radius: var(--radius);
     }
   }
-`
+`;
 
-export default Hero
+export default Hero;

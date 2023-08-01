@@ -1,29 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
 import { services } from '../utils/constants'
+import { motion } from 'framer-motion';
+import { useState } from 'react'
 const Services = () => {
+  const [navbar, setnavbar] = useState(false);
+  const [TextDiv, setTextDiv] = useState(false);
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 750) {
+       setnavbar(true);
+    } else {
+       setnavbar(false);
+    }
+    if (scrollY > 600) {
+      setTextDiv(true);
+   } else {
+    setTextDiv(false);
+   }
+  };
+  window.addEventListener("scroll", handleScroll);
   return (
     <Wrapper>
       <div className='section-center'>
-        <article className='header'>
-          <h3>
-            custom furniture <br /> built only for you
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            dolorum debitis consectetur reprehenderit non aliquam voluptates
-            dolore aut vero consequuntur.
+        <motion.article className='MainText'
+          initial={{ opacity: 0, x: -100 }}
+          animate={TextDiv ?  { opacity: 1, x: 0 } : {}}
+          transition={{type: 'spring',damping: 10, stiffness: 100, }}>
+          <p className='Title'>
+          Introducing Custom Jewelry Crafted Exclusively for You!
           </p>
-        </article>
+          <p className='SubTitle'>
+          Unlock the Brilliance of Your Unique Story with Custom Jewelry
+          </p>
+        </motion.article>
         <div className='services-center'>
-          {services.map((service) => {
+          {services.map((service,index) => {
             const { id, icon, title, text } = service
+            
             return (
-              <article className='service' key={id}>
+              <motion.article className='service' key={id}
+              initial={{ opacity: 0, y: -20 }}
+              animate={navbar ?  { opacity: 1, y: 0 } : {}}
+              transition={{type: 'spring',delay: index * 0.2,damping: 10, stiffness: 100, }}>
                 <span className='icon'>{icon}</span>
                 <h4>{title}</h4>
                 <p>{text}</p>
-              </article>
+              </motion.article>
             )
           })}
         </div>
@@ -33,13 +57,43 @@ const Services = () => {
 }
 
 const Wrapper = styled.section`
+
+.section-center{
+  padding-bottom:15%;
+}
+
+ .MainText {}
+ .SubTitle{
+  font-size:20px;
+  font-weight:100;
+  color: #222831;
+ }
+ .icon{
+  color:#ff5722;
+  size:100px;
+ }
+ .Title{
+  font-size:50px;
+  font-weight:700;
+  width:50%;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color:#222831;
+ }
+
+
+
   h3,
   h4 {
     color:  #6bd5e1;
   }
   padding: 5rem 0;
 
+<<<<<<< HEAD
   background:  #ffd98e;
+=======
+  backkkkk
+>>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
 
   .header h3 {
     margin-bottom: 2rem;
@@ -47,20 +101,30 @@ const Wrapper = styled.section`
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    color: var(--clr-primary-3);
+    color: #222831;
+    /// here
   }
   .services-center {
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: grid;
     gap: 2.5rem;
   }
   .service {
+<<<<<<< HEAD
     background: #ffb677;
+=======
+    background: rgba(45, 64, 89, 0.5);
+>>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
     p {
-      color: var(--clr-primary-2);
+      color: white;
+      font-weight:100;
+    }
+    h4{
+      color:white;
+      font-weight:700;
     }
   }
   span {
