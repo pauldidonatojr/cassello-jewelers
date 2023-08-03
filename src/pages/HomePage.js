@@ -5,19 +5,38 @@ import teardrop from '../assets/tear-drop.mov'
 import xearring from '../assets/x-earrings.mov'
 import styled from 'styled-components';
 import "../Scrollbar.css";
+import CaselloImg from '../assets/Cassello.jpeg'
 
-const StyledButton = styled.button`
-  background-color: #3f51b5;
-  color: #fff;
-  padding: 18px 36px;
+const StyledButton = styled.div`
+  color: #FFCB9A;
+  padding: 5px 15px;
   border: none;
   cursor: pointer;
-  font-size: 40px;
+  font-size: 30px;
   border-radius: 10px;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Add color and border-color to the transition property */
+  font-family: "Gill Sans", sans-serif;
+  position: relative; /* Required for ::after pseudo-element */
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: #D8B08C; /* Color of the underline */
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    background-color: #283593;
+    color: #D8B08C;
+    &::after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
   }
 `;
 
@@ -63,18 +82,22 @@ const HomePage = () => {
 
   if (loading) {
     return (
-      <div className="loading-screen">
-        <h1 style={{color: 'black'}}> Cassello Jewelers</h1>
-        <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <StyledButton onClick={handleButtonClick}>Shop Now</StyledButton>
-      </div>
+      <Wrapper>
+        <div className="loading-screen">
+          <h1 className="loading-text"> Cassello Jewelers</h1>
+          <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div className='button-holder'>
+            <StyledButton onClick={handleButtonClick}>Start Exploring</StyledButton>
+          </div>
+        </div>
+      </Wrapper>
     );
   }
 
   return (
-    <main style={{backgroundColor:"#eeeeee"}}>
+    <main style={{ backgroundColor: "#eeeeee" }}>
       <Hero />
       <FeaturedProducts />
       <Services />
@@ -83,4 +106,22 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default HomePage;
+
+const Wrapper = styled.div`
+font-family: cursive;
+width: 100%;
+height: 100vh;
+
+.loading-text {
+  width: 100%;
+  height: 200px;
+  padding: 0.2rem;
+  color: #D8B08C;
+}
+.button-holder{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+`;

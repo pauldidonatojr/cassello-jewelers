@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
-=======
-import React,{useEffect,useState} from 'react'
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
@@ -11,8 +7,7 @@ import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
-
-<<<<<<< HEAD
+import CasselloImage from '../assets/Cassello.jpeg'
 const useColorRotation = (colors, delay) => {
   const [colorIndex, setColorIndex] = useState(0);
 
@@ -26,8 +21,6 @@ const useColorRotation = (colors, delay) => {
 
   return colors[colorIndex];
 };
-=======
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
 
 const Nav = () => {
 
@@ -36,9 +29,9 @@ const Nav = () => {
     const scrollY = window.scrollY;
 
     if (scrollY > 50) {
-       setnavbar(true);
+      setnavbar(true);
     } else {
-       setnavbar(false);
+      setnavbar(false);
     }
   };
   window.addEventListener("scroll", handleScroll);
@@ -54,21 +47,17 @@ const Nav = () => {
   const textStylesJewelers = { color: colorJewelers, transition: "color 1s" };
 
   return (
-    <NavContainer   className={navbar ? "MainDivActive" : "MainDiv"} >
+    <NavContainer className={navbar ? "MainDivActive" : "MainDiv"} >
       <div className='nav-center'>
         <div className='nav-header'>
           <Link to='/'>
-<<<<<<< HEAD
-            {/* <img src={logo} alt='comfy sloth' /> */}
             <h3>
-      <span style={textStylesCassello}>Cassello</span>
-      <span style={textStylesJewelers}> Jewelers</span>
-    </h3>
-=======
-           <p className='LogoName'>Cassello </p>
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
+              <span style={textStylesCassello}>Cassello</span>
+              <span style={textStylesJewelers}> Jewelers</span>
+            </h3>
+            <p className='LogoName'>Cassello </p>
           </Link>
-          
+
         </div>
         <ul className='nav-links'>
           {links.map((link) => {
@@ -77,9 +66,9 @@ const Nav = () => {
               <li key={id}>
                 <Link to={url}>
                   <p className='HeaderText'>{text}</p>
-                  
-                  </Link>
-                  
+
+                </Link>
+
               </li>
             )
           })}

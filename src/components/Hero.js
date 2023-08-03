@@ -5,6 +5,8 @@ import heroBcg from "../assets/hero-bcg-9.jpg";
 import heroBcg2 from "../assets/hero-bcg-10.jpg";
 import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
+import { motion } from "framer-motion";
+
 
 const Hero = ({ image, name, price, id }) => {
   const [overlay, setOverlay] = useState({ open: false, image: null });
@@ -58,52 +60,62 @@ const Hero = ({ image, name, price, id }) => {
     return () => clearInterval(timer);
   }, [carouselTexts.length]);
 
-  return (
-<<<<<<< HEAD
-    <Wrapper className='section-center'>
-     <article className='content'>
-            <h1>{carouselTexts[currentIndex].title}</h1>
-            <p>{carouselTexts[currentIndex].content}</p>
-            <div style={{width: '100%', display: 'grid', justifyContent: 'center'}}>
-  <Link to='/products' className='btn hero-btn'>shop now</Link>
-</div>        </article>
-      <article className='img-container '>
-                <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
-                <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
+  const container = {
+    visible: {
+      transition: {
+        staggerChildren: 0.025
+      }
+    }
+  };
 
-            </article>
-            {overlay.open && (
-                <div className="overlay container" onClick={closeOverlay}>
-                    <img src={overlay.image} alt='overlay' />
-                    <Link to={`/products/${id}`} className='link'>
-          <FaSearch />
-=======
-    <Wrapper className="">
-       <div className="LightEffect"></div>
-      <article className="content" style={{ marginTop: "20%" }}>
+  return (
+    <Wrapper className='section-center'>
+      <article className='content'>
         <h1>{carouselTexts[currentIndex].title}</h1>
         <p>{carouselTexts[currentIndex].content}</p>
-        <Link to="/products">
-          <Button variant="contained" className="hero-btn">
-            Shop Now
-          </Button>
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
-        </Link>
+        <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
+          <Link to='/products' className='btn hero-btn'>shop now</Link>
+        </div>
       </article>
-      <article className="img-container " style={{ marginTop: "20%" }}>
-        <img
-          src={heroBcg2}
-          alt="jewelery necklace"
-          className=" main-img"
-          onClick={() => openOverlay(heroBcg2)}
-        />
-        <img
-          src={heroBcg}
-          alt="close up jewelery necklace"
-          className="accent-img"
-          onClick={() => openOverlay(heroBcg)}
-        />
+      <article className='img-container '>
+        <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
+        <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
+
       </article>
+      {overlay.open &&
+        <div className="overlay container" onClick={closeOverlay}>
+          <img src={overlay.image} alt='overlay' />
+          <Link to={`/products/${id}`} className='link'>
+            <FaSearch />
+            <Wrapper className="">
+              <div className="LightEffect"></div>
+              <article className="content" style={{ marginTop: "20%" }}>
+                <h1>{carouselTexts[currentIndex].title}</h1>
+                <p>{carouselTexts[currentIndex].content}</p>
+                <Link to="/products">
+                  <Button variant="contained" className="hero-btn">
+                    Shop Now
+                  </Button>
+                </Link>
+              </article>
+              <article className="img-container " style={{ marginTop: "20%" }}>
+                <img
+                  src={heroBcg2}
+                  alt="jewelery necklace"
+                  className=" main-img"
+                  onClick={() => openOverlay(heroBcg2)}
+                />
+                <img
+                  src={heroBcg}
+                  alt="close up jewelery necklace"
+                  className="accent-img"
+                  onClick={() => openOverlay(heroBcg)}
+                />
+              </article>
+            </Wrapper>
+          </Link>
+        </div>
+      }
 
       {overlay.open && (
         <div className="overlay container" onClick={closeOverlay}>
@@ -115,129 +127,125 @@ const Hero = ({ image, name, price, id }) => {
       )}
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.section`
-<<<<<<< HEAD
-  min-height: 80vh;
-=======
-  width: 100%;
-  min-height: 100vh;
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
-  display: grid;
-  place-items: center;
-  .img-container {
-    display: none;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            min-height: 80vh;
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            .img-container {
+              display: none;
   }
 
-  .content {
-    padding-left: 10%;
+            .content {
+              padding-left: 10%;
   }
-  .LightEffect {
-    border-radius: 150px 0 0 150px; /* The first two values (150px 150px) define the top-left and top-right radii, while the last two (0 0) define the bottom-left and bottom-right radii, making them 0 to create a straight edge */
-    opacity: 0.800000011920929;
-    background: #ff5722;
-    filter: blur(150px);
-    width: 150px;
-    z-index: 1;
-    height: 350px;
-    position: absolute;
-    left: 0px;
-    top: 60%;
+            .LightEffect {
+              border-radius: 150px 0 0 150px; /* The first two values (150px 150px) define the top-left and top-right radii, while the last two (0 0) define the bottom-left and bottom-right radii, making them 0 to create a straight edge */
+            opacity: 0.800000011920929;
+            background: #ff5722;
+            filter: blur(150px);
+            width: 150px;
+            z-index: 1;
+            height: 350px;
+            position: absolute;
+            left: 0px;
+            top: 60%;
   }
 
-  .link {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--clr-primary-5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    transition: var(--transition);
-    opacity: 0;
-    cursor: pointer;
-    svg {
-      font-size: 1.25rem;
-      color: var(--clr-white);
+            .link {
+              position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--clr-primary-5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+            opacity: 0;
+            cursor: pointer;
+            svg {
+              font-size: 1.25rem;
+            color: var(--clr-white);
     }
   }
-  .container:hover img {
-    opacity: 1;
+            .container:hover img {
+              opacity: 1;
   }
-  .container:hover .link {
-    opacity: 1;
+            .container:hover .link {
+              opacity: 1;
   }
-  p {
-    line-height: 2;
-    max-width: 45em;
-    margin-bottom: 2rem;
-    color: var(--clr-grey-5);
-    font-size: 1rem;
+            p {
+              line-height: 2;
+            max-width: 45em;
+            margin-bottom: 2rem;
+            color: var(--clr-grey-5);
+            font-size: 1rem;
   }
-  @media (min-width: 992px) {
-    height: calc(100vh - 5rem);
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    h1 {
-      margin-bottom: 2rem;
+            @media (min-width: 992px) {
+              height: calc(100vh-5rem);
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            h1 {
+              margin-bottom: 2rem;
     }
-    p {
-      font-size: 1.25rem;
+            p {
+              font-size: 1.25rem;
     }
 
 
-    .hero-btn {
-<<<<<<< HEAD
-      animation: moveUpDown 2s linear infinite;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-=======
-      height: 60px;
-      width: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-      font-weight: 700;
-      background-color: #ff5722;
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
+            .hero-btn {
+              animation: moveUpDown 2s linear infinite;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            height: 60px;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            font-weight: 700;
+            background-color: #ff5722;
     }
-    .img-container {
-      display: block;
-      position: relative;
+            .img-container {
+              display: block;
+            position: relative;
     }
-    .main-img {
-      width: 100%;
-      height: 550px;
-      position: relative;
-      border-radius: var(--radius);
-      display: block;
-      object-fit: cover;
+            .main-img {
+              width: 100%;
+            height: 550px;
+            position: relative;
+            border-radius: var(--radius);
+            display: block;
+            object-fit: cover;
     }
-    .accent-img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 250px;
-      transform: translateX(-50%);
-      border-radius: var(--radius);
+            .accent-img {
+              position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            transform: translateX(-50%);
+            border-radius: var(--radius);
     }
-    .img-container::before {
-      content: "";
-      position: absolute;
-      width: 10%;
-      height: 80%;
-      background: #ffb677;
-      bottom: 0%;
-      left: -8%;
-      border-radius: var(--radius);
+            .img-container::before {
+              content: "";
+            position: absolute;
+            width: 10%;
+            height: 80%;
+            background: #ffb677;
+            bottom: 0%;
+            left: -8%;
+            border-radius: var(--radius);
     }
   }
-`;
+            `;
 
 export default Hero;
