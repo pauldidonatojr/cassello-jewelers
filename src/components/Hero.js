@@ -68,20 +68,102 @@ const Hero = ({ image, name, price, id }) => {
     }
   };
 
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1
+      }
+    }
+  };
+
+  const paragraphVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1
+      }
+    }
+  };
+
+  const Heading = styled(motion.p)`
+  /* Custom CSS for h1 */
+  width: 33%;
+  height: 100%;
+  font-size: 5rem;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  `;
+
+  const Paragraph = styled(motion.p)`
+  /* Custom CSS for p */
+  width: 33%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  `;
+
   return (
-    <Wrapper className='section-center'>
+    <Wrapper>
+
       <article className='content'>
-        <h1>{carouselTexts[currentIndex].title}</h1>
-        <p>{carouselTexts[currentIndex].content}</p>
+        <div className="transparent-holder"></div>
+        <article className="promo-holder">
+          <div className="transparent-holder"></div>
+          <Heading
+            variants={headingVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {carouselTexts[currentIndex].title}
+          </Heading>
+
+          <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
+
+          <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
+            {carouselTexts[currentIndex].content}
+          </Paragraph>
+
+          {/* <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
+            <Link to='/products' className='btn hero-btn'>shop now</Link>
+          </div> */}
+        </article>
+      </article>
+
+
+      {/* <article className='content'>
+        <motion.h1
+          variants={headingVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {carouselTexts[currentIndex].title}
+        </motion.h1>
+        <motion.p variants={paragraphVariants} initial="hidden" animate="visible">
+          {carouselTexts[currentIndex].content}
+        </motion.p>
         <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
           <Link to='/products' className='btn hero-btn'>shop now</Link>
         </div>
       </article>
+
       <article className='img-container '>
         <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
         <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
-
-      </article>
+      </article> */}
       {overlay.open &&
         <div className="overlay container" onClick={closeOverlay}>
           <img src={overlay.image} alt='overlay' />
@@ -130,122 +212,139 @@ const Hero = ({ image, name, price, id }) => {
 }
 
 const Wrapper = styled.section`
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            min-height: 80vh;
-            width: 100%;
-            min-height: 100vh;
-            display: grid;
-            place-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+              
+            .promo-holder{
+                width: 100%;
+                height: 550px;
+                display: flex;
+                border-radius: 6px;
+              }
+
+            .transparent-holder{
+              width: 100%;
+              height: 550px;
+              position: absolute;
+              background-color: #A67563;
+              opacity: 0.1;
+              border-radius: 6px;
+            }
+
             .img-container {
               display: none;
-  }
+            }
 
             .content {
-              padding-left: 10%;
-  }
+              padding-top: 7%;
+              }
             .LightEffect {
               border-radius: 150px 0 0 150px; /* The first two values (150px 150px) define the top-left and top-right radii, while the last two (0 0) define the bottom-left and bottom-right radii, making them 0 to create a straight edge */
-            opacity: 0.800000011920929;
-            background: #ff5722;
-            filter: blur(150px);
-            width: 150px;
-            z-index: 1;
-            height: 350px;
-            position: absolute;
-            left: 0px;
-            top: 60%;
-  }
+              opacity: 0.800000011920929;
+              background: #A67563;
+              filter: blur(150px);
+              width: 150px;
+              z-index: 1;
+              height: 350px;
+              position: absolute;
+              left: 0px;
+              top: 60%;
+              }
 
             .link {
               position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--clr-primary-5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: 50%;
-            transition: var(--transition);
-            opacity: 0;
-            cursor: pointer;
-            svg {
-              font-size: 1.25rem;
-            color: var(--clr-white);
-    }
-  }
-            .container:hover img {
-              opacity: 1;
-  }
-            .container:hover .link {
-              opacity: 1;
-  }
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: var(--clr-primary-5);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 50%;
+              transition: var(--transition);
+              opacity: 0;
+              cursor: pointer;
+              svg {
+                font-size: 1.25rem;
+                color: var(--clr-white);
+              }
+              }
+              .container:hover img {
+                opacity: 1;
+              }
+              .container:hover .link {
+                opacity: 1;
+              }
             p {
               line-height: 2;
-            max-width: 45em;
-            margin-bottom: 2rem;
-            color: var(--clr-grey-5);
-            font-size: 1rem;
-  }
-            @media (min-width: 992px) {
-              height: calc(100vh-5rem);
-            grid-template-columns: 1fr 1fr;
-            gap: 8rem;
-            h1 {
+              max-width: 45em;
               margin-bottom: 2rem;
-    }
-            p {
-              font-size: 1.25rem;
-    }
+              color: var(--clr-grey-5);
+              font-size: 1rem;
+              }
+              
+              @media (min-width: 992px) {
+                height: calc(100vh-5rem);
+                grid-template-columns: 1fr 1fr;
+                gap: 8rem;
+                h1 {
+                  margin-bottom: 2rem;
+                }
+                p {
+                  font-size: 1.25rem;
+                }
 
 
-            .hero-btn {
-              animation: moveUpDown 2s linear infinite;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            height: 60px;
-            width: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            font-weight: 700;
-            background-color: #ff5722;
-    }
-            .img-container {
-              display: block;
-            position: relative;
-    }
-            .main-img {
-              width: 100%;
-            height: 550px;
-            position: relative;
-            border-radius: var(--radius);
-            display: block;
-            object-fit: cover;
-    }
-            .accent-img {
-              position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 250px;
-            transform: translateX(-50%);
-            border-radius: var(--radius);
-    }
-            .img-container::before {
-              content: "";
-            position: absolute;
-            width: 10%;
-            height: 80%;
-            background: #ffb677;
-            bottom: 0%;
-            left: -8%;
-            border-radius: var(--radius);
-    }
-  }
+              .hero-btn {
+                animation: moveUpDown 2s linear infinite;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                height: 60px;
+                width: 150px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                font-weight: 700;
+                background-color: #A67563;
+              }
+              .img-container {
+                display: block;
+                position: relative;
+              }
+              .main-img {
+                width: 33%;
+                height: 550px;
+                position: relative;
+                border-radius: var(--radius);
+                display: block;
+                object-fit: cover;
+                border-radius: 6px;
+              }
+              .accent-img {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 250px;
+                transform: translateX(-50%);
+                border-radius: var(--radius);
+              }
+              .img-container::before {
+                content: "";
+                position: absolute;
+                width: 10%;
+                height: 80%;
+                background: #ffb677;
+                bottom: 0%;
+                left: -8%;
+                border-radius: var(--radius);
+                }
+              }
+
+
+
             `;
 
 export default Hero;

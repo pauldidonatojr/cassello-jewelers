@@ -10,15 +10,15 @@ const Services = () => {
     const scrollY = window.scrollY;
 
     if (scrollY > 750) {
-       setnavbar(true);
+      setnavbar(true);
     } else {
-       setnavbar(false);
+      setnavbar(false);
     }
     if (scrollY > 600) {
       setTextDiv(true);
-   } else {
-    setTextDiv(false);
-   }
+    } else {
+      setTextDiv(false);
+    }
   };
   window.addEventListener("scroll", handleScroll);
   return (
@@ -26,24 +26,24 @@ const Services = () => {
       <div className='section-center'>
         <motion.article className='MainText'
           initial={{ opacity: 0, x: -100 }}
-          animate={TextDiv ?  { opacity: 1, x: 0 } : {}}
-          transition={{type: 'spring',damping: 10, stiffness: 100, }}>
+          animate={TextDiv ? { opacity: 1, x: 0 } : {}}
+          transition={{ type: 'spring', damping: 10, stiffness: 100, }}>
           <p className='Title'>
-          Introducing Custom Jewelry Crafted Exclusively for You!
+            Introducing Custom Jewelry Crafted Exclusively for You!
           </p>
           <p className='SubTitle'>
-          Unlock the Brilliance of Your Unique Story with Custom Jewelry
+            Unlock the Brilliance of Your Unique Story with Custom Jewelry
           </p>
         </motion.article>
         <div className='services-center'>
-          {services.map((service,index) => {
+          {services.map((service, index) => {
             const { id, icon, title, text } = service
-            
+
             return (
               <motion.article className='service' key={id}
-              initial={{ opacity: 0, y: -20 }}
-              animate={navbar ?  { opacity: 1, y: 0 } : {}}
-              transition={{type: 'spring',delay: index * 0.2,damping: 10, stiffness: 100, }}>
+                initial={{ opacity: 0, y: -20 }}
+                animate={navbar ? { opacity: 1, y: 0 } : {}}
+                transition={{ type: 'spring', delay: index * 0.2, damping: 10, stiffness: 100, }}>
                 <span className='icon'>{icon}</span>
                 <h4>{title}</h4>
                 <p>{text}</p>
@@ -69,7 +69,7 @@ const Wrapper = styled.section`
   color: #222831;
  }
  .icon{
-  color:#ff5722;
+  background-color:#A67563;
   size:100px;
  }
  .Title{
@@ -89,12 +89,6 @@ const Wrapper = styled.section`
   }
   padding: 5rem 0;
 
-<<<<<<< HEAD
-  background:  #ffd98e;
-=======
-  backkkkk
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
-
   .header h3 {
     margin-bottom: 2rem;
   }
@@ -107,14 +101,11 @@ const Wrapper = styled.section`
   .services-center {
     margin-top: 2rem;
     display: grid;
-    gap: 2.5rem;
+    gap: 2.5rem;;
   }
   .service {
-<<<<<<< HEAD
     background: #ffb677;
-=======
     background: rgba(45, 64, 89, 0.5);
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);

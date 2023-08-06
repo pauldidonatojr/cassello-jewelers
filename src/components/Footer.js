@@ -213,7 +213,7 @@ const Container = styled.footer`
     border-radius: 7px 7px 100px 7px;
     width: 40%;
     height: 45px;
-    background-color:#ff5722;
+    background-color:#A67563;
     display: flex;
     justify-content: center;
     align-items: center;
