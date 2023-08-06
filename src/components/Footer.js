@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -14,7 +14,7 @@ const Footer = () => {
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-  
+
 
     if (scrollY + windowHeight >= fullHeight) {
       setNewsLetter(true);
@@ -22,7 +22,7 @@ const Footer = () => {
     else {
       setNewsLetter(false);
     }
-   
+
   };
   window.addEventListener("scroll", handleScroll);
   return (
@@ -55,35 +55,32 @@ const Footer = () => {
                 </div>
               </div>
             </Grid>
-
-            <Grid sm={3}>
-              <motion.div className="FooterSub"
-               initial={{ opacity: 0, x: 100 }}
-               animate={NewsLetter ?  { opacity: 1, x: 0 } : {}}
-               transition={{type: 'spring',damping: 10, stiffness: 100, }}
-              >
-                <p className="JoinText">Join our newsletter and get 20% off</p>
-               
-               <div className="ButtonHolder">
-               <input
-                  type="text"
-                  placeholder="Email"
-                  className="InputField"
-                ></input>
-                 <Button variant="contained" className="SubButton">
-                  Subscribe
-                </Button>
-               </div>      
-              </motion.div>
-            </Grid>
           </Grid>
+
+
+          <div className="ButtonHolder">
+
+            <div className="newsletter-text">
+              <p className="JoinText">Join our newsletter and get 20% off</p>
+            </div>
+            <div className="email-text">
+              <input
+                type="text"
+                placeholder="Email"
+                className="InputField"
+              ></input>
+              <Button variant="contained" className="SubButton">
+                Subscribe
+              </Button>
+            </div>
+          </div>
         </div>
 
         <hr className="Divider" />
 
         <div className="FooterLower">
           <p className="LowerFooterText">
-          <span className="footerLogoName">Cassello </span>  Copyright © 2023
+            <span className="footerLogoName">Cassello </span>  Copyright © 2023
           </p>
         </div>
       </div>
@@ -164,16 +161,48 @@ const Container = styled.footer`
   .FooterIcon:hover {
     cursor: pointer;
   }
+  
+
+  
+  .ButtonHolder{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top:2.5%;
+    margin-bottom:2.5%;
+  }
+
+  .newsletter-text{
+    width: 50%;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .email-text{
+    width: 50%;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .JoinText {
+    margin-bottom: 0px;
+    font-size: 23px;
+    font-weight: 700;
+  }
+
   .InputField {
     height: 45px;
-    width: 60%;
+    width: 50%;
     border-radius: 100px 0px 0px 7px;
     border: none;
     text-align:center;
   }
   .InputField::placeholder {
     padding-left:6%;
-    text-align:left;
+    text-align:center;
   }
   .InputField:focus {
    
@@ -194,20 +223,30 @@ const Container = styled.footer`
   .SubButton:hover{
     background-color:#2d4059 ;
   }
-  
 
-  .JoinText {
-    margin-bottom: 0px;
-    font-size: 23px;
-    font-weight: 700;
+
+  @media (max-width: 992px) {
+    .ButtonHolder{
+      display:grid;
+    }
+    .email-text{
+      width: 100%;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+    }
+    .newsletter-text{
+      width: 100%;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+      padding: 10%;
+      text-align: center;
+    }
+
   }
-  .ButtonHolder{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-top:2.5%;
-  }
+
+  
 `;
 
 export default Footer;

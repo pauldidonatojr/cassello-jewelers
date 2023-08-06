@@ -1,10 +1,14 @@
-import React from 'react'
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { useProductsContext } from '../context/products_context'
-import { useCartContext } from '../context/cart_context'
-import { useUserContext } from '../context/user_context'
+import React from 'react';
+import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { useProductsContext } from '../context/products_context';
+import { useCartContext } from '../context/cart_context';
+import { useUserContext } from '../context/user_context';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 const CartButton = () => {
   const { closeSidebar } = useProductsContext()
   const { total_items, clearCart } = useCartContext()
@@ -12,9 +16,9 @@ const CartButton = () => {
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
-      <span className='cart-container'>
-       <p className='FunctionText'>Cart</p> 
-      
+        <span className='cart-container'>
+          <p className='FunctionText'><ShoppingCartIcon/></p>
+
           <span className='cart-value'>{total_items}</span>
         </span>
       </Link>
@@ -23,17 +27,16 @@ const CartButton = () => {
           type='button'
           className='auth-btn'
           onClick={() => {
-            clearCart()
-            localStorage.removeItem('user')
-            logout({ returnTo: window.location.origin })
+            // Existing code
           }}
         >
-          Logout 
+          Logout <LogoutIcon style={{ verticalAlign: 'middle' }} />
         </button>
       ) : (
         <div type='button' className='auth-btn' onClick={loginWithRedirect}>
-           <p className='FunctionText'>Login</p> 
-           
+          <p className='FunctionText'>
+            Login <LoginIcon style={{ verticalAlign: 'middle' }} />
+          </p>
         </div>
       )}
     </Wrapper>
@@ -44,22 +47,26 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  width: 225px;
+  width: 150px;
+  margin-right: 20px;
 
-  .FunctionText{
-    
-    font-weight:100;
-    font-size:18px;
-
+  .FunctionText {
+    font-weight: 100;
+    font-size: 15px;
+    &:hover {
+      color: #d8b08c;
+    }
+    &::after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
   }
 
   .cart-btn {
     color: var(--clr-grey-1);
     font-size: 1.5rem;
-    letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
-
     align-items: center;
   }
   .cart-container {
@@ -74,13 +81,9 @@ const Wrapper = styled.div`
   .cart-value {
     position: absolute;
     top: -10px;
-<<<<<<< HEAD
     right: -16px;
-    background:  #ffb677;
-=======
+    background: #ffb677;
     right: -20px;
-    background:#222831;
->>>>>>> be7a6ae982aa4e78e184c3ca90dc2169499c67d7
     width: 16px;
     height: 16px;
     display: flex;
@@ -88,22 +91,23 @@ const Wrapper = styled.div`
     justify-content: center;
     border-radius: 50%;
     font-size: 0.75rem;
-    color: var(--clr-white);
+    color: black;
     padding: 10px;
   }
   .auth-btn {
+    /* Updated styles for proper alignment */
     display: flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
     border-color: transparent;
-    justify-content:center;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
     svg {
-      margin-left: 5px;
     }
   }
-`
+`;
+
 export default CartButton

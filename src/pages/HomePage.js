@@ -8,15 +8,16 @@ import "../Scrollbar.css";
 import CaselloImg from '../assets/Cassello.jpeg'
 
 const StyledButton = styled.div`
-  color: #FFCB9A;
+  color: black;
   padding: 5px 15px;
   border: none;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 10px;
   transition: color 0.3s ease, border-color 0.3s ease; /* Add color and border-color to the transition property */
   font-family: "Gill Sans", sans-serif;
-  position: relative; /* Required for ::after pseudo-element */
+  position: relative;
+  font-style: italic;
 
   &::after {
     content: '';
@@ -84,7 +85,7 @@ const HomePage = () => {
     return (
       <Wrapper>
         <div className="loading-screen">
-          <h1 className="loading-text"> Cassello Jewelers</h1>
+          <div className="loading-text"> Cassello Jewelers</div>
           <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -116,12 +117,15 @@ height: 100vh;
 .loading-text {
   width: 100%;
   height: 200px;
-  padding: 0.2rem;
+  padding: 2rem;
   color: #D8B08C;
+  font-size: 30px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .button-holder{
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 `;
