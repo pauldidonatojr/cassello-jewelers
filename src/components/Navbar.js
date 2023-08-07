@@ -243,6 +243,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     justify-content: center;
+    margin-right: 5%;
     img {
       width: 175px;
       margin-left: -15px;

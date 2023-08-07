@@ -1,59 +1,67 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import citrine from '../assets/citrine-earring.mov';
+import teardrop from '../assets/tear-drop.mov';
+import xearring from '../assets/x-earrings.mov';
 
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import citrine from '../assets/citrine-earring.mov'
-import teardrop from '../assets/tear-drop.mov'
-import xearring from '../assets/x-earrings.mov'
+const videos = [citrine, teardrop, xearring];
+
 const PageHero = ({ title, product }) => {
-  const videos = [citrine, teardrop, xearring]; // replace with your actual video sources
-  const videoRef = useRef(); // Add this line
   const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRefs = useRef([null, null, null]);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentVideo((currentVideo + 1) % videos.length);
-    }, 5000); // change videos every 8 seconds
+    }, 5000);
 
-    return () => clearInterval(intervalId); // clean up on component unmount
-  }, [currentVideo, videos]);
+    return () => clearInterval(intervalId);
+  }, [currentVideo]);
 
-  // Add this useEffect
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
+    const prevVideo = (currentVideo - 1 + videos.length) % videos.length;
+    const nextVideo = (currentVideo + 2) % videos.length;
+
+    // Pause the previous video
+    if (videoRefs.current[prevVideo]) {
+      videoRefs.current[prevVideo].pause();
     }
-  }, [videos, currentVideo]);
+
+    // Play the next video
+    if (videoRefs.current[nextVideo]) {
+      videoRefs.current[nextVideo].play();
+    }
+  }, [currentVideo]);
+
   return (
     <Wrapper>
-      <div className='section-center' style={{display: 'grid'}}>
-        <h1>
-          <Link to='/'>Home </Link>
-          {product && <Link to='/products'>/ Products</Link>}/ {title}
-        </h1>
-        <div style={{ display: 'flex'}}>
-        <video style={{height: '30vh', width: '100%', display: 'grid', justifyContent: 'center'}}ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo - 1]} type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <video style={{height: '30vh', width: '100%', display: 'grid', justifyContent: 'center'}}ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo + 2]} type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <video style={{height: '30vh', width: '100%', display: 'grid', justifyContent: 'center'}}ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        </div>
+      <div className='section-center'>
+        <VideosContainer>
+          {videos.map((video, index) => (
+            <Video
+              key={index}
+              ref={(el) => (videoRefs.current[index] = el)}
+              autoPlay={index === currentVideo || index === (currentVideo + 1) % videos.length}
+              loop
+              muted
+              playsInline
+            >
+              <source src={video} type='video/mp4' />
+              Your browser does not support the video tag.
+            </Video>
+          ))}
+        </VideosContainer>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
-  background:  #ff8364;
-  background: var(--clr-primary-10);
-  width: 100%;
-  min-height: 20vh;
-  display: flex;
-  align-items: center;
+  position: relative;
+
+  .section-center {
+    padding-top: 10%;
+  }
 
   color: var(--clr-primary-1);
   a {
@@ -64,6 +72,23 @@ const Wrapper = styled.section`
   a:hover {
     color: var(--clr-primary-1);
   }
-`
+`;
 
-export default PageHero
+const VideosContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--clr-primary-5);
+  border-radius: 8px;
+`;
+
+const Video = styled.video`
+  flex: 1;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export default PageHero;
