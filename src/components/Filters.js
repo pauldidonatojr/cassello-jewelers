@@ -51,9 +51,8 @@ const Filters = () => {
                     onClick={updateFilters}
                     type='button'
                     name='category'
-                    className={`${
-                      category === c.toLowerCase() ? 'active' : null
-                    }`}
+                    className={`${category === c.toLowerCase() ? 'active' : null
+                      }`}
                   >
                     {c}
                   </button>
@@ -93,9 +92,8 @@ const Filters = () => {
                       name='color'
                       onClick={updateFilters}
                       data-color='all'
-                      className={`${
-                        color === 'all' ? 'all-btn active' : 'all-btn'
-                      }`}
+                      className={`${color === 'all' ? 'all-btn active' : 'all-btn'
+                        }`}
                     >
                       all
                     </button>
@@ -106,9 +104,8 @@ const Filters = () => {
                     key={index}
                     name='color'
                     style={{ background: c }}
-                    className={`${
-                      color === c ? 'color-btn active' : 'color-btn'
-                    }`}
+                    className={`${color === c ? 'color-btn active' : 'color-btn'
+                      }`}
                     data-color={c}
                     onClick={updateFilters}
                   >
@@ -155,6 +152,9 @@ const Filters = () => {
 }
 
 const Wrapper = styled.section`
+  font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+              Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+              
   .form-control {
     margin-bottom: 1.25rem;
     h5 {

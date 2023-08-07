@@ -36,21 +36,42 @@ const PageHero = ({ title, product }) => {
   return (
     <Wrapper>
       <div className='section-center'>
-        <VideosContainer>
-          {videos.map((video, index) => (
-            <Video
-              key={index}
-              ref={(el) => (videoRefs.current[index] = el)}
-              autoPlay={index === currentVideo || index === (currentVideo + 1) % videos.length}
-              loop
-              muted
-              playsInline
-            >
-              <source src={video} type='video/mp4' />
-              Your browser does not support the video tag.
-            </Video>
-          ))}
-        </VideosContainer>
+        <div className='video-dekstop'>
+          <VideosContainer>
+            {videos.map((video, index) => (
+              <Video
+                key={index}
+                ref={(el) => (videoRefs.current[index] = el)}
+                autoPlay={index === currentVideo || index === (currentVideo + 1) % videos.length}
+                loop
+                muted
+                playsInline
+              >
+                <source src={video} type='video/mp4' />
+                Your browser does not support the video tag.
+              </Video>
+            ))}
+          </VideosContainer>
+        </div>
+
+
+        <div className='video-mobile'>
+          <VideosContainer>
+              <Video
+                key={0}
+                ref={(el) => (videoRefs.current[0] = el)}
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={citrine} type='video/mp4' />
+                Your browser does not support the video tag.
+              </Video>
+          </VideosContainer>
+        </div>
+
+
       </div>
     </Wrapper>
   );
@@ -71,6 +92,22 @@ const Wrapper = styled.section`
   }
   a:hover {
     color: var(--clr-primary-1);
+  }
+
+  .video-mobile{
+    display: none;
+  }
+
+
+  @media (max-width: 992px) {
+    padding-top: 20%;
+    .video-mobile{
+      display: unset;
+    }
+
+    .video-dekstop{
+      display: none;
+    }
   }
 `;
 

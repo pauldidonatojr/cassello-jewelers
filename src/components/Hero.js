@@ -101,6 +101,12 @@ const Hero = ({ image, name, price, id }) => {
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+    @media (max-width: 992px) {
+      width: 100%;
+      height: 20%;
+    }
   `;
 
   const Paragraph = styled(motion.p)`
@@ -114,6 +120,12 @@ const Hero = ({ image, name, price, id }) => {
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    @media (max-width: 992px) {
+      width: 100%;
+      height: 60%;
+      padding: 1rem;
+    }
   `;
 
   return (
@@ -123,19 +135,43 @@ const Hero = ({ image, name, price, id }) => {
         <div className="transparent-holder"></div>
         <article className="promo-holder">
           <div className="transparent-holder"></div>
-          <Heading
-            variants={headingVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {carouselTexts[currentIndex].title}
-          </Heading>
 
-          <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
+          <div className="dekstop-section-1">
 
-          <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
-            {carouselTexts[currentIndex].content}
-          </Paragraph>
+            <Heading
+              variants={headingVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {carouselTexts[currentIndex].title}
+            </Heading>
+
+            <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
+
+            <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
+              {carouselTexts[currentIndex].content}
+            </Paragraph>
+
+          </div>
+
+
+          <div className="mobile-section-1">
+
+            <Heading
+              variants={headingVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {carouselTexts[currentIndex].title}
+            </Heading>
+
+            {/* <img src={heroBcg2} alt='jewelery necklace' className='main-img-mobile' onClick={() => openOverlay(heroBcg2)} /> */}
+
+            <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
+              {carouselTexts[currentIndex].content}
+            </Paragraph>
+
+          </div>
 
           {/* <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
             <Link to='/products' className='btn hero-btn'>shop now</Link>
@@ -212,9 +248,7 @@ const Hero = ({ image, name, price, id }) => {
 }
 
 const Wrapper = styled.section`
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-                Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-              
+            
             .promo-holder{
                 width: 100%;
                 height: 550px;
@@ -277,12 +311,20 @@ const Wrapper = styled.section`
               .container:hover .link {
                 opacity: 1;
               }
-            p {
-              line-height: 2;
-              max-width: 45em;
-              margin-bottom: 2rem;
-              color: var(--clr-grey-5);
-              font-size: 1rem;
+              p {
+                line-height: 2;
+                max-width: 45em;
+                margin-bottom: 2rem;
+                color: var(--clr-grey-5);
+                font-size: 1rem;
+              }
+
+              .mobile-section-1{
+                display: none;
+              }
+
+              .dekstop-section-1{
+                display: flex;
               }
               
               @media (min-width: 992px) {
@@ -343,7 +385,19 @@ const Wrapper = styled.section`
                 }
               }
 
-
+              @media (max-width: 992px) {
+                padding-top: 20%;
+                
+                .mobile-section-1{
+                  display: unset;
+                }
+                .main-img-mobile{
+                  position: absolute;
+                }
+                .dekstop-section-1{
+                  display: none;
+                }
+              }
 
             `;
 

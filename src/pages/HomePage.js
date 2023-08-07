@@ -6,6 +6,13 @@ import xearring from '../assets/x-earrings.mov'
 import styled from 'styled-components';
 import "../Scrollbar.css";
 import CaselloImg from '../assets/Cassello.jpeg'
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
 
 const StyledButton = styled.div`
   color: black;
@@ -46,13 +53,18 @@ const StyledButton = styled.div`
 `;
 
 
-const HomePage = () => {
-  const videos = [citrine, teardrop, xearring]; // replace with your actual video sources
+const textState = atom({
+  key: 'textState', // unique ID (with respect to other atoms/selectors)
+  default: false, // default value (aka initial value)
+});
 
+
+const HomePage = () => {
+  const videos = [citrine, teardrop, xearring];
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(0);
-  const videoRef = useRef(); // Add this line
-
+  const videoRef = useRef();
+  const [loader, setLoader] = useRecoilState(textState);
   useEffect(() => {
     const handleEnter = (e) => {
       if (e.keyCode === 13) {
@@ -83,16 +95,32 @@ const HomePage = () => {
 
   const handleButtonClick = () => {
     setLoading(false);
+    setLoader(true);
   }
 
-  if (loading) {
+  if (loader == false) {
     return (
       <Wrapper>
         <div className="loading-screen">
-          <div className="loading-text"> Cassello Jewelers</div>
-          <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <VideoContainer>
+            {videos.map((video, index) => (
+              <Video
+                key={index}
+                ref={videoRef}
+                autoPlay={index === currentVideo}
+                loop
+                muted
+                playsInline
+                style={{
+                  opacity: index === currentVideo ? 1 : 0,
+                  zIndex: index === currentVideo ? 1 : 0,
+                }}
+              >
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </Video>
+            ))}
+          </VideoContainer>
           <div className='button-holder'>
             <StyledButton onClick={handleButtonClick}>Start Exploring</StyledButton>
           </div>
@@ -134,4 +162,30 @@ height: 100vh;
 }
 
 
+`;
+
+
+const VideoContainer = styled.div`
+  position: relative;
+  width: 50%;
+  height: 60vh;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--clr-primary-5);
+  border-radius: 8px;
+
+  @media (max-width: 992px) {
+    width: 80%;
+  }
+`;
+
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s;
 `;
