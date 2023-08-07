@@ -5,7 +5,7 @@ import heroBcg from "../assets/hero-bcg-9.jpg";
 import heroBcg2 from "../assets/hero-bcg-10.jpg";
 import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const Hero = ({ image, name, price, id }) => {
@@ -90,22 +90,24 @@ const Hero = ({ image, name, price, id }) => {
     }
   };
 
-  const Heading = styled(motion.p)`
+  const Heading = styled(motion.h1)`
   /* Custom CSS for h1 */
   width: 33%;
   height: 100%;
-  font-size: 5rem;
+  font-size: 1%.5;
   text-align: center;
   display: grid;
   place-content: center;
   color: #333;
+  padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 
     @media (max-width: 992px) {
       width: 100%;
-      height: 20%;
+      height: 30%;
+      font-size: 1.3rem;
     }
   `;
 
@@ -118,13 +120,13 @@ const Hero = ({ image, name, price, id }) => {
   font-size: 1.2rem;
   color: #555;
   text-align: center;
+  padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     @media (max-width: 992px) {
       width: 100%;
       height: 60%;
-      padding: 1rem;
     }
   `;
 
@@ -137,26 +139,29 @@ const Hero = ({ image, name, price, id }) => {
           <div className="transparent-holder"></div>
 
           <div className="dekstop-section-1">
-
-            <Heading
-              variants={headingVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {carouselTexts[currentIndex].title}
-            </Heading>
+            <AnimatePresence>
+              <Heading
+                variants={headingVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {carouselTexts[currentIndex].title}
+              </Heading>
+            </AnimatePresence>
 
             <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
 
+            <AnimatePresence>
             <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
               {carouselTexts[currentIndex].content}
             </Paragraph>
+            </AnimatePresence>
 
           </div>
 
 
           <div className="mobile-section-1">
-
+          <AnimatePresence>
             <Heading
               variants={headingVariants}
               initial="hidden"
@@ -164,12 +169,14 @@ const Hero = ({ image, name, price, id }) => {
             >
               {carouselTexts[currentIndex].title}
             </Heading>
+            </AnimatePresence>
 
             {/* <img src={heroBcg2} alt='jewelery necklace' className='main-img-mobile' onClick={() => openOverlay(heroBcg2)} /> */}
-
+            <AnimatePresence>
             <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
               {carouselTexts[currentIndex].content}
             </Paragraph>
+            </AnimatePresence>
 
           </div>
 
