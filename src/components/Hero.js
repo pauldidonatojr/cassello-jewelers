@@ -107,7 +107,7 @@ const Hero = ({ image, name, price, id }) => {
     @media (max-width: 992px) {
       width: 100%;
       height: 30%;
-      font-size: 1.3rem;
+      font-size: 1.8rem;
     }
   `;
 

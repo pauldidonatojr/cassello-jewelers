@@ -249,6 +249,17 @@ const Container = styled.footer`
       padding: 10%;
       text-align: center;
     }
+  }
+
+    @media (max-width: 600px) {
+    .GridHolder {
+      width: 100%;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin-top: 2.5%;
+    }
 
   }
 

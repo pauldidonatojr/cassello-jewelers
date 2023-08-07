@@ -101,11 +101,11 @@ const Wrapper = styled.section`
   .services-center {
     margin-top: 2rem;
     display: grid;
-    gap: 2.5rem;;
+    gap: 2.5rem;
   }
   .service {
     background: #ffb677;
-    background: rgba(45, 64, 89, 0.5);
+    background: #424043;
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
