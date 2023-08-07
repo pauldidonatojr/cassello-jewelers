@@ -6,6 +6,10 @@ import heroBcg2 from "../assets/hero-bcg-10.jpg";
 import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
+import Switch from '@mui/material/Switch';
+import Paper from '@mui/material/Paper';
+import Zoom from '@mui/material/Zoom';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 
 const Hero = ({ image, name, price, id }) => {
@@ -18,6 +22,14 @@ const Hero = ({ image, name, price, id }) => {
   const closeOverlay = () => {
     setOverlay({ open: false, image: null });
   };
+
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+
+
   const carouselTexts = [
     {
       title: "Tailoring Elegance, Just for You",
@@ -69,28 +81,30 @@ const Hero = ({ image, name, price, id }) => {
   };
 
   const headingVariants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -20, scale: 0.8 }, // Initial scale set to 0.8 for zoom effect
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1, // Normal scale of 1 for visible state
       transition: {
-        duration: 1
-      }
-    }
+        duration: 1,
+      },
+    },
   };
 
   const paragraphVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 20, scale: 0.8 }, // Initial scale set to 0.8 for zoom effect
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1, // Normal scale of 1 for visible state
       transition: {
-        duration: 1
-      }
-    }
+        duration: 1,
+      },
+    },
   };
 
-  const Heading = styled(motion.h1)`
+  const Heading = styled.h1`
   /* Custom CSS for h1 */
   width: 33%;
   height: 100%;
@@ -111,7 +125,7 @@ const Hero = ({ image, name, price, id }) => {
     }
   `;
 
-  const Paragraph = styled(motion.p)`
+  const Paragraph = styled.p`
   /* Custom CSS for p */
   width: 33%;
   height: 100%;
@@ -139,44 +153,51 @@ const Hero = ({ image, name, price, id }) => {
           <div className="transparent-holder"></div>
 
           <div className="dekstop-section-1">
-            <AnimatePresence>
-              <Heading
-                variants={headingVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {carouselTexts[currentIndex].title}
-              </Heading>
-            </AnimatePresence>
 
-            <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
-
-            <AnimatePresence>
-            <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
-              {carouselTexts[currentIndex].content}
-            </Paragraph>
-            </AnimatePresence>
-
-          </div>
-
-
-          <div className="mobile-section-1">
-          <AnimatePresence>
             <Heading
+              key={`heading-${currentIndex}`}
               variants={headingVariants}
               initial="hidden"
               animate="visible"
             >
               {carouselTexts[currentIndex].title}
             </Heading>
-            </AnimatePresence>
 
-            {/* <img src={heroBcg2} alt='jewelery necklace' className='main-img-mobile' onClick={() => openOverlay(heroBcg2)} /> */}
-            <AnimatePresence>
-            <Paragraph variants={paragraphVariants} initial="hidden" animate="visible">
+            <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
+
+            <Paragraph
+              key={`paragraph-${currentIndex}`}
+              variants={paragraphVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
               {carouselTexts[currentIndex].content}
             </Paragraph>
-            </AnimatePresence>
+
+
+          </div>
+
+
+          <div className="mobile-section-1">
+            <Heading
+              key={`heading-${currentIndex}`}
+              variants={headingVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {carouselTexts[currentIndex].title}
+            </Heading>
+
+            <Paragraph
+              key={`paragraph-${currentIndex}`}
+              variants={paragraphVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {carouselTexts[currentIndex].content}
+            </Paragraph>
 
           </div>
 
@@ -207,7 +228,8 @@ const Hero = ({ image, name, price, id }) => {
         <img src={heroBcg2} alt='jewelery necklace' className=' main-img' onClick={() => openOverlay(heroBcg2)} />
         <img src={heroBcg} alt='close up jewelery necklace' className='accent-img' onClick={() => openOverlay(heroBcg)} />
       </article> */}
-      {overlay.open &&
+      {
+        overlay.open &&
         <div className="overlay container" onClick={closeOverlay}>
           <img src={overlay.image} alt='overlay' />
           <Link to={`/products/${id}`} className='link'>
@@ -242,15 +264,17 @@ const Hero = ({ image, name, price, id }) => {
         </div>
       }
 
-      {overlay.open && (
-        <div className="overlay container" onClick={closeOverlay}>
-          <img src={overlay.image} alt="overlay" />
-          <Link to={`/products/${id}`} className="link">
-            <FaSearch />
-          </Link>
-        </div>
-      )}
-    </Wrapper>
+      {
+        overlay.open && (
+          <div className="overlay container" onClick={closeOverlay}>
+            <img src={overlay.image} alt="overlay" />
+            <Link to={`/products/${id}`} className="link">
+              <FaSearch />
+            </Link>
+          </div>
+        )
+      }
+    </Wrapper >
   );
 }
 
