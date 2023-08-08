@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import heroBcg from "../assets/hero-bcg-9.jpg";
-import heroBcg2 from "../assets/hero-bcg-10.jpg";
+import heroBcg2 from "../assets/hero-bcg.jpg";
 import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -104,6 +104,18 @@ const Hero = ({ image, name, price, id }) => {
     },
   };
 
+  const advertVariant = {
+    hidden: { opacity: 0, y: 20, scale: 0.8 }, // Initial scale set to 0.8 for zoom effect
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1, // Normal scale of 1 for visible state
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   const Heading = styled.h1`
   /* Custom CSS for h1 */
   width: 33%;
@@ -112,8 +124,9 @@ const Hero = ({ image, name, price, id }) => {
   text-align: center;
   display: grid;
   place-content: center;
-  color: #333;
+  color: #A67563;
   padding: 1rem;
+  z-index: 1;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -132,7 +145,7 @@ const Hero = ({ image, name, price, id }) => {
   display: grid;
   place-content: center;
   font-size: 1.2rem;
-  color: #555;
+  color: #A67563;
   text-align: center;
   padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -144,6 +157,85 @@ const Hero = ({ image, name, price, id }) => {
     }
   `;
 
+
+  const Advert1 = styled.h1`
+  /* Custom CSS for h1 */
+  width: 50%;
+  height: 100%;
+  font-size: 1%.5;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  color: #A67563;
+  padding: 1rem;
+  z-index: 1;
+  font-family: 'Century Gothic', sans-serif;
+
+    @media (max-width: 992px) {
+      width: 100%;
+      height: 30%;
+      font-size: 1.8rem;
+    }
+  `;
+
+  const Advert2 = styled.h1`
+   /* Custom CSS for h1 */
+   width: 30%;
+   height: 100%;
+  font-size: 1%.5;
+  text-align: center;
+  display: grid;
+  place-content: center;
+  color: #A67563;
+  padding: 1rem;
+  z-index: 1;
+  font-family: 'Century Gothic', sans-serif;
+
+    @media (max-width: 992px) {
+      width: 100%;
+      height: 30%;
+      font-size: 1.8rem;
+    }
+`;
+
+  const StyledButton = styled.div`
+  color: black;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Add color and border-color to the transition property */
+  font-family: "Gill Sans", sans-serif;
+  position: relative;
+  font-style: italic;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the underline */
+    background-color: #D8B08C; /* Color of the underline */
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #D8B08C;
+    &::after {
+      transform-origin: bottom left;
+      transform: scaleX(1);
+    }
+  }
+
+  @media (max-width: 992px) {
+    color: #D8B08C;
+  }
+`;
+
   return (
     <Wrapper>
 
@@ -154,18 +246,30 @@ const Hero = ({ image, name, price, id }) => {
 
           <div className="dekstop-section-1">
 
-            <Heading
+            {/* <Heading
               key={`heading-${currentIndex}`}
               variants={headingVariants}
               initial="hidden"
               animate="visible"
             >
               {carouselTexts[currentIndex].title}
-            </Heading>
+            </Heading> */}
+
+            <Advert1
+              variants={advertVariant}
+              initial="hidden"
+              animate="visible"
+            >
+              Jewelry that reflects your style...
+            </Advert1>
+            {/* <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
+            <Link to='/products' className='btn hero-btn'>shop now</Link>
+          </div> */}
 
             <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
 
-            <Paragraph
+
+            {/* <Paragraph
               key={`paragraph-${currentIndex}`}
               variants={paragraphVariants}
               initial="hidden"
@@ -173,7 +277,7 @@ const Hero = ({ image, name, price, id }) => {
               exit="hidden"
             >
               {carouselTexts[currentIndex].content}
-            </Paragraph>
+            </Paragraph> */}
 
 
           </div>
@@ -201,11 +305,24 @@ const Hero = ({ image, name, price, id }) => {
 
           </div>
 
-          {/* <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
-            <Link to='/products' className='btn hero-btn'>shop now</Link>
-          </div> */}
+
         </article>
       </article>
+
+
+      <div className="ExploreHolder">
+        <div className="ExploreContent">
+          <h1>The Cassello's Collection</h1>
+          <p>Each store is staffed with some of the industry's best jewelers, watchmakers, watch repair professionals
+            and smartphone technicians who provide superior quality services.</p>
+
+          <div className='button-holder'>
+            <Link to='/products'>
+              <StyledButton>View Our Collection</StyledButton>
+            </Link>
+          </div>
+        </div>
+      </div>
 
 
       {/* <article className='content'>
@@ -291,8 +408,8 @@ const Wrapper = styled.section`
               width: 100%;
               height: 550px;
               position: absolute;
-              background-color: #A67563;
-              opacity: 0.1;
+              background-color: black;
+              /* opacity: 0.8; */
               border-radius: 6px;
             }
 
@@ -352,11 +469,35 @@ const Wrapper = styled.section`
 
               .mobile-section-1{
                 display: none;
+                width: 100%;
               }
 
               .dekstop-section-1{
                 display: flex;
               }
+
+              .ExploreHolder{
+                margin-top: 100px;
+                width: 100%;
+                height: 300px;
+                justify-content: center;
+                display: grid;
+              }
+
+              .ExploreContent{
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-family: 'Century Gothic', sans-serif;
+              }
+
+              .button-holder{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+              }
+
+
               
               @media (min-width: 992px) {
                 height: calc(100vh-5rem);
@@ -388,7 +529,7 @@ const Wrapper = styled.section`
                 position: relative;
               }
               .main-img {
-                width: 33%;
+                width: 50%;
                 height: 550px;
                 position: relative;
                 border-radius: var(--radius);

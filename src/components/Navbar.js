@@ -32,32 +32,29 @@ const useColorRotation = (colors, delay) => {
 };
 
 const Nav = () => {
-
-  const [navbar, setnavbar] = useState(false);
-  const [dekstop, setDekstop] = useState('none');
-
+  const [navbar, setNavbar] = useState(false);
+  const { openSidebar } = useProductsContext();
+  const { myUser, loginWithRedirect } = useUserContext();
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-
     if (scrollY > 50) {
-      setnavbar(true);
+      setNavbar(true);
     } else {
-      setnavbar(false);
+      setNavbar(false);
     }
   };
-  window.addEventListener("scroll", handleScroll);
 
-  const { openSidebar } = useProductsContext()
-  const { myUser, loginWithRedirect } = useUserContext()
 
-  const colors = ["#6bd5e1", "#ffd98e", "#ffb677", "#ff8364"];
-  const colorCassello = useColorRotation(colors, 2000);
-  const colorJewelers = useColorRotation(colors.reverse(), 2000);
+  useEffect(() => {
+    // Call handleScroll once to update the initial state
+    handleScroll();
 
-  const textStylesCassello = { color: colorCassello, transition: "color 1s" };
-  const textStylesJewelers = { color: colorJewelers, transition: "color 1s" };
-
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   //Mobile Size Menu bar event listeners
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,7 +67,7 @@ const Nav = () => {
   };
 
   return (
-    <NavContainer className={navbar ? "MainDivActive" : "MainDiv"} >
+    <NavContainer navbar={navbar}>
       <div id='dekstop-screensize' className='dekstop'>
         <div className='nav-center'>
 
@@ -196,17 +193,23 @@ const Nav = () => {
         </div>
 
       </div>
+
     </NavContainer>
   )
 }
 
 const NavContainer = styled.nav`
-  position: fixed;
-  z-index: 1;
+ z-index: 1;
   width: 100%;
+  position: fixed;
+  background-color: ${({ navbar }) => (navbar ? '#eeeeee' : 'transparent')};
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: background-color 0.3s ease-in-out; /* Adding transition effect */
+
 
   .dekstop{
-    display: normal;
+    display: unset;
   }
 
   .mobile{
@@ -274,6 +277,14 @@ const NavContainer = styled.nav`
 
 
   @media (min-width: 992px) {
+  
+    .dekstop {
+      display: unset;
+    }
+
+    .mobile {
+      display: none;
+    }
     .nav-toggle {
       display: none;
     }
