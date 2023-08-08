@@ -125,8 +125,7 @@ const Hero = ({ image, name, price, id }) => {
   text-align: center;
   display: grid;
   place-content: center;
-  color: white;
-  padding: 1rem;
+  color: #A67563;
   z-index: 1;
   font-family: 'Century Gothic', sans-serif;
 
@@ -139,22 +138,22 @@ const Hero = ({ image, name, price, id }) => {
   `;
 
   const Paragraph = styled.p`
-  /* Custom CSS for p */
-  width: 100%;
-  height: 80%;
-  display: grid;
-  place-content: center;
-  font-size: 1.2rem;
-  color: white;
-  z-index: 1;
-  text-align: center;
-  padding: 1rem;
-  font-family: 'Century Gothic', sans-serif;
+   width: 100%;
+    height: 20%;
+    font-size: 1%.5;
+    text-align: center;
+    display: grid;
+    place-content: center;
+    color: #A67563;
+    z-index: 1;
+    font-family: 'Century Gothic', sans-serif;
 
-    @media (max-width: 992px) {
-      width: 100%;
-      height: 60%;
-    }
+
+      @media (max-width: 992px) {
+        width: 100%;
+        height: 50%;
+        font-size: 1.8rem;
+      }
   `;
 
 
@@ -336,33 +335,24 @@ const Hero = ({ image, name, price, id }) => {
 
       <div className="Dynamic-Text">
 
-        <img src={heroBcg5} alt='jewelery necklace' className='main-img-2' onClick={() => openOverlay(heroBcg2)} />
+        <Heading
+          key={`heading-${currentIndex}`}
+          variants={headingVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {carouselTexts[currentIndex].title}
+        </Heading>
 
-        <div className="Dynamic-Text-Transparent"></div>
-
-        <div className="Dynamic-Text-Transparent-Text">
-            <Heading
-              key={`heading-${currentIndex}`}
-              variants={headingVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {carouselTexts[currentIndex].title}
-            </Heading>
-
-            <Paragraph
-              key={`paragraph-${currentIndex}`}
-              variants={paragraphVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              {carouselTexts[currentIndex].content}
-            </Paragraph>
-        </div>
-
-
-
+        <Paragraph
+          key={`paragraph-${currentIndex}`}
+          variants={paragraphVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+        >
+          {carouselTexts[currentIndex].content}
+        </Paragraph>
       </div>
 
 
