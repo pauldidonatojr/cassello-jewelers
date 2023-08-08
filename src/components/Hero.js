@@ -151,7 +151,7 @@ const Hero = ({ image, name, price, id }) => {
 
       @media (max-width: 992px) {
         width: 100%;
-        height: 50%;
+        height: 80%;
         font-size: 1.8rem;
       }
   `;
@@ -245,14 +245,6 @@ const Hero = ({ image, name, price, id }) => {
 
           <div className="dekstop-section-1">
 
-            {/* <Heading
-              key={`heading-${currentIndex}`}
-              variants={headingVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {carouselTexts[currentIndex].title}
-            </Heading> */}
 
             <Advert1
               variants={advertVariant}
@@ -261,22 +253,10 @@ const Hero = ({ image, name, price, id }) => {
             >
               Jewelry that reflects your style...
             </Advert1>
-            {/* <div style={{ width: '100%', display: 'grid', justifyContent: 'center' }}>
-            <Link to='/products' className='btn hero-btn'>shop now</Link>
-          </div> */}
 
             <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
 
 
-            {/* <Paragraph
-              key={`paragraph-${currentIndex}`}
-              variants={paragraphVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              {carouselTexts[currentIndex].content}
-            </Paragraph> */}
 
 
           </div>
@@ -292,24 +272,6 @@ const Hero = ({ image, name, price, id }) => {
             >
               Jewelry that reflects your style...
             </Advert1>
-            {/* <Heading
-              key={`heading-${currentIndex}`}
-              variants={headingVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {carouselTexts[currentIndex].title}
-            </Heading>
-
-            <Paragraph
-              key={`paragraph-${currentIndex}`}
-              variants={paragraphVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-            >
-              {carouselTexts[currentIndex].content}
-            </Paragraph> */}
 
           </div>
 
@@ -334,25 +296,26 @@ const Hero = ({ image, name, price, id }) => {
 
 
       <div className="Dynamic-Text">
+        <div className="Dynamic-Text-holder">
+          <Heading
+            key={`heading-${currentIndex}`}
+            variants={headingVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {carouselTexts[currentIndex].title}
+          </Heading>
 
-        <Heading
-          key={`heading-${currentIndex}`}
-          variants={headingVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {carouselTexts[currentIndex].title}
-        </Heading>
-
-        <Paragraph
-          key={`paragraph-${currentIndex}`}
-          variants={paragraphVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-        >
-          {carouselTexts[currentIndex].content}
-        </Paragraph>
+          <Paragraph
+            key={`paragraph-${currentIndex}`}
+            variants={paragraphVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            {carouselTexts[currentIndex].content}
+          </Paragraph>
+        </div>
       </div>
 
 
@@ -523,32 +486,20 @@ const Wrapper = styled.section`
                 display: grid;
               }
 
-              .Dynamic-Text-Transparent{
+              .Dynamic-Text-holder{
                 width: 100%;
                 height: 500px;
-                position: absolute;
-                background-color: black;
-                opacity: 0.5;
-                z-index: 1;
-              }
-
-              .Dynamic-Text-Transparent-Text{
-                width: 100%;
-                height: 500px;
-                position: absolute;
-                z-index: 1;
-              }
-
-              .Dynamic-Text-Left{
-                display:grid;
-                width: 100%;
+                justify-content: center;
+                display: grid;
+                vertical-align: middle;
+                text-align: center;
+                background-color: #F2F2F2;
                 padding: 2rem;
-              }
-
-              .Dynamic-Text-Right{
-                display:grid;
-                width: 40%;
-                height: 100%;
+                transition: height 0.3s ease;
+                border-radius: 10px;
+                -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+                -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+                box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
               }
 
               .main-img-2 {
@@ -666,6 +617,9 @@ const Wrapper = styled.section`
                   height: 500px;
                   display: flex;
                   border-radius: 6px;
+                }
+                .Dynamic-Text{
+                  padding: 0.7rem;
                 }
               }
 

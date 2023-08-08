@@ -57,7 +57,7 @@ const Services = () => {
 }
 
 const Wrapper = styled.section`
-
+font-family: 'Century Gothic', sans-serif;
 .section-center{
   padding-bottom:15%;
 }
@@ -108,7 +108,10 @@ const Wrapper = styled.section`
     background: #424043;
     text-align: center;
     padding: 2.5rem 2rem;
-    border-radius: var(--radius);
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+    -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+    box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
     p {
       color: white;
       font-weight:100;
