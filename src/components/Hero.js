@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import heroBcg from "../assets/hero-bcg-9.jpg";
+import heroBcg from "../assets/hero-bcg-8.jpg";
 import heroBcg2 from "../assets/hero-bcg.jpg";
+import heroBcg5 from "../assets/hero-bcg-5.jpg";
 import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -28,7 +29,6 @@ const Hero = ({ image, name, price, id }) => {
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
-
 
   const carouselTexts = [
     {
@@ -71,6 +71,7 @@ const Hero = ({ image, name, price, id }) => {
 
     return () => clearInterval(timer);
   }, [carouselTexts.length]);
+
 
   const container = {
     visible: {
@@ -118,17 +119,16 @@ const Hero = ({ image, name, price, id }) => {
 
   const Heading = styled.h1`
   /* Custom CSS for h1 */
-  width: 33%;
-  height: 100%;
+  width: 100%;
+  height: 20%;
   font-size: 1%.5;
   text-align: center;
   display: grid;
   place-content: center;
-  color: #A67563;
+  color: white;
   padding: 1rem;
   z-index: 1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
 
 
     @media (max-width: 992px) {
@@ -140,16 +140,16 @@ const Hero = ({ image, name, price, id }) => {
 
   const Paragraph = styled.p`
   /* Custom CSS for p */
-  width: 33%;
-  height: 100%;
+  width: 100%;
+  height: 80%;
   display: grid;
   place-content: center;
   font-size: 1.2rem;
-  color: #A67563;
+  color: white;
+  z-index: 1;
   text-align: center;
   padding: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
 
     @media (max-width: 992px) {
       width: 100%;
@@ -284,7 +284,16 @@ const Hero = ({ image, name, price, id }) => {
 
 
           <div className="mobile-section-1">
-            <Heading
+
+            <img className="mobile-img" src={heroBcg} />
+            <Advert1
+              variants={advertVariant}
+              initial="hidden"
+              animate="visible"
+            >
+              Jewelry that reflects your style...
+            </Advert1>
+            {/* <Heading
               key={`heading-${currentIndex}`}
               variants={headingVariants}
               initial="hidden"
@@ -301,7 +310,7 @@ const Hero = ({ image, name, price, id }) => {
               exit="hidden"
             >
               {carouselTexts[currentIndex].content}
-            </Paragraph>
+            </Paragraph> */}
 
           </div>
 
@@ -322,6 +331,38 @@ const Hero = ({ image, name, price, id }) => {
             </Link>
           </div>
         </div>
+      </div>
+
+
+      <div className="Dynamic-Text">
+
+        <img src={heroBcg5} alt='jewelery necklace' className='main-img-2' onClick={() => openOverlay(heroBcg2)} />
+
+        <div className="Dynamic-Text-Transparent"></div>
+
+        <div className="Dynamic-Text-Transparent-Text">
+            <Heading
+              key={`heading-${currentIndex}`}
+              variants={headingVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {carouselTexts[currentIndex].title}
+            </Heading>
+
+            <Paragraph
+              key={`paragraph-${currentIndex}`}
+              variants={paragraphVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {carouselTexts[currentIndex].content}
+            </Paragraph>
+        </div>
+
+
+
       </div>
 
 
@@ -396,7 +437,7 @@ const Hero = ({ image, name, price, id }) => {
 }
 
 const Wrapper = styled.section`
-            
+            font-family: 'Century Gothic', sans-serif;
             .promo-holder{
                 width: 100%;
                 height: 550px;
@@ -484,11 +525,57 @@ const Wrapper = styled.section`
                 display: grid;
               }
 
+              .Dynamic-Text{
+                margin-top: 100px;
+                width: 100%;
+                height: 500px;
+                justify-content: center;
+                display: grid;
+              }
+
+              .Dynamic-Text-Transparent{
+                width: 100%;
+                height: 500px;
+                position: absolute;
+                background-color: black;
+                opacity: 0.5;
+                z-index: 1;
+              }
+
+              .Dynamic-Text-Transparent-Text{
+                width: 100%;
+                height: 500px;
+                position: absolute;
+                z-index: 1;
+              }
+
+              .Dynamic-Text-Left{
+                display:grid;
+                width: 100%;
+                padding: 2rem;
+              }
+
+              .Dynamic-Text-Right{
+                display:grid;
+                width: 40%;
+                height: 100%;
+              }
+
+              .main-img-2 {
+                width: 100%;
+                height: 500px;
+                position: relative;
+                border-radius: var(--radius);
+                display: block;
+                object-fit: cover;
+                border-radius: 6px;
+              }
+
               .ExploreContent{
                 width: 100%;
                 height: 100%;
                 text-align: center;
-                font-family: 'Century Gothic', sans-serif;
+                /* font-family: 'Century Gothic', sans-serif; */
               }
 
               .button-holder{
@@ -562,12 +649,33 @@ const Wrapper = styled.section`
                 
                 .mobile-section-1{
                   display: unset;
+                  width: 100%;
+                  height: 100%;
+                  background-color: black;
+                  border-radius: 6px;
+                }
+                .mobile-img{
+                  width: 100%;
+                  height: 70%;
+                  object-fit: cover;
+                  z-index: -1;
+                  border-radius: 6px;
                 }
                 .main-img-mobile{
                   position: absolute;
                 }
                 .dekstop-section-1{
                   display: none;
+                }
+
+                .transparent-holder{
+                  display: none;
+                }
+                .promo-holder{
+                  width: 100%;
+                  height: 500px;
+                  display: flex;
+                  border-radius: 6px;
                 }
               }
 
