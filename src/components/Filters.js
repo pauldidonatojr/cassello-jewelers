@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useFilterContext } from '../context/filter_context'
 import { getUniqueValues, formatPrice } from '../utils/helpers'
 import { FaCheck } from 'react-icons/fa'
+import Slider from '@mui/material/Slider';
+import Button from '@mui/material/Button';
 
 const Filters = () => {
   const {
@@ -123,6 +125,7 @@ const Filters = () => {
             <input
               type='range'
               name='price'
+              className='price-range-input'
               onChange={updateFilters}
               min={min_price}
               max={max_price}
@@ -143,17 +146,14 @@ const Filters = () => {
           </div>
           {/* end of  shipping */}
         </form>
-        <button type='button' className='clear-btn' onClick={clearFilters}>
-          clear filters
-        </button>
+        <Button className='clear-btn' variant="contained" onClick={clearFilters}>Clear Filters</Button>
       </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
-  font-family: apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-              Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
               
   .form-control {
     margin-bottom: 1.25rem;
@@ -191,7 +191,12 @@ const Wrapper = styled.section`
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
+    width: 90%;
     padding: 0.25rem;
+  }
+  .option{
+    padding: 1rem;
+    margin: 20px;
   }
   .colors {
     display: flex;
@@ -231,6 +236,7 @@ const Wrapper = styled.section`
   .price {
     margin-bottom: 0.25rem;
   }
+  
   .shipping {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -240,11 +246,47 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .clear-btn {
-    background: var(--clr-red-dark);
+    background: #323133;
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
   }
+  .clear-btn:hover{
+    background: #A67563;
+  }
+
+.price-range-input {
+  width: 100%;
+  appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: var(--clr-grey-10);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.price-range-input:hover {
+  opacity: 1;
+}
+
+.price-range-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--clr-primary-5);
+  cursor: pointer;
+}
+
+.price-range-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  color: var(--clr-grey-5);
+  font-size: 0.8rem;
+}
+  
   @media (min-width: 768px) {
     .content {
       position: sticky;
