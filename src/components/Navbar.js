@@ -199,10 +199,10 @@ const Nav = () => {
 }
 
 const NavContainer = styled.nav`
- z-index: 1;
+  z-index: 10;
   width: 100%;
   position: fixed;
-  background-color: ${({ navbar }) => (navbar ? '#eeeeee' : 'transparent')};
+  background-color: ${({ navbar }) => (navbar ? '#323133' : 'transparent')};
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: background-color 0.3s ease-in-out; /* Adding transition effect */
@@ -256,7 +256,7 @@ const NavContainer = styled.nav`
   .LogoName{
     width:100%;
     font-size:35px;
-    font-weight:100;  
+    font-weight:100;
   }
 
   
@@ -338,20 +338,29 @@ const NavContainer = styled.nav`
       vertical-align: middle;
       font-size: 30px;
       margin-left: 15px;
+      color: ${({ navbar }) => (navbar ? 'white' : 'black')};  
     }
     .icon-menu{
       justify-content: end;
       vertical-align: middle;
       font-size: 20px;
       margin-left: 15px;
+      color: ${({ navbar }) => (navbar ? 'white' : 'black')};  
     }
     .cart-btn {
-    color: var(--clr-grey-1);
-    font-size: 1.5rem;
-    color: var(--clr-grey-1);
-    display: flex;
-    align-items: center;
-  }
+      color: var(--clr-grey-1);
+      font-size: 1.5rem;
+      color: var(--clr-grey-1);
+      display: flex;
+      align-items: center;
+    }
+    .LogoName{
+      width:100%;
+      font-size:35px;
+      font-weight:100;
+      
+      color: ${({ navbar }) => (navbar ? '#A67563' : 'black')};  
+    }
   }
   
 `

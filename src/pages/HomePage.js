@@ -13,6 +13,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
+import { motion } from 'framer-motion';
 
 const StyledButton = styled.div`
   color: black;
@@ -65,6 +66,11 @@ const HomePage = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
   const videoRef = useRef();
   const [loader, setLoader] = useRecoilState(textState);
+
+
+  const [showSplash, setShowSplash] = useState(true);
+  const splashDuration = 5000;
+
   useEffect(() => {
     const handleEnter = (e) => {
       if (e.keyCode === 13) {
@@ -93,12 +99,30 @@ const HomePage = () => {
     }
   }, [videos, currentVideo]);
 
+  useEffect(() => {
+    const splashTimer = setTimeout(() => {
+      setShowSplash(false);
+    }, splashDuration);
+
+    return () => clearTimeout(splashTimer);
+  }, []);
+
   const handleButtonClick = () => {
     setLoading(false);
     setLoader(true);
   }
 
-  if (loader == false) {
+  if (showSplash) {
+    return (
+      <SplashScreen>
+        <div className='splashInner'>
+        <h1>Cassello </h1>
+        <h1 style={{color: '#A67563'}}>Jewellers</h1>
+        </div>
+      </SplashScreen>
+    );
+  }
+  else if (loader == false) {
     return (
       <Wrapper>
         <div className="loading-screen">
@@ -129,14 +153,16 @@ const HomePage = () => {
     );
   }
 
-  return (
-    <main style={{ backgroundColor: "#eeeeee" }}>
-      <Hero />
-      <FeaturedProducts />
-      <Services />
-      {/* <Contact /> */}
-    </main>
-  )
+  else {
+    return (
+      <main style={{ backgroundColor: "#eeeeee" }}>
+        <Hero />
+        <FeaturedProducts />
+        <Services />
+        {/* <Contact /> */}
+      </main>
+    )
+  }
 }
 
 export default HomePage;
@@ -152,14 +178,15 @@ height: 100vh;
   padding: 2rem;
   color: black;
   font-size: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Century Gothic', sans-serif;
 }
 .button-holder{
   width: 100%;
   display: flex;
   justify-content: center;
 }
+
+
 
 
 `;
@@ -188,4 +215,26 @@ const Video = styled.video`
   left: 0;
   opacity: 0;
   transition: opacity 1s;
+`;
+
+const SplashScreen = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  place-content: center;
+  font-family: 'Century Gothic', sans-serif;
+
+  .splashInner{
+    display:flex;
+  }
+
+  @media (max-width: 600px) {
+    .splashInner{
+      display:grid;
+    }
+  }
 `;

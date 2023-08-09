@@ -5,7 +5,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
-import { motion } from 'framer-motion';
 
 const Footer = () => {
   const [NewsLetter, setNewsLetter] = useState(false);
