@@ -210,6 +210,9 @@ const Video = styled.video`
   left: 0;
   opacity: 0;
   transition: opacity 1s;
+  video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+  }
 `;
 
 const SplashScreen = styled.div`
