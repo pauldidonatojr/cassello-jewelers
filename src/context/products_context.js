@@ -33,6 +33,7 @@ async function fetchProductsData() {
   try {
     const response = await getProducts();
     const products = response.data;
+    console.log(products)
     return products;
   } catch (error) {
     throw new Error(error);
@@ -40,7 +41,6 @@ async function fetchProductsData() {
 }
 
 export const ProductsProvider = ({ children }) => {
-  getProducts()
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const openSidebar = () => {
@@ -50,17 +50,20 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE })
   }
 
-  const fetchProducts = async (url) => {
+  const fetchProducts = async () => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     try {
-      const response = await axios.get(url)
+      console.log("Hey")
+      // const response = await axios.get(url)
       const products = await fetchProductsData();
+      
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR })
     }
   }
   const fetchSingleProduct = async (url) => {
+    console.log(url)
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
     try {
       const response = await axios.get(url)
@@ -72,7 +75,7 @@ export const ProductsProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchProducts(url)
+    fetchProducts()
   }, [])
 
   return (

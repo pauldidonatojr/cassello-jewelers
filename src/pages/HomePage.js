@@ -14,6 +14,7 @@ import {
   useRecoilValue,
 } from 'recoil';
 import { motion } from 'framer-motion';
+import { getProducts } from '../utils/API';
 
 const StyledButton = styled.div`
   color: black;
@@ -60,12 +61,26 @@ const textState = atom({
 });
 
 
+// async function fetchProductsData() {
+//   try {
+//     const response = await getProducts();
+//     const products = response.data;
+//     console.log(products)
+//     return products;
+//   } catch (error) {
+//     throw new Error(error);
+//   }
+// }
+
 const HomePage = () => {
   const videos = [citrine, teardrop, xearring];
   const [loading, setLoading] = useState(true);
   const [currentVideo, setCurrentVideo] = useState(0);
   const videoRef = useRef();
   const [loader, setLoader] = useRecoilState(textState);
+
+
+  // fetchProductsData();
 
 
   const [showSplash, setShowSplash] = useState(true);
