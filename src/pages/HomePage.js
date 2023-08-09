@@ -116,8 +116,8 @@ const HomePage = () => {
     return (
       <SplashScreen>
         <div className='splashInner'>
-        <h1>Cassello </h1>
-        <h1 style={{color: '#A67563'}}>Jewellers</h1>
+          <h1>Cassello </h1>
+          <h1 style={{ color: '#A67563' }}>Jewellers</h1>
         </div>
       </SplashScreen>
     );
@@ -127,23 +127,18 @@ const HomePage = () => {
       <Wrapper>
         <div className="loading-screen">
           <VideoContainer>
-            {videos.map((video, index) => (
-              <Video
-                key={index}
-                ref={videoRef}
-                autoPlay={index === currentVideo}
-                loop
-                muted
-                playsInline
-                style={{
-                  opacity: index === currentVideo ? 1 : 0,
-                  zIndex: index === currentVideo ? 1 : 0,
-                }}
-              >
-                <source src={video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </Video>
-            ))}
+            <Video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline // Required for removing play button on iOS Safari
+              src={videos[currentVideo]}
+              style={{
+                opacity: 1,
+                zIndex: 1,
+              }}
+            />
           </VideoContainer>
           <div className='button-holder'>
             <StyledButton onClick={handleButtonClick}>Start Exploring</StyledButton>
