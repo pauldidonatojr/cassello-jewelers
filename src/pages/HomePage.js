@@ -102,6 +102,7 @@ const HomePage = () => {
   useEffect(() => {
     const splashTimer = setTimeout(() => {
       setShowSplash(false);
+      setLoader(true)
     }, splashDuration);
 
     return () => clearTimeout(splashTimer);
@@ -115,9 +116,11 @@ const HomePage = () => {
   if (showSplash && loader == false) {
     return (
       <SplashScreen>
-        <div className='splashInner'>
-          <h1>Cassello </h1>
-          <h1 style={{ color: '#A67563' }}>Jewellers</h1>
+        <div className='splashscreeninner'>
+          <div className='splashInner'>
+            <h1>Cassello </h1>
+            <h1 style={{ color: '#A67563' }}>Jewellers</h1>
+          </div>
         </div>
       </SplashScreen>
     );
@@ -207,22 +210,32 @@ const Video = styled.video`
 
 const SplashScreen = styled.div`
   width: 100%;
-  height: 100%;
+  height: 1000px;
   position: absolute;
   z-index: 10000;
   background-color: white;
-  display: grid;
-  justify-content: center;
-  place-content: center;
   font-family: 'Century Gothic', sans-serif;
+
+  .splashscreeninner{
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    font-family: 'Century Gothic', sans-serif;
+    width:100%;
+    height: 100vh;
+    padding: 2rem;
+    position: fixed;
+  }
 
   .splashInner{
     display:flex;
+    width: 90%;
   }
 
   @media (max-width: 600px) {
     .splashInner{
       display:flex;
+      font-size: 10px;
     }
   }
 `;

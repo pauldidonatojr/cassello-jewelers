@@ -206,6 +206,7 @@ const NavContainer = styled.nav`
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: background-color 0.3s ease-in-out; /* Adding transition effect */
+  
 
 
   .dekstop{

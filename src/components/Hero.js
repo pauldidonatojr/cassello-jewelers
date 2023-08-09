@@ -592,8 +592,11 @@ const Wrapper = styled.section`
                   display: unset;
                   width: 100%;
                   height: 100%;
-                  background-color: black;
+                  background-color: #323133;
                   border-radius: 6px;
+                  -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+                  -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+                  box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
                 }
                 .mobile-img{
                   width: 100%;
