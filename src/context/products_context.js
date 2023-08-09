@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/products_reducer'
-import { products_url as url } from '../utils/constants'
+import { products_url, products_url as url } from '../utils/constants'
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -12,6 +12,7 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions'
+import { getProducts } from '../utils/API'
 
 const initialState = {
   isSidebarOpen: false,
@@ -26,7 +27,20 @@ const initialState = {
 
 const ProductsContext = React.createContext()
 
+
+// Rename this function to avoid naming conflict
+async function fetchProductsData() {
+  try {
+    const response = await getProducts();
+    const products = response.data;
+    return products;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 export const ProductsProvider = ({ children }) => {
+  getProducts()
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const openSidebar = () => {
@@ -40,7 +54,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     try {
       const response = await axios.get(url)
-      const products = response.data
+      const products = await fetchProductsData();
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR })
