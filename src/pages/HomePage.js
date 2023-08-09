@@ -222,7 +222,7 @@ const SplashScreen = styled.div`
 
   @media (max-width: 600px) {
     .splashInner{
-      display:grid;
+      display:flex;
     }
   }
 `;
