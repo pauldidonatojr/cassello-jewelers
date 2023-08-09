@@ -69,7 +69,7 @@ const HomePage = () => {
 
 
   const [showSplash, setShowSplash] = useState(true);
-  const splashDuration = 5000;
+  const splashDuration = 3000;
 
   useEffect(() => {
     const handleEnter = (e) => {
@@ -112,7 +112,7 @@ const HomePage = () => {
     setLoader(true);
   }
 
-  if (showSplash) {
+  if (showSplash && loader == false) {
     return (
       <SplashScreen>
         <div className='splashInner'>
