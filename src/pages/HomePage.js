@@ -127,18 +127,11 @@ const HomePage = () => {
       <Wrapper>
         <div className="loading-screen">
           <VideoContainer>
-            <Video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline // Required for removing play button on iOS Safari
-              src={videos[currentVideo]}
-              style={{
-                opacity: 1,
-                zIndex: 1,
-              }}
-            />
+            {videos.map((video, index) => (
+              <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            ))}
           </VideoContainer>
           <div className='button-holder'>
             <StyledButton onClick={handleButtonClick}>Start Exploring</StyledButton>
