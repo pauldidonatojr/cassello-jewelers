@@ -91,6 +91,7 @@ const SingleProductPage = () => {
 const Wrapper = styled.main`
   background: '#eeeeee';
   font-family: 'Century Gothic', sans-serif;
+  padding-top: 3rem;
   .product-center {
     display: grid;
     gap: 4rem;
