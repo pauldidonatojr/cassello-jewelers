@@ -11,6 +11,7 @@ const FeaturedProducts = () => {
     products_error: error,
     featured_products: featured,
   } = useProductsContext()
+  
   if (loading) {
     return <Loading />
   }
@@ -29,14 +30,15 @@ const FeaturedProducts = () => {
         })}
       </div>
       <Link to='/products' className='btn'>
-        all products
+        browse products
       </Link>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
-  background: var(--clr-grey-10);
+  background: '#eeeeee';
+  font-family: 'Century Gothic', sans-serif;
   .featured {
     margin: 4rem auto;
     display: grid;
@@ -47,9 +49,10 @@ const Wrapper = styled.section`
   }
   .btn {
     display: block;
-    width: 148px;
+    width: 250px;
     margin: 0 auto;
     text-align: center;
+    background-color: #A67563;
   }
   @media (min-width: 576px) {
     .featured {

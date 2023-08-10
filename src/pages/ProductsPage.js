@@ -19,6 +19,7 @@ const ProductsPage = () => {
 }
 
 const Wrapper = styled.div`
+background: '#eeeeee';
   .products {
     display: grid;
     gap: 3rem 1.5rem;

@@ -55,7 +55,7 @@ const SingleProductPage = () => {
   } = product;
   return (
     <Wrapper>
-      <PageHero title={name} product />
+      {/* <PageHero title={name} product /> */}
       <div className='section section-center page'>
         <Link to='/products' className='btn'>
           back to products
@@ -89,6 +89,8 @@ const SingleProductPage = () => {
 };
 
 const Wrapper = styled.main`
+  background: '#eeeeee';
+  font-family: 'Century Gothic', sans-serif;
   .product-center {
     display: grid;
     gap: 4rem;
@@ -109,6 +111,11 @@ const Wrapper = styled.main`
     span {
       font-weight: 700;
     }
+  }
+  .btn {
+    width: 250px;
+    text-align: center;
+    background-color: #A67563;
   }
 
   @media (min-width: 992px) {

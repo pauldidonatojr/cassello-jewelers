@@ -6,26 +6,40 @@ import { Link } from 'react-router-dom'
 const Product = ({ image, name, price, id }) => {
   return (
     <Wrapper>
-      <div className='container'>
-        <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className='link'>
-          <FaSearch />
-        </Link>
-      </div>
-      <footer>
-        <h5>{name}</h5>
-        <p>{formatPrice(price)}</p>
-      </footer>
+      <Link to={`/products/${id}`} className='link'>
+        <div className='container'>
+          <img src={image} alt={name} className='image' />
+        </div>
+        <footer>
+          <div className='name-holder'>
+            <h5>{name}</h5>
+          </div>
+          <div className='price-holder'>
+            <p>{formatPrice(price)}</p>
+          </div>
+        </footer>
+      </Link>
     </Wrapper>
   )
 }
 const Wrapper = styled.article`
+height: 350px;
+background-color: white;
+border-radius: var(--radius);
+
+  &:hover{
+    -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+    -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+    box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
+    transition: 0.5s ease-in box-shadow;
+  }
   .container {
     position: relative;
     background: var(--clr-black);
     border-radius: var(--radius);
+    
   }
-  img {
+  .image {
     width: 100%;
     display: block;
     object-fit: cover;
@@ -33,8 +47,7 @@ const Wrapper = styled.article`
     transition: var(--transition);
   }
   .link {
-    position: absolute;
-    top: 50%;
+    /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--clr-primary-5);
@@ -50,7 +63,14 @@ const Wrapper = styled.article`
     svg {
       font-size: 1.25rem;
       color: var(--clr-white);
-    }
+    } */
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
   }
   .container:hover img {
     opacity: 0.5;
@@ -60,10 +80,23 @@ const Wrapper = styled.article`
   }
   footer {
     margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
+
+  .name-holder{
+    width: 100%;
+    height: 30%;
+    display: grid;
+    justify-content: center;
+  }
+
+  .price-holder{
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    display: grid;
+    justify-content: center;
+  }
+
   footer h5,
   footer p {
     margin-bottom: 0;
