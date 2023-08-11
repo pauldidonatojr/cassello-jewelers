@@ -56,7 +56,7 @@ const Wrapper = styled.div`
 
   .FunctionText {
     font-weight: 100;
-    color:white;
+    color:#222831;
     font-size: 17px;
     &:hover {
       color: #d8b08c;

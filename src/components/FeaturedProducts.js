@@ -102,10 +102,12 @@ const Wrapper = styled.section`
   .MoreTitle{
     text-align:center;
     font-size:18px;
-    color:#D0D3D9;
+    color:#222831;
   }
   .TitleText{
     color:white;
+    
+  z-index: 1;
   }
   .btn {
     display: block;

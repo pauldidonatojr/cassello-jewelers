@@ -89,7 +89,7 @@ const Footer = () => {
 
 const Container = styled.footer`
   height: 100%;
-  background-color: black;
+  background-color: #eeeeee;
   
   .FooterInner {
     width: 100%;
@@ -130,20 +130,20 @@ const Container = styled.footer`
     padding-left: 0.5%;
     font-size:20px;
     margin-top:0px;
-    color: white;
+    color: #222831;
   }
   .FooterTitle {
     font-size: 17px;
     font-weight: 450;
     text-align: center;
-    color: white;
+    color: #222831;
   }
   .FooterSubtitle {
     margin-bottom: 10px;
     font-size: 15px;
     font-weight: 100;
     text-align: center;
-    color: white
+    color: #222831;
   }
   .FooterSub {
     position: relative;
@@ -160,7 +160,7 @@ const Container = styled.footer`
   }
   .FooterIcon {
     font-size: 30px;
-    color: white;
+    color: #222831;
   }
   .FooterIcon:hover {
     cursor: pointer;
@@ -195,7 +195,7 @@ const Container = styled.footer`
     margin-bottom: 0px;
     font-size: 23px;
     font-weight: 700;
-    color: white;
+    color: #222831;
   }
 
   .InputField {

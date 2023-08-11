@@ -161,7 +161,7 @@ const HomePage = () => {
 
   else {
     return (
-      <main style={{ backgroundColor: "black" }}>
+      <main style={{ backgroundColor: "#eeeeee" }}>
         <Hero />
         <FeaturedProducts />
         <Services />

@@ -66,7 +66,7 @@ font-family: 'Century Gothic', sans-serif;
  .SubTitle{
   font-size:20px;
   font-weight:100;
-  color: white;
+  color: #222831;
  }
  .icon{
   background-color:white;
@@ -78,7 +78,7 @@ font-family: 'Century Gothic', sans-serif;
   width:50%;
   letter-spacing: -1px;
   line-height: 1.2;
-  color:white;
+  color:#222831;
  }
 
 
@@ -105,8 +105,8 @@ font-family: 'Century Gothic', sans-serif;
   }
   .service {
     background: #ffb677;
-    background: rgba(255, 87, 34, 0.15);
-    border: 1px solid rgba(238, 238, 238, 0.15);
+    background: rgba(255, 87, 34, 0.50);
+    border: 1px solid rgba(238, 238, 238, 0.50);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: 10px;
@@ -114,11 +114,11 @@ font-family: 'Century Gothic', sans-serif;
     -moz-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
     box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
     p {
-      color: white;
+      color: #222831;
       font-weight:100;
     }
     h4{
-      color:white;
+      color:#222831;
       font-weight:700;
     }
   }

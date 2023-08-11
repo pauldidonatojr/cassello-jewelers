@@ -120,7 +120,6 @@ const Hero = ({ image, name, price, id }) => {
   const Heading = styled.h1`
   /* Custom CSS for h1 */
   width: 100%;
-  height: 20%;
   font-size: 1%.5;
   text-align: center;
   display: grid;
@@ -140,7 +139,6 @@ const Hero = ({ image, name, price, id }) => {
 
   const Paragraph = styled.p`
    width: 100%;
-    height: 20%;
     font-size: 1%.5;
     text-align: center;
     display: grid;
@@ -239,6 +237,7 @@ const Hero = ({ image, name, price, id }) => {
   return (
     <Wrapper>
 
+
       <article className='content'>
         <div className="transparent-holder"></div>
         <article className="promo-holder">
@@ -252,8 +251,22 @@ const Hero = ({ image, name, price, id }) => {
               initial="hidden"
               animate="visible"
             >
-              Jewelry that reflects your style...
+             <div className="ExploreHolder">
+        <div className="ExploreContent">
+          <h1 className="TitleText">The Cassello's Collection</h1>
+          <p className="SubTitleText">Each store is staffed with some of the industry's best jewelers, watchmakers, watch repair professionals
+            and smartphone technicians who provide superior quality services.</p>
+
+          <div className='button-holder'>
+            <Link to='/products'>
+              <StyledButton>View Our Collection</StyledButton>
+            </Link>
+          </div>
+        </div>
+      </div>
             </Advert1>
+
+            
 
             <img src={heroBcg2} alt='jewelery necklace' className='main-img' onClick={() => openOverlay(heroBcg2)} />
 
@@ -281,21 +294,10 @@ const Hero = ({ image, name, price, id }) => {
       </article>
 
 
-      <div className="ExploreHolder">
-        <div className="ExploreContent">
-          <h1>The Cassello's Collection</h1>
-          <p>Each store is staffed with some of the industry's best jewelers, watchmakers, watch repair professionals
-            and smartphone technicians who provide superior quality services.</p>
+    
 
-          <div className='button-holder'>
-            <Link to='/products'>
-              <StyledButton>View Our Collection</StyledButton>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-
+<div className="ImageBackground">
+  <img className="ImagePeice"  src="https://images.unsplash.com/photo-1561828995-aa79a2db86dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80"/>
       <div className="Dynamic-Text">
         <div className="Dynamic-Text-holder">
           <Heading
@@ -303,22 +305,23 @@ const Hero = ({ image, name, price, id }) => {
             variants={headingVariants}
             initial="hidden"
             animate="visible"
+            className="HeroTitle"
           >
-            {carouselTexts[currentIndex].title}
+          {carouselTexts[currentIndex].title}
           </Heading>
-
           <Paragraph
             key={`paragraph-${currentIndex}`}
             variants={paragraphVariants}
             initial="hidden"
             animate="visible"
             exit="hidden"
+            className="HeroSubTitle"
           >
             {carouselTexts[currentIndex].content}
           </Paragraph>
         </div>
       </div>
-
+</div>
 
       {/* <article className='content'>
         <motion.h1
@@ -399,11 +402,49 @@ const Wrapper = styled.section`
                 border-radius: 6px;
               }
 
+              .HeroSubTitle{
+                  font-size:25px;
+                  margin-bottom:5%;
+                  font-weight:700;
+                  
+                color:#A68256;
+
+                background-color:rgba(238, 238, 238, 0.75);
+                height:100%;
+                  
+                padding:0.5%;
+              }
+              .HeroTitle{
+                padding:2.5%;
+                margin-bottom:5%;
+                font-size:65px;
+                color:#273240;
+                background-color:rgba(238, 238, 238, 0.75);
+                height:100%;
+              }
+
+              .SubTitleText{
+                color:#222831;
+                font-weight:100;
+              }
+              .TitleText{
+                color:#222831;
+                font-weight:100;
+                margin-top:100px;
+              }
+
+              .ImagePeice{
+                position:absolute;
+                width:100%;
+                object-fit:cover;
+                height:100%;
+              }
+
             .transparent-holder{
               width: 100%;
               height: 550px;
               position: absolute;
-              background-color: black;
+              background-color: #eeeeee;
               /* opacity: 0.8; */
               border-radius: 6px;
             }
@@ -472,9 +513,7 @@ const Wrapper = styled.section`
               }
 
               .ExploreHolder{
-                margin-top: 100px;
                 width: 100%;
-                height: 300px;
                 justify-content: center;
                 display: grid;
               }
@@ -485,12 +524,14 @@ const Wrapper = styled.section`
                 height: 500px;
                 justify-content: center;
                 display: grid;
+                background-color:white;
               }
 
               .Dynamic-Text-holder{
                 width: 100%;
                 height: 500px;
                 justify-content: center;
+                margin-top:10%;
                 display: grid;
                 vertical-align: middle;
                 text-align: center;

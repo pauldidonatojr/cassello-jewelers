@@ -232,7 +232,7 @@ const NavContainer = styled.nav`
   .HeaderText{
     font-size:18px;
     font-weight:100;
-    color:white;
+    color:#222831;
     &:hover {
     color: #D8B08C;
     }
@@ -258,7 +258,7 @@ const NavContainer = styled.nav`
     width:100%;
     font-size:35px;
     font-weight:100;
-    color:white;
+    color:#222831;
   }
 
   
