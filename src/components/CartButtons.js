@@ -17,7 +17,7 @@ const CartButton = () => {
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
         <span className='cart-container'>
-          <p className='FunctionText'><ShoppingCartIcon/></p>
+          <p className='FunctionText'><ShoppingCartIcon className='shoppingCart'/></p>
 
           <span className='cart-value'>{total_items}</span>
         </span>
@@ -30,12 +30,12 @@ const CartButton = () => {
             // Existing code
           }}
         >
-          Logout <LogoutIcon style={{ verticalAlign: 'middle' }} />
+          Logout 
         </button>
       ) : (
         <div type='button' className='auth-btn' onClick={loginWithRedirect}>
           <p className='FunctionText'>
-            Login <LoginIcon style={{ verticalAlign: 'middle' }} />
+            Login
           </p>
         </div>
       )}
@@ -50,9 +50,14 @@ const Wrapper = styled.div`
   width: 150px;
   margin-right: 20px;
 
+  .shoppingCart{
+    font-size:25px;
+  }
+
   .FunctionText {
     font-weight: 100;
-    font-size: 15px;
+    color:white;
+    font-size: 17px;
     &:hover {
       color: #d8b08c;
     }
@@ -68,6 +73,10 @@ const Wrapper = styled.div`
     color: var(--clr-grey-1);
     display: flex;
     align-items: center;
+    display:flex;
+    align-items:center;
+    align-content:center;
+    vertical-align:center;
   }
   .cart-container {
     display: flex;

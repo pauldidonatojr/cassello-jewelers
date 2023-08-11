@@ -117,10 +117,10 @@ const Nav = () => {
             <>
               <PersonIcon className='icon' />
               <Link to='/cart' className='cart-btn'>
-                <ShoppingCartIcon className='icon' />
+                <ShoppingCartIcon  className='icon' />
               </Link>
 
-              <MenuIcon className='icon' onClick={handleClick} />
+              <MenuIcon className='icon'  onClick={handleClick} />
               <Menu
                 id="fade-menu"
                 MenuListProps={{
