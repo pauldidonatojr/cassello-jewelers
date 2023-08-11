@@ -89,7 +89,7 @@ const Footer = () => {
 
 const Container = styled.footer`
   height: 100%;
-  background-color: #323133;
+  background-color: black;
   
   .FooterInner {
     width: 100%;
@@ -201,7 +201,7 @@ const Container = styled.footer`
   .InputField {
     height: 45px;
     width: 50%;
-    border-radius: 100px 0px 0px 7px;
+    border-radius: 100px 0px 0px 0px;
     border: none;
     text-align:center;
   }
@@ -215,10 +215,11 @@ const Container = styled.footer`
   }
 
   .SubButton {
-    border-radius: 7px 7px 100px 7px;
+    border-radius: 0px 0px 100px 0px;
     width: 40%;
     height: 45px;
-    background-color:#A67563;
+    background-color:#D97014;
+    
     display: flex;
     justify-content: center;
     align-items: center;

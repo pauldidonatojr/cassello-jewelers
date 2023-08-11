@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+
 const Product = ({ image, name, price, id }) => {
   return (
     <Wrapper>
@@ -24,8 +25,7 @@ const Product = ({ image, name, price, id }) => {
 }
 const Wrapper = styled.article`
 height: 350px;
-background-color: white;
-border-radius: var(--radius);
+background-color:black;
 
   &:hover{
     -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
@@ -45,6 +45,7 @@ border-radius: var(--radius);
     object-fit: cover;
     border-radius: var(--radius);
     transition: var(--transition);
+    background-color:none;
   }
   .link {
     /* top: 50%;
@@ -100,7 +101,9 @@ border-radius: var(--radius);
   footer h5,
   footer p {
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: 100;
+    font-size:18px;
+    color:white;
   }
 
   footer p {

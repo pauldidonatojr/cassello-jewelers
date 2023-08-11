@@ -9,12 +9,12 @@ const Services = () => {
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
-    if (scrollY > 750) {
+    if (scrollY > 1850) {
       setnavbar(true);
     } else {
       setnavbar(false);
     }
-    if (scrollY > 600) {
+    if (scrollY > 1700) {
       setTextDiv(true);
     } else {
       setTextDiv(false);
@@ -66,7 +66,7 @@ font-family: 'Century Gothic', sans-serif;
  .SubTitle{
   font-size:20px;
   font-weight:100;
-  color: #222831;
+  color: white;
  }
  .icon{
   background-color:#A67563;
@@ -78,7 +78,7 @@ font-family: 'Century Gothic', sans-serif;
   width:50%;
   letter-spacing: -1px;
   line-height: 1.2;
-  color:#222831;
+  color:white;
  }
 
 
@@ -105,7 +105,7 @@ font-family: 'Century Gothic', sans-serif;
   }
   .service {
     background: #ffb677;
-    background: #424043;
+    background: rgba(255, 87, 34, 0.15);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: 10px;

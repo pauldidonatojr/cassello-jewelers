@@ -130,6 +130,7 @@ const Hero = ({ image, name, price, id }) => {
   font-family: 'Century Gothic', sans-serif;
 
 
+
     @media (max-width: 992px) {
       width: 100%;
       height: 30%;

@@ -230,9 +230,9 @@ const NavContainer = styled.nav`
   
 
   .HeaderText{
-    font-size:15px;
+    font-size:18px;
     font-weight:100;
-    color:#2d4059;
+    color:white;
     &:hover {
     color: #D8B08C;
     }
@@ -258,6 +258,7 @@ const NavContainer = styled.nav`
     width:100%;
     font-size:35px;
     font-weight:100;
+    color:white;
   }
 
   
@@ -265,6 +266,7 @@ const NavContainer = styled.nav`
     background: transparent;
     border: transparent;
     color: #74b49b;
+    
     cursor: pointer;
     svg {
       font-size: 2rem;
