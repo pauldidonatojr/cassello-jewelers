@@ -106,6 +106,7 @@ font-family: 'Century Gothic', sans-serif;
   .service {
     background: #ffb677;
     background: rgba(255, 87, 34, 0.15);
+    border: 1px solid rgba(255, 87, 34, 0.30);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: 10px;
