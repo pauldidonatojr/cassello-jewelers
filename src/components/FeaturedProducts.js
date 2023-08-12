@@ -107,7 +107,6 @@ const Wrapper = styled.section`
   .TitleText{
     color:white;
     
-  z-index: 1;
   }
   .btn {
     display: block;

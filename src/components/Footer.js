@@ -1,269 +1,223 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Grid from "@mui/material/Grid";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
 
 const Footer = () => {
-  const [NewsLetter, setNewsLetter] = useState(false);
-  const windowHeight = window.innerHeight;
-  const fullHeight = document.body.scrollHeight;
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
 
-
-
-    if (scrollY + windowHeight >= fullHeight) {
-      setNewsLetter(true);
-    }
-    else {
-      setNewsLetter(false);
-    }
-
-  };
-  window.addEventListener("scroll", handleScroll);
   return (
     <Container>
-      <div className="FooterInner">
-        <div className="FooterUpper">
-          <Grid container gap={2} className="GridHolder">
-            <Grid sm={2}>
-              <div className="FooterSub">
-                <p className="FooterTitle">Address</p>
-                <p className="FooterSubtitle">
-                  Wall Street, 558742, New York, USA
-                </p>
-              </div>
-            </Grid>
+      <Grid container gap={2} className="UpperFooter">
+        <Grid item lg={12}>
+          <div>
+            <Grid container gap={2} className="CenteringDiv">
+              <Grid item lg={5.5} className="SubDiv">
+                <div className="LetterDiv">
+                  <p className="LetterTitle">
+                    Sign up for our newsletter to receive special offers, news
+                    and great sales notifications.
+                  </p>
 
-            <Grid sm={2}>
-              <div className="FooterSub">
-                <p className="FooterTitle">Contact</p>
-                <p className="FooterSubtitle">+98(420) 22456</p>
-              </div>
-            </Grid>
-            <Grid sm={2}>
-              <div className="FooterSub">
-                <p className="FooterTitle">Socials</p>
-                <div className="SocialIconHolder">
-                  <InstagramIcon className="FooterIcon" />
-                  <YouTubeIcon className="FooterIcon" />
-                  <FacebookIcon className="FooterIcon" />
+                  <div className="EmailInputHolder">
+                    <input
+                      placeholder="Email"
+                      type="text"
+                      className="LetterEmailInput"
+                    />
+                    <Button variant="contained" className="SignUpButton">
+                      Subscribe
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </Grid>
+
+             
+              <Grid item lg={5.5}>
+                <div>
+                  <Grid container gap={2} className="CenteringDiv">
+                    <Grid item lg={3.5}>
+                      <div className="LinkHolder">
+                        <p className="LinkTitle">LINKS</p>
+                        <div className="LinkSubTitleHolder">
+                          <p className="LinkSubTitle">HOME</p>
+                          <p className="LinkSubTitle">SHOP</p>
+                          <p className="LinkSubTitle">COLLECTION</p>
+                          <p className="LinkSubTitle">SEARCH</p>
+                        </div>
+                      </div>
+                    </Grid>
+                    <Grid item lg={3.5}>
+                    <div className="LinkHolder">
+                        <p className="LinkTitle">SOCIALS</p>
+                        <div className="LinkSubTitleHolder">
+                          <p className="LinkSubTitle">HOME</p>
+                          <p className="LinkSubTitle">SHOP</p>
+                          <p className="LinkSubTitle">COLLECTION</p>
+                          <p className="LinkSubTitle">SEARCH</p>
+                        </div>
+                      </div>
+                    </Grid>
+
+                    <Grid item lg={3.5}>
+                    <div className="LinkHolder">
+                        <p className="LinkTitle">LINKS</p>
+                        <div className="LinkSubTitleHolder">
+                          <p className="LinkSubTitle">HOME</p>
+                          <p className="LinkSubTitle">SHOP</p>
+                          <p className="LinkSubTitle">COLLECTION</p>
+                          <p className="LinkSubTitle">SEARCH</p>
+                        </div>
+                      </div>
+                   </Grid>
+                  </Grid>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-
-
-          <div className="ButtonHolder">
-
-            <div className="newsletter-text">
-              <p className="JoinText">Join our newsletter and get 20% off</p>
-            </div>
-            <div className="email-text">
-              <input
-                type="text"
-                placeholder="Email"
-                className="InputField"
-              ></input>
-              <Button variant="contained" className="SubButton">
-                Subscribe
-              </Button>
-            </div>
           </div>
-        </div>
+        </Grid>
+      </Grid>
 
-        <hr className="Divider" />
+<div className="CenteringDiv">
 
-        <div className="FooterLower">
-          <p className="LowerFooterText">
-            <span className="footerLogoName">Cassello </span>  Copyright © 2023
-          </p>
-        </div>
-      </div>
+<hr className="divider"/>
+</div>
+
+      <Grid container spacing={2}>
+        <Grid item lg={12}>
+          <div className="LowerFooter">
+            <p className="LowerFooterText"><span style={{color:"white"}}> Cassello </span>© 2023, Powered by Shopify </p>
+          </div>
+        </Grid>
+      </Grid>
     </Container>
   );
 };
 
 const Container = styled.footer`
   height: 100%;
-  background-color: #eeeeee;
-  
-  .FooterInner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #272626;
+
+  .divider{
+    width:75%;
+    opacity:0.10;
   }
-  .FooterUpper {
-    width: 100%;
-    height: 80%;
+
+  .SubDiv{
+    border-right: 1px solid rgba(128, 128, 128, 0.10);
   }
-  .Divider {
-    width: 75%;
-    opacity: 0.4;
-  }
-  .LowerFooterText {
+
+  .LowerFooterText{
+    margin-top:1%;
     font-size:18px;
-    margin-top: 2.5%;
-    font-weight: 100;
-    color: white;
-    text-align: center;
+    font-weight:600;
+    color: #3d3b3b;;
   }
-  .GridHolder {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin-top: 2.5%;
-  }
-  .FooterLower {
-    width: 100%;
-    margin-top:0%;
-  }
-  .footerLogoName {
-    font-weight: 700;
-    padding-left: 0.5%;
-    font-size:20px;
-    margin-top:0px;
-    color: #222831;
-  }
-  .FooterTitle {
-    font-size: 17px;
-    font-weight: 450;
-    text-align: center;
-    color: #222831;
-  }
-  .FooterSubtitle {
-    margin-bottom: 10px;
-    font-size: 15px;
-    font-weight: 100;
-    text-align: center;
-    color: #222831;
-  }
-  .FooterSub {
-    position: relative;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .SocialIconHolder {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
-  }
-  .FooterIcon {
-    font-size: 30px;
-    color: #222831;
-  }
-  .FooterIcon:hover {
-    cursor: pointer;
-  }
-  
-
-  
-  .ButtonHolder{
+  .LowerFooter{
+    width:100%;
+    height:75px;
     display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+  }
+
+  .CenteringDiv {
+    display: flex;
     justify-content: center;
+    align-content: center;
     align-items: center;
-    align-content: center;
-    margin-top:2.5%;
-    margin-bottom:2.5%;
+    height: 100%;
+  }
+  .UpperFooter {
+    height: 75%;
   }
 
-  .newsletter-text{
-    width: 50%;
-    align-content: center;
+  .LetterDiv {
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:100%;
+    padding-top:10%;
+    padding-bottom:10%;
+
   }
 
-  .email-text{
-    width: 50%;
-    align-content: center;
+  .EmailInputHolder {
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    width:75%;
   }
-
-  .JoinText {
-    margin-bottom: 0px;
-    font-size: 23px;
-    font-weight: 700;
-    color: #222831;
-  }
-
-  .InputField {
-    height: 45px;
-    width: 50%;
-    border-radius: 100px 0px 0px 0px;
+  .LetterEmailInput {
+    width: 80%;
+    margin-top: 5%;
+    height: 60px;
+    background-color: #3d3b3b;
     border: none;
-    text-align:center;
+    outline: none;
   }
-  .InputField::placeholder {
-    padding-left:6%;
-    text-align:center;
-  }
-  .InputField:focus {
-   
+  .LetterEmailInput: focus {
     outline: none;
   }
 
-  .SubButton {
-    border-radius: 0px 0px 100px 0px;
-    width: 40%;
-    height: 45px;
-    background: rgba(255, 87, 34, 0.65);
-    
+  .LetterEmailInput::placeholder {
+    color: gray;
+    padding-left: 3%;
+    font-size: 17px;
+    font-weight: 100;
+  }
+
+  .SignUpButton {
+    height: 60px;
+    width: 20%;
+    border-radius: 0px;
+    background-color: white;
+    color: black;
+    margin-top: 5%;
+    font-size: 13px;
+    font-weight: 100;
+
+  }
+  .Signupbutton :hover {
+    background-color: white;
+  }
+
+  .LetterTitle {
+    font-size: 28px;
+    width: 80%;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+  }
+  .LinkHolder{
     display: flex;
-    justify-content: center;
-    align-items: center;
     align-content: center;
+    flex-direction: column;
   }
-
-  .SubButton:hover{
-    background-color:#2d4059 ;
+  .LinkTitle{
+    color:white;
+    font-weight:500;
+    text-align:left;
+    line-height: 1.5;
+    font-size:14px;
   }
-
-
-  @media (max-width: 992px) {
-    .ButtonHolder{
-      display:grid;
-    }
-    .email-text{
-      width: 100%;
-      align-content: center;
-      display: flex;
-      justify-content: center;
-    }
-    .newsletter-text{
-      width: 100%;
-      align-content: center;
-      display: flex;
-      justify-content: center;
-      padding: 10%;
-      text-align: center;
-    }
+  .LinkSubTitle{
+    color:white;
+    font-weight:400;
+    text-align:left;
+    font-size:13px;
+    
   }
-
-    @media (max-width: 600px) {
-    .GridHolder {
-      width: 100%;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-      margin-top: 2.5%;
-    }
-
+  .LinkSubTitle:hover{
+    cursor:pointer;
   }
-
-  
+  .LinkSubTitleHolder{
+    margin-top:15%;
+  }
 `;
 
 export default Footer;

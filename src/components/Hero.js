@@ -296,9 +296,8 @@ const Hero = ({ image, name, price, id }) => {
 
     
 
-<div className="ImageBackground">
-  <img className="ImagePeice"  src="https://images.unsplash.com/photo-1561828995-aa79a2db86dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80"/>
-      <div className="Dynamic-Text">
+
+     <div className="Dynamic-Text">
         <div className="Dynamic-Text-holder">
           <Heading
             key={`heading-${currentIndex}`}
@@ -321,7 +320,6 @@ const Hero = ({ image, name, price, id }) => {
           </Paragraph>
         </div>
       </div>
-</div>
 
       {/* <article className='content'>
         <motion.h1

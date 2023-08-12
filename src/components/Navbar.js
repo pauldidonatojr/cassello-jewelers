@@ -201,7 +201,6 @@ const Nav = () => {
 const NavContainer = styled.nav`
   z-index: 10;
   width: 100%;
-  position: fixed;
   background-color: ${({ navbar }) => (navbar ? '#323133' : 'transparent')};
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -219,9 +218,9 @@ const NavContainer = styled.nav`
 
   .nav-center{
     display: flex;
-    position:fixed;
     justify-content:space-evenly;
     width:100%;
+    background-color:white;
   }
 
   .nav-links {
@@ -257,7 +256,7 @@ const NavContainer = styled.nav`
   .LogoName{
     width:100%;
     font-size:35px;
-    font-weight:100;
+    font-weight:700;
     color:#222831;
   }
 
@@ -300,13 +299,11 @@ const NavContainer = styled.nav`
       display: flex;
       justify-content: center;
       li {
-        margin: 0 0.5rem;
+        margin-left:15%;
       }
       a {
-        color: var(--clr-grey-3);
         font-size: 1rem;
         text-transform: capitalize;
-        letter-spacing: var(--spacing);
         padding: 0.5rem;
        
       }
