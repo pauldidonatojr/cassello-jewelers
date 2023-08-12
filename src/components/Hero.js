@@ -297,7 +297,8 @@ const Hero = ({ image, name, price, id }) => {
     
 
 
-     <div className="Dynamic-Text">
+     {/* <div className="Dynamic-Text">
+       
         <div className="Dynamic-Text-holder">
           <Heading
             key={`heading-${currentIndex}`}
@@ -319,7 +320,8 @@ const Hero = ({ image, name, price, id }) => {
             {carouselTexts[currentIndex].content}
           </Paragraph>
         </div>
-      </div>
+
+      </div> */}
 
       {/* <article className='content'>
         <motion.h1

@@ -25,7 +25,7 @@ const Product = ({ image, name, price, id }) => {
 }
 const Wrapper = styled.article`
 height: 350px;
-background-color:#eeeeee;
+background-color:black;
 
   &:hover{
     -webkit-box-shadow: 10px 10px 23px -5px rgba(0,0,0,0.65);
@@ -103,7 +103,7 @@ background-color:#eeeeee;
     margin-bottom: 0;
     font-weight: 100;
     font-size:18px;
-    color:#222831;
+    color:white;
   }
 
   footer p {
