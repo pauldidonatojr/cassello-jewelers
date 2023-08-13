@@ -18,8 +18,7 @@ const ServicesReverse = () => {
                 <div className="TextHolder">
                   <p className="Title">Swiss Essence</p>
                   <p className="SubTitle">
-                  The first association that comes to one’s mind with the phrase “a good wristwatch” is naturally one made somewhere in Switzerland. Do you want to know what makes Swiss watches stand out?
-
+                  When one thinks of "an exquisite piece of jewelry," the immediate connection is often with creations from renowned jewelry houses. Have you ever wondered what sets these jewelry pieces apart and makes them truly remarkable?
                   </p>
                   <Button variant="outlined" className="MoreTitle">
                     Learn More
@@ -59,7 +58,7 @@ const Wrapper = styled.section`
     width: 180px;
     color: black;
     border: 4px solid rgb(0, 0, 0, 0.2);
-    margin-top:10%;
+    margin-top:5%;
   }
 
   .MoreTitle:hover {
