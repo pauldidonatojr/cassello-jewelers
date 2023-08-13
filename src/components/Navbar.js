@@ -315,7 +315,10 @@ const NavContainer = styled.nav`
   @media (max-width: 767px) {
     position:fixed;
     z-index:100;
-    background-color:#eeeeee;
+    background-color:rgb(0,0,0,0.95);
+    background-color: ${({ navbar }) => (navbar ? 'rgb(0,0,0,0.95)' : 'white')};  
+   
+
     top:0;
     height:100px;
 
@@ -362,7 +365,7 @@ const NavContainer = styled.nav`
       font-size: 20px;
       margin-left: 15px;
       font-weight:100;
-      color: ${({ navbar }) => (navbar ? '#A67563' : '#222831')};  
+      color: ${({ navbar }) => (navbar ? 'grey' : '#222831')};  
     }
     .cart-btn {
       color: var(--clr-grey-1);
@@ -376,7 +379,7 @@ const NavContainer = styled.nav`
       font-size:35px;
       font-weight:500;
       
-      color: ${({ navbar }) => (navbar ? '#A67563' : '#222831')};  
+      color: ${({ navbar }) => (navbar ? 'grey' : '#222831')};  
 
     }
   }
