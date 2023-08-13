@@ -25,7 +25,7 @@ function App() {
     <RecoilRoot>
       <AuthWrapper>
         <Router>
-          <Navbar />
+          {/* <Navbar /> */}
           <Sidebar />
           <Routes>
             <Route path='/' exact element={<Home />} />

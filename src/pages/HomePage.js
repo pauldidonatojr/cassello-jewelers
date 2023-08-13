@@ -4,6 +4,7 @@ import citrine from '../assets/citrine-earring.mov'
 import teardrop from '../assets/tear-drop.mov'
 import xearring from '../assets/x-earrings.mov'
 import styled from 'styled-components';
+import { Navbar } from '../components';
 import ServicesReverse from '../components/ServicesReverse';
 import "../Scrollbar.css";
 import CaselloImg from '../assets/Cassello.jpeg'
@@ -157,12 +158,14 @@ const HomePage = () => {
           </div>
         </div>
       </Wrapper>
+
     );
   }
 
   else {
     return (
       <main style={{ backgroundColor: "#eeeeee" }}>
+      <Navbar/>
         <Hero />
         <Services />
         <FeaturedProducts />
