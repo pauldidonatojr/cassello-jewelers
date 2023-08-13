@@ -162,6 +162,7 @@ const Wrapper = styled.section`
     padding: 10px;
     border-radius: 5px;
     z-index:10;
+    text-align:center;
     overflow:hidden;
   }
 
