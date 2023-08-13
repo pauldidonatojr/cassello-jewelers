@@ -318,6 +318,7 @@ const NavContainer = styled.nav`
     z-index:100;
     background-color:white;
     top:0;
+    height:100px;
 
   }
   @media (min-width: 800px) and (max-width: 950px) {

@@ -91,10 +91,15 @@ const Hero = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+
+            
+
+
         <p className="overlay-text">
           Welcome to Cassello Jewellers
           </p>
-        <p className="overlay-text2">Your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone.
+        <p className="overlay-text2">Your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection ensures that there's something for everyone.
         </p>
 
 
@@ -148,6 +153,7 @@ const Wrapper = styled.section`
     top: 60%;
     left: 50%;
     width:75%; 
+    height:50%;
     transform: translate(-50%, -50%);
     font-size: 30px;
     font-weight:100;
@@ -156,21 +162,26 @@ const Wrapper = styled.section`
     padding: 10px;
     border-radius: 5px;
     z-index:10;
+    overflow:hidden;
   }
 
   @media (max-width: 767px) {
 
-    margin-top:20%;
+    margin-top:80px;
+
     .overlay-text2{
       
-      font-size: 100%;
-      width:85%;
+      font-size: 19px;
+      width:90%;
       top:60%;
+      height:65%;
       font-weight:700;
     }
     .overlay-text{
-      font-size: 100%;
-      width:85%;
+    
+      font-weight:1000;
+      font-size: 150%;
+      width:95%;
       top:15%;
       text-align:center;
     }
@@ -181,6 +192,7 @@ const Wrapper = styled.section`
       
       font-size: 150%;
       width:85%;
+      height:40%;
       top:60%;
       font-weight:700;
     }
