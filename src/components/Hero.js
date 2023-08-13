@@ -176,6 +176,7 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 800px) and (max-width: 950px) {
+    margin-top:10%;
     .overlay-text2{
       
       font-size: 150%;

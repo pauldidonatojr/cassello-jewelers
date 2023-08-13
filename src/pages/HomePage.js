@@ -167,7 +167,6 @@ const HomePage = () => {
         <Services />
         <FeaturedProducts />
         <ServicesReverse/>
-        {/* <Contact /> */}
       </main>
     )
   }

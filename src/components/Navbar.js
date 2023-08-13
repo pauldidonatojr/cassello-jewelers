@@ -320,7 +320,15 @@ const NavContainer = styled.nav`
     top:0;
 
   }
+  @media (min-width: 800px) and (max-width: 950px) {
+    position:fixed;
+    z-index:100;
+    background-color:white;
+    top:0;
 
+  }
+  
+  
   @media (max-width: 992px) {
     .dekstop{
       display: none;
