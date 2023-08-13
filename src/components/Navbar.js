@@ -313,6 +313,14 @@ const NavContainer = styled.nav`
     }
   }
 
+  @media (max-width: 767px) {
+    position:fixed;
+    z-index:100;
+    background-color:white;
+    top:0;
+
+  }
+
   @media (max-width: 992px) {
     .dekstop{
       display: none;
