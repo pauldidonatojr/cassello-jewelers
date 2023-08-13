@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Navbar } from '../components'
 import { Filters, ProductList, Sort, PageHero } from '../components'
 const ProductsPage = () => {
   return (
     <main>
+      <Navbar/>
       <PageHero title='products' />
       <Wrapper className='page'>
         <div className='section-center products'>
