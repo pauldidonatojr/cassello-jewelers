@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { PageHero } from '../components'
 import aboutImg from '../assets/hero-bcg.jpeg'
+import { Navbar } from '../components'
 const AboutPage = () => {
   return (
     <main>
+      <Navbar/>
       <PageHero title='about' />
       <Wrapper className='page section section-center'>
         <img src={aboutImg} alt='nice desk' />
