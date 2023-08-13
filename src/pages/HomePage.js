@@ -192,12 +192,7 @@ height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-
-
-
-`;
+}`;
 
 
 const VideoContainer = styled.div`

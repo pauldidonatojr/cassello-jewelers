@@ -15,14 +15,19 @@ import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import heroBcg9 from "../assets/hero-bcg-9.jpg";
 import heroBcg10 from "../assets/hero-bcg-10.jpg";
 
+import image_1 from "../assets/imag-2.jpeg"
+import image_2 from "../assets/image-3.jpg"
+import image_3 from "../assets/image-4.jpeg"
+import image_4 from "../assets/image-5.png"
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Grid, Pagination } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
-import { Grid, Pagination } from "swiper/modules";
 
 const Hero = () => {
   const carouselTexts = [
@@ -30,7 +35,7 @@ const Hero = () => {
       title: "Tailoring Elegance, Just for You",
       content:
         "Welcome to Cassello Jewelers, your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone. ",
-      image: heroBcg3,
+      image: image_2,
     },
     {
       title: "Shaping Your Unique Sparkle",
@@ -48,53 +53,50 @@ const Hero = () => {
       title: "Designing Your Personal Elegance",
       content:
         "From the perfect engagement ring to a memorable custom gift, our dedicated team will assist you in finding the right piece for your special moment. Experience the ease of secure shopping, international shipping, and outstanding customer service with Cassello Jewelers - your reliable partner for all jewelry needs.",
-      image: heroBcg6,
+      image: image_3,
     },
     {
       title: "Molding Your Precious Moments",
       content:
         "Seeking the ultimate engagement ring or a distinctive custom gift? Our committed team at Cassello Jewelers is here to help you pinpoint the perfect selection for your unique occasion. Benefit from our user-friendly online shopping platform, international delivery options, and superior customer care. Cassello Jewelers - your dependable source for all your jewelry desires.",
-      image: heroBcg7,
+      image: heroBcg8,
     },
     {
       title: "Sculpting Your Jewelry Dreams",
       content:
         "From the dreamiest engagement rings to personalized keepsake gifts, our devoted team at Cassello Jewelers stands ready to guide you towards your ideal piece. Enjoy seamless shopping, worldwide shipping, and unrivaled customer service as you embark on your jewelry journey. Choose Cassello Jewelers – your trusted ally in crafting unforgettable jewelry experiences.",
-      image: heroBcg8,
+      image: image_4,
     },
   ];
 
   return (
     <Wrapper>
-     <div className="swiper-container">
-  <Swiper
-    slidesPerView={3}
-    grid={{
-      rows: 1,
-    }}
-    spaceBetween={10}
-    pagination={{
-      clickable: false,
-    }}
-    modules={[Grid, Pagination]}
-    autoplay={{ delay: 100 }}
-    className="mySwiper"
-  >
-    {carouselTexts.map((text, index) => (
-      <SwiperSlide key={index} className="CustomSlide">
-        <img src={text.image} />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-  <div className="overlay-text">Welcome to Cassello Jewelers
- 
- </div>
- <div className="overlay-text2">Your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone. 
- 
- </div>
+      <div className="swiper-container">
+        <Swiper
+          slidesPerView={3}
+          grid={{
+            rows: 1,
+          }}
+          spaceBetween={10}
+          pagination={{
+            clickable: false,
+          }}
+          modules={[Autoplay, Grid, Pagination]} // Add Autoplay module here
+          autoplay={{ delay: 3000 }} // Set the delay value in milliseconds
+          className="mySwiper"
+        >
+          {carouselTexts.map((text, index) => (
+            <SwiperSlide key={index} className="CustomSlide">
+              <img className="swiper-images" src={text.image} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="overlay-text">Welcome to Cassello Jewellers</div>
+        <div className="overlay-text2">Your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone.
+        </div>
 
 
-</div>
+      </div>
     </Wrapper>
   );
 };
@@ -105,7 +107,7 @@ const Wrapper = styled.section`
 
   .mySwiper {
     width: 100%;
-    height: 90vh;
+    height: 60vh;
   }
 
   .CustomSlide {
@@ -125,10 +127,14 @@ const Wrapper = styled.section`
   .swiper-container {
     position: relative;
   }
-  
+  .overlay-text-holder{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+  }
   .overlay-text {
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 50%; 
     transform: translate(-50%, -50%);
     font-size: 50px;
@@ -141,7 +147,7 @@ const Wrapper = styled.section`
   }
   .overlay-text2 {
     position: absolute;
-    top: 35%;
+    top: 60%;
     left: 50%;
     width:75%; 
     transform: translate(-50%, -50%);
