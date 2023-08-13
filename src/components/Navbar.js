@@ -199,7 +199,7 @@ const Nav = () => {
 }
 
 const NavContainer = styled.nav`
-  z-index: 10;
+  z-index: 1;
   width: 100%;
   background-color: ${({ navbar }) => (navbar ? '#323133' : 'transparent')};
   border-bottom-left-radius: 20px;

@@ -9,14 +9,16 @@ import Product from "./Product";
 import Button from "@mui/material/Button";
 
 import Grid from "@mui/material/Grid";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { FreeMode, Pagination } from 'swiper/modules';
 
 const FeaturedProducts = () => {
   const {
@@ -36,7 +38,7 @@ const FeaturedProducts = () => {
       <div className="title">
         <h2 className="TitleText">Our best sellers</h2>
       </div>
-      <div className="section-center featured">
+      {/* <div className="section-center featured">
         <Grid container gap={0.5} className="centeringDiv">
           
           <Grid item lg={3.5}>
@@ -59,7 +61,34 @@ const FeaturedProducts = () => {
           </Grid>
         
         </Grid>
-      </div>
+      </div> */}
+ <Swiper
+        slidesPerView={2}
+        spaceBetween={30}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+      
+        modules={[FreeMode, Pagination]}
+        className="mySwiper"
+        breakpoints={{
+          767: {
+            slidesPerView: 5,
+          },
+          
+        }}
+      >
+        
+
+    {featured.map((text, index) => (
+     <SwiperSlide key={index} className="CustomSlide">
+       <Product key={text.id} {...text} />
+     </SwiperSlide>
+          ))}
+        
+      </Swiper>
+
 
       <Link to="/products">
         <div className="centeringDiv">
@@ -84,6 +113,11 @@ const Wrapper = styled.section`
     }
   }
 
+  .mySwiper{
+    width:100%;
+  }
+
+
   .centeringDiv {
     display: flex;
     width: 100%;
@@ -94,6 +128,7 @@ const Wrapper = styled.section`
     font-size: 13px;
     height: 60px;
     width: 150px;
+    margin-top:5%;
     color: #222831;
     border: 4px solid rgb(0,0,0,0.20);
   }
@@ -107,6 +142,7 @@ const Wrapper = styled.section`
   .TitleText {
     color: grey;
     font-size:50px;
+    margin-bottom:2.5%;
   }
   .btn {
     display: block;
@@ -120,6 +156,13 @@ const Wrapper = styled.section`
   @media (min-width: 576px) {
     .featured {
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    }
+   
+  }
+
+  @media (max-width: 767px) {
+    .mySwiper{
+      width:100%;
     }
   }
 `;

@@ -24,7 +24,7 @@ const Product = ({ image, name, price, id }) => {
   )
 }
 const Wrapper = styled.article`
-height: 350px;
+height: 450px;
 background-color:black;
 
   &:hover{
@@ -41,6 +41,7 @@ background-color:black;
   }
   .image {
     width: 100%;
+    height:340px;
     display: block;
     object-fit: cover;
     border-radius: var(--radius);
@@ -109,6 +110,14 @@ background-color:black;
   footer p {
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
+  }
+  @media (max-width: 767px) {
+   height:500px;
+  }
+
+
+  @media (min-width: 800px) and (max-width: 950px) {
+    height:525px;
   }
 `
 export default Product

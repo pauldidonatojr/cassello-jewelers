@@ -81,8 +81,8 @@ const Hero = () => {
           pagination={{
             clickable: false,
           }}
-          modules={[Autoplay, Grid, Pagination]} // Add Autoplay module here
-          autoplay={{ delay: 3000 }} // Set the delay value in milliseconds
+          modules={[Autoplay, Grid, Pagination]} 
+          autoplay={{ delay: 3000 }}
           className="mySwiper"
         >
           {carouselTexts.map((text, index) => (
