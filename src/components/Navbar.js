@@ -315,7 +315,7 @@ const NavContainer = styled.nav`
   @media (max-width: 767px) {
     position:fixed;
     z-index:100;
-    background-color:white;
+    background-color:#eeeeee;
     top:0;
     height:100px;
 
@@ -354,14 +354,15 @@ const NavContainer = styled.nav`
       vertical-align: middle;
       font-size: 30px;
       margin-left: 15px;
-      color: ${({ navbar }) => (navbar ? 'white' : 'black')};  
+      color: ${({ navbar }) => (navbar ? 'white' : '#222831')};  
     }
     .icon-menu{
       justify-content: end;
       vertical-align: middle;
       font-size: 20px;
       margin-left: 15px;
-      color: ${({ navbar }) => (navbar ? '#A67563' : 'black')};  
+      font-weight:100;
+      color: ${({ navbar }) => (navbar ? '#A67563' : '#222831')};  
     }
     .cart-btn {
       color: var(--clr-grey-1);
@@ -373,9 +374,10 @@ const NavContainer = styled.nav`
     .LogoName{
       width:100%;
       font-size:35px;
-      font-weight:100;
+      font-weight:500;
       
-      color: ${({ navbar }) => (navbar ? '#A67563' : 'black')};  
+      color: ${({ navbar }) => (navbar ? '#A67563' : '#222831')};  
+
     }
   }
   
