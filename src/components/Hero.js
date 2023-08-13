@@ -173,6 +173,23 @@ const Wrapper = styled.section`
       text-align:center;
     }
   }
+  @media (min-width: 800px) and (max-width: 950px) {
+    .overlay-text2{
+      
+      font-size: 150%;
+      width:85%;
+      top:60%;
+      font-weight:700;
+    }
+    .overlay-text{
+      font-size: 150%;
+      width:85%;
+      top:15%;
+      text-align:center;
+    }
+
+  }
+
 `;
 
 export default Hero;
