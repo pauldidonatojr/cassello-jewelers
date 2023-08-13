@@ -79,16 +79,13 @@ const Footer = () => {
         <hr className="divider" />
       </div>
 
-      <Grid container spacing={2}>
-        <Grid item lg={12} sm={12}>
+     
           <div className="LowerFooter">
             <p className="LowerFooterText">
               <span style={{ color: "white",textAlign:"center" }}> Cassello </span>© 2023, Powered
               by Shopify{" "}
             </p>
           </div>
-        </Grid>
-      </Grid>
     </Container>
   );
 };
@@ -223,13 +220,11 @@ const Container = styled.footer`
     }
 
     .LowerFooterText {
-      font-size: 24px;
-      width:100%;
+      
       text-align:center;
     }
-  
-  
   }
+
 `;
 
 export default Footer;
