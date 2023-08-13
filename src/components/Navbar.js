@@ -171,7 +171,6 @@ const Nav = () => {
                       <Link to={url}>
                         <MenuItem onClick={handleClose}><p className='HeaderText'>{text}</p></MenuItem>
                       </Link>
-
                     </li>
                   )
                 })}
@@ -362,7 +361,7 @@ const NavContainer = styled.nav`
       vertical-align: middle;
       font-size: 20px;
       margin-left: 15px;
-      color: ${({ navbar }) => (navbar ? 'white' : 'black')};  
+      color: ${({ navbar }) => (navbar ? '#A67563' : 'black')};  
     }
     .cart-btn {
       color: var(--clr-grey-1);

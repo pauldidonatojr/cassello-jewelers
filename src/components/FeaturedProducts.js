@@ -18,7 +18,7 @@ import 'swiper/css/pagination';
 
 
 // import required modules
-import { FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 
 const FeaturedProducts = () => {
   const {
@@ -70,8 +70,10 @@ const FeaturedProducts = () => {
           clickable: true,
         }}
       
-        modules={[FreeMode, Pagination]}
+        modules={[Autoplay,FreeMode, Pagination]}
+        autoplay={{ delay:  3000}}
         className="mySwiper"
+        
         breakpoints={{
           767: {
             slidesPerView: 5,
@@ -115,6 +117,14 @@ const Wrapper = styled.section`
 
   .mySwiper{
     width:100%;
+  }
+  .swiper-pagination-bullet {
+    background-color: red; 
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: darkred; 
+  
   }
 
 
