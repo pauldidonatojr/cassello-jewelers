@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 
 const Footer = () => {
-
   return (
     <Container>
       <Grid container gap={2} className="UpperFooter">
@@ -31,7 +30,6 @@ const Footer = () => {
                 </div>
               </Grid>
 
-             
               <Grid item lg={5.5}>
                 <div>
                   <Grid container gap={2} className="CenteringDiv">
@@ -47,7 +45,7 @@ const Footer = () => {
                       </div>
                     </Grid>
                     <Grid item lg={3.5}>
-                    <div className="LinkHolder">
+                      <div className="LinkHolder">
                         <p className="LinkTitle">SOCIALS</p>
                         <div className="LinkSubTitleHolder">
                           <p className="LinkSubTitle">HOME</p>
@@ -59,7 +57,7 @@ const Footer = () => {
                     </Grid>
 
                     <Grid item lg={3.5}>
-                    <div className="LinkHolder">
+                      <div className="LinkHolder">
                         <p className="LinkTitle">LINKS</p>
                         <div className="LinkSubTitleHolder">
                           <p className="LinkSubTitle">HOME</p>
@@ -68,7 +66,7 @@ const Footer = () => {
                           <p className="LinkSubTitle">SEARCH</p>
                         </div>
                       </div>
-                   </Grid>
+                    </Grid>
                   </Grid>
                 </div>
               </Grid>
@@ -77,15 +75,17 @@ const Footer = () => {
         </Grid>
       </Grid>
 
-<div className="CenteringDiv">
-
-<hr className="divider"/>
-</div>
+      <div className="CenteringDiv">
+        <hr className="divider" />
+      </div>
 
       <Grid container spacing={2}>
-        <Grid item lg={12}>
+        <Grid item lg={12} sm={12}>
           <div className="LowerFooter">
-            <p className="LowerFooterText"><span style={{color:"white"}}> Cassello </span>© 2023, Powered by Shopify </p>
+            <p className="LowerFooterText">
+              <span style={{ color: "white",textAlign:"center" }}> Cassello </span>© 2023, Powered
+              by Shopify{" "}
+            </p>
           </div>
         </Grid>
       </Grid>
@@ -97,28 +97,29 @@ const Container = styled.footer`
   height: 100%;
   background-color: #272626;
 
-  .divider{
-    width:75%;
-    opacity:0.10;
+  .divider {
+    width: 75%;
+    opacity: 0.1;
   }
 
-  .SubDiv{
-    border-right: 1px solid rgba(128, 128, 128, 0.10);
+  .SubDiv {
+    border-right: 1px solid rgba(128, 128, 128, 0.1);
   }
 
-  .LowerFooterText{
-    margin-top:1%;
-    font-size:18px;
-    font-weight:600;
-    color: #3d3b3b;;
+  .LowerFooterText {
+    margin-top: 1%;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3d3b3b;
+    text-align: center;
   }
-  .LowerFooter{
-    width:100%;
-    height:75px;
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
+  .LowerFooter {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
 
   .CenteringDiv {
@@ -138,10 +139,9 @@ const Container = styled.footer`
     align-content: center;
     align-items: center;
     flex-direction: column;
-    height:100%;
-    padding-top:10%;
-    padding-bottom:10%;
-
+    height: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
 
   .EmailInputHolder {
@@ -150,7 +150,7 @@ const Container = styled.footer`
     align-content: center;
     align-items: center;
     flex-direction: row;
-    width:75%;
+    width: 75%;
   }
   .LetterEmailInput {
     width: 80%;
@@ -160,7 +160,7 @@ const Container = styled.footer`
     border: none;
     outline: none;
   }
-  .LetterEmailInput: focus {
+  .letteremailinput: focus {
     outline: none;
   }
 
@@ -180,7 +180,6 @@ const Container = styled.footer`
     margin-top: 5%;
     font-size: 13px;
     font-weight: 100;
-
   }
   .Signupbutton :hover {
     background-color: white;
@@ -193,30 +192,43 @@ const Container = styled.footer`
     text-align: center;
     color: #ffffff;
   }
-  .LinkHolder{
+  .LinkHolder {
     display: flex;
     align-content: center;
     flex-direction: column;
   }
-  .LinkTitle{
-    color:white;
-    font-weight:500;
-    text-align:left;
+  .LinkTitle {
+    color: white;
+    font-weight: 500;
+    text-align: left;
     line-height: 1.5;
-    font-size:14px;
+    font-size: 14px;
   }
-  .LinkSubTitle{
-    color:white;
-    font-weight:400;
-    text-align:left;
-    font-size:13px;
-    
+  .LinkSubTitle {
+    color: white;
+    font-weight: 400;
+    text-align: left;
+    font-size: 13px;
   }
-  .LinkSubTitle:hover{
-    cursor:pointer;
+  .LinkSubTitle:hover {
+    cursor: pointer;
   }
-  .LinkSubTitleHolder{
-    margin-top:15%;
+  .LinkSubTitleHolder {
+    margin-top: 15%;
+  }
+  @media (max-width: 767px) {
+    .SignUpButton {
+      font-size: 10px;
+      
+    }
+
+    .LowerFooterText {
+      font-size: 24px;
+      width:100%;
+      text-align:center;
+    }
+  
+  
   }
 `;
 

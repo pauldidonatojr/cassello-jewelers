@@ -25,7 +25,7 @@ const ServicesReverse = () => {
                   </Button>
                 </div>
               </Grid>
-              <Grid item lg={6}>
+              <Grid item lg={6} xs={12}>
                 <div>
                   <img
                     className="Image"
