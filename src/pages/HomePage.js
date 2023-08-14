@@ -1,22 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FeaturedProducts, Hero, Services, Contact } from '../components'
-import citrine from '../assets/citrine-earring.mov'
-import teardrop from '../assets/tear-drop.mov'
-import xearring from '../assets/x-earrings.mov'
-import styled from 'styled-components';
-import { Navbar } from '../components';
-import ServicesReverse from '../components/ServicesReverse';
+import React, { useState, useEffect, useRef } from "react";
+import { FeaturedProducts, Hero, Services, Contact } from "../components";
+import citrine from "../assets/citrine-earring.mov";
+import teardrop from "../assets/tear-drop.mov";
+import xearring from "../assets/x-earrings.mov";
+import styled from "styled-components";
+import { Navbar } from "../components";
+import ServicesReverse from "../components/ServicesReverse";
 import "../Scrollbar.css";
-import CaselloImg from '../assets/Cassello.jpeg'
+import CaselloImg from "../assets/Cassello.jpeg";
+import { AnimatePresence } from "framer-motion";
 import {
   RecoilRoot,
   atom,
   selector,
   useRecoilState,
   useRecoilValue,
-} from 'recoil';
-import { motion } from 'framer-motion';
-import { getProducts } from '../utils/API';
+} from "recoil";
+import { motion } from "framer-motion";
+import { getProducts } from "../utils/API";
 
 const StyledButton = styled.div`
   color: black;
@@ -31,20 +32,20 @@ const StyledButton = styled.div`
   font-style: italic;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 2px; /* Adjust the thickness of the underline */
-    background-color: #D8B08C; /* Color of the underline */
+    background-color: #d8b08c; /* Color of the underline */
     transform-origin: bottom right;
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
 
   &:hover {
-    color: #D8B08C;
+    color: #d8b08c;
     &::after {
       transform-origin: bottom left;
       transform: scaleX(1);
@@ -52,16 +53,14 @@ const StyledButton = styled.div`
   }
 
   @media (max-width: 992px) {
-    color: #D8B08C;
+    color: #d8b08c;
   }
 `;
 
-
 const textState = atom({
-  key: 'textState', // unique ID (with respect to other atoms/selectors)
+  key: "textState", // unique ID (with respect to other atoms/selectors)
   default: false, // default value (aka initial value)
 });
-
 
 // async function fetchProductsData() {
 //   try {
@@ -81,9 +80,7 @@ const HomePage = () => {
   const videoRef = useRef();
   const [loader, setLoader] = useRecoilState(textState);
 
-
   // fetchProductsData();
-
 
   const [showSplash, setShowSplash] = useState(true);
   const splashDuration = 3000;
@@ -95,9 +92,9 @@ const HomePage = () => {
       }
     };
 
-    window.addEventListener('keydown', handleEnter);
+    window.addEventListener("keydown", handleEnter);
 
-    return () => window.removeEventListener('keydown', handleEnter);
+    return () => window.removeEventListener("keydown", handleEnter);
   }, []);
 
   useEffect(() => {
@@ -119,7 +116,7 @@ const HomePage = () => {
   useEffect(() => {
     const splashTimer = setTimeout(() => {
       setShowSplash(false);
-      setLoader(true)
+      setLoader(true);
     }, splashDuration);
 
     return () => clearTimeout(splashTimer);
@@ -128,74 +125,90 @@ const HomePage = () => {
   const handleButtonClick = () => {
     setLoading(false);
     setLoader(true);
-  }
+  };
 
   if (showSplash && loader == false) {
     return (
       <SplashScreen>
-        <div className='splashscreeninner'>
-          <div className='splashInner'>
-            <h1>Cassello </h1>
-            <h1 style={{ color: '#A67563' }}>Jewellers</h1>
-          </div>
-        </div>
+        <AnimatePresence>
+          {showSplash && loader == false && (
+            <motion.div
+              className="splashscreeninner"
+              initial={{ x: -500, opacity: 0.5 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 500, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="splashInner">
+                <h1>Cassello </h1>
+                <h1 style={{ color: "#A67563" }}>Jewellers</h1>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </SplashScreen>
     );
-  }
-  else if (loader == false) {
+  } else if (loader == false) {
     return (
       <Wrapper>
         <div className="loading-screen">
           <VideoContainer>
             {videos.map((video, index) => (
-              <video ref={videoRef} autoPlay loop muted playsInline src={videos[currentVideo]} type="video/mp4">
+              <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted
+                playsInline
+                src={videos[currentVideo]}
+                type="video/mp4"
+              >
                 Your browser does not support the video tag.
               </video>
             ))}
           </VideoContainer>
-          <div className='button-holder'>
-            <StyledButton onClick={handleButtonClick}>Start Exploring</StyledButton>
+          <div className="button-holder">
+            <StyledButton onClick={handleButtonClick}>
+              Start Exploring
+            </StyledButton>
           </div>
         </div>
       </Wrapper>
-
     );
-  }
-
-  else {
+  } else {
     return (
       <main style={{ backgroundColor: "#eeeeee" }}>
-      <Navbar/>
+        <Navbar />
         <Hero />
         <Services />
         <FeaturedProducts />
-        <ServicesReverse/>
+        <ServicesReverse />
       </main>
-    )
+    );
   }
-}
+};
 
 export default HomePage;
 
 const Wrapper = styled.div`
-font-family: cursive;
-width: 100%;
-height: 100vh;
-
-.loading-text {
+  font-family: cursive;
   width: 100%;
-  height: 200px;
-  padding: 2rem;
-  color: black;
-  font-size: 30px;
-  font-family: 'Century Gothic', sans-serif;
-}
-.button-holder{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}`;
+  height: 100vh;
 
+  .loading-text {
+    width: 100%;
+    height: 200px;
+    padding: 2rem;
+    color: black;
+    font-size: 30px;
+    font-family: "Century Gothic", sans-serif;
+  }
+  .button-holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+`;
 
 const VideoContainer = styled.div`
   position: relative;
@@ -228,27 +241,27 @@ const SplashScreen = styled.div`
   position: absolute;
   z-index: 10000;
   background-color: white;
-  font-family: 'Century Gothic', sans-serif;
+  font-family: "Century Gothic", sans-serif;
 
-  .splashscreeninner{
+  .splashscreeninner {
     display: grid;
     justify-content: center;
     place-content: center;
-    font-family: 'Century Gothic', sans-serif;
-    width:100%;
+    font-family: "Century Gothic", sans-serif;
+    width: 100%;
     height: 100vh;
     padding: 2rem;
     position: fixed;
   }
 
-  .splashInner{
-    display:flex;
+  .splashInner {
+    display: flex;
     width: 90%;
   }
 
   @media (max-width: 600px) {
-    .splashInner{
-      display:flex;
+    .splashInner {
+      display: flex;
       font-size: 10px;
     }
   }

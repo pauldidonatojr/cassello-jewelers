@@ -119,11 +119,11 @@ const Wrapper = styled.section`
     width:100%;
   }
   .swiper-pagination-bullet {
-    background-color: red; 
+    background-color: #eeeeee; 
   }
   
   .swiper-pagination-bullet-active {
-    background-color: darkred; 
+    background-color:#eeeeee; 
   
   }
 

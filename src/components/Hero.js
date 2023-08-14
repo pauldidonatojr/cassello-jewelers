@@ -122,12 +122,12 @@ const Wrapper = styled.section`
     height: 100%;
   }
   .swiper-pagination-bullet {
-    background-color: red; 
+    background-color: #eeeeee; 
     font-size:50px;
   }
   
   .swiper-pagination-bullet-active {
-    background-color: darkred; 
+    background-color: #eeeeee; 
     font-size:50px;
   }
 

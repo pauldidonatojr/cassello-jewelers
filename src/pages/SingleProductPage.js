@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 import { single_product_url as url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
+import { Navbar } from '../components';
 import {
   Loading,
   Error,
@@ -55,7 +56,9 @@ const SingleProductPage = () => {
   } = product;
   return (
     <Wrapper>
-      {/* <PageHero title={name} product /> */}
+      
+
+      <Navbar/>
       <div className='section section-center page'>
         <Link to='/products' className='btn'>
           back to products
