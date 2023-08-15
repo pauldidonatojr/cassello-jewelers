@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   align-items: center;
   h2 {
     margin-bottom: 0;
+    font-size:30px;
   }
   button {
     background: transparent;

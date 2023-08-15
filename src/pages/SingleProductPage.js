@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
-import { single_product_url as url } from '../utils/constants';
-import { formatPrice } from '../utils/helpers';
-import { Navbar } from '../components';
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useProductsContext } from "../context/products_context";
+import { single_product_url as url } from "../utils/constants";
+import { formatPrice } from "../utils/helpers";
+import { Navbar } from "../components";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Button from "@mui/material/Button";
+
 import {
   Loading,
   Error,
@@ -11,9 +14,9 @@ import {
   AddToCart,
   Stars,
   PageHero,
-} from '../components';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+} from "../components";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 const SingleProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,7 +34,7 @@ const SingleProductPage = () => {
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        navigate('/');
+        navigate("/");
       }, 3000);
     }
     // eslint-disable-next-line
@@ -56,29 +59,29 @@ const SingleProductPage = () => {
   } = product;
   return (
     <Wrapper>
-      
-
-      <Navbar/>
-      <div className='section section-center page'>
-        <Link to='/products' className='btn'>
-          back to products
+      <Navbar />
+      <div className="section section-center page">
+        <Link to="/products">
+          <Button variant="text">
+            <p className="ButtonText">Back to Products</p>
+          </Button>
         </Link>
-        <div className='product-center'>
+        <div className="product-center">
           <ProductImages images={images} />
-          <section className='content'>
-            <h2>{name}</h2>
+          <section className="content">
+            <p className="NameTag">{name}</p>
             <Stars stars={stars} reviews={reviews} />
-            <h5 className='price'>{formatPrice(price)}</h5>
-            <p className='desc'>{description}</p>
-            <p className='info'>
+            <h5 className="price">{formatPrice(price)}</h5>
+            <p className="desc">{description}</p>
+            <p className="info">
               <span>Available : </span>
-              {stock > 0 ? 'In stock' : 'out of stock'}
+              {stock > 0 ? "In stock" : "out of stock"}
             </p>
-            <p className='info'>
+            <p className="info">
               <span>SKU :</span>
               {sku}
             </p>
-            <p className='info'>
+            <p className="info">
               <span>Brand :</span>
               {company}
             </p>
@@ -92,13 +95,20 @@ const SingleProductPage = () => {
 };
 
 const Wrapper = styled.main`
-  background: '#eeeeee';
-  font-family: 'Century Gothic', sans-serif;
-  padding-top: 3rem;
+  background: #eeeeee;
+  font-family: "Century Gothic", sans-serif;
+
+
+  .NameTag{
+    font-size:25px;
+    font-weight:100;
+    text-transform: capitalize;
+
+  }
+
   .product-center {
     display: grid;
     gap: 4rem;
-    margin-top: 2rem;
   }
   .price {
     color: var(--clr-primary-5);
@@ -119,7 +129,12 @@ const Wrapper = styled.main`
   .btn {
     width: 250px;
     text-align: center;
-    background-color: #A67563;
+    background-color: none;
+  }
+  .ButtonText {
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
   }
 
   @media (min-width: 992px) {
@@ -130,6 +145,22 @@ const Wrapper = styled.main`
     .price {
       font-size: 1.25rem;
     }
+  }
+  @media (max-width: 767px) {
+    margin-top:50px;
+    
+    .product-center {
+      display:flex;
+      flex-direction:column;
+      justify-content:evenly;
+    }
+    .NameTag{
+      margin-top:45%;
+    }
+
+  }
+  @media (min-width: 800px) and (max-width: 950px) {
+    margin-top:10%;
   }
 `;
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
+import Button from "@mui/material/Button";
 const AddToCart = ({ product }) => {
   // add to cart
   const { addToCart } = useCartContext()
@@ -57,13 +58,14 @@ const AddToCart = ({ product }) => {
           amount={amount}
         />
 
-        <Link
-          to='/cart'
-          className='btn'
-          onClick={() => addToCart(id, mainColor, amount, product)}
-        >
-          add to cart
+        <Link to='/cart'
+        onClick={() => addToCart(id, mainColor, amount, product)}>
+          <Button variant="outlined" className='Button'>
+         Add To Cart
+          </Button>
         </Link>
+
+
       </div>
     </Wrapper>
   )
@@ -83,6 +85,21 @@ const Wrapper = styled.section`
       display: flex;
     }
   }
+  .Button{
+    text-align: center;
+    font-size: 13px;
+    height: 60px;
+    width: 180px;
+    color: black;
+    border: 4px solid rgb(0, 0, 0, 0.2);
+    margin-left:5%;
+  }
+  .Button:hover {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+
   .color-btn {
     display: inline-block;
     width: 1.5rem;
@@ -106,6 +123,9 @@ const Wrapper = styled.section`
   }
   .btn-container {
     margin-top: 2rem;
+    display:flex;
+    align-items:center;
+    align-content:center;
   }
 
   .btn {
