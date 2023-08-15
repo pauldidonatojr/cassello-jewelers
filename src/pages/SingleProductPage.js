@@ -121,6 +121,10 @@ const Wrapper = styled.main`
     text-transform: capitalize;
     width: 300px;
     display: grid;
+    height:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     grid-template-columns: 125px 1fr;
     span {
       font-weight: 700;
