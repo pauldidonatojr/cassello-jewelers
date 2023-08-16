@@ -15,17 +15,19 @@ const ProductImages = ({ images = [[]] }) => {
     <Wrapper>
        <div className='container'>
       <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }}
+        
         loop={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
+        navigation={{
+          nextEl: '.custom-swiper-button-next', // Custom class for "Next" button
+          prevEl: '.custom-swiper-button-prev', // Custom class for "Previous" button
+        }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
+        
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
         </SwiperSlide>
@@ -56,6 +58,9 @@ const ProductImages = ({ images = [[]] }) => {
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
         </SwiperSlide>
+        
+      <div className="custom-swiper-button-prev">Previous</div>
+<div className="custom-swiper-button-next">Next</div>
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -113,10 +118,59 @@ width:600px;
   .mySwiper{
     margin-top:1%;
   }
-//   .mySwiper2 .swiper-button-prev,
-// .mySwiper2 .swiper-button-next {
-//   --swiper-navigation-color: red; /* Set your desired color */
-// }
+ 
+  /* Style for Custom Navigation Buttons */
+ 
+  .mySwiper2 .custom-swiper-button-next {
+    color: black;
+    
+    font-size: 18px;
+    font-weight:100;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 0px 0px 5px;
+    cursor: pointer;
+  }
+  
+  /* Position the "Previous" button to the left */
+  .mySwiper2 .custom-swiper-button-prev {
+    position: absolute;
+    left: 0;
+    top: 95%;
+    width:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    z-index:10;
+    transform: translateY(-50%);
+     color: black;
+    font-size: 18px;
+    font-weight:100;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 15px 5px 0px;
+    cursor: pointer;
+  }
+  
+  /* Position the "Next" button to the right */
+  .mySwiper2 .custom-swiper-button-next {
+    position: absolute;
+    right: 0;
+    top: 95%;
+    z-index:10;
+    transform: translateY(-50%);
+    
+    width:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+ 
+  
+  
+  
+  
+  
   
   @media (max-width: 576px) {
     width:250px;
