@@ -113,6 +113,10 @@ width:600px;
   .mySwiper{
     margin-top:1%;
   }
+//   .mySwiper2 .swiper-button-prev,
+// .mySwiper2 .swiper-button-next {
+//   --swiper-navigation-color: red; /* Set your desired color */
+// }
   
   @media (max-width: 576px) {
     width:250px;
