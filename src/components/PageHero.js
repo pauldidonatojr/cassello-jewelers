@@ -46,6 +46,7 @@ const PageHero = ({ title, product }) => {
                 loop
                 muted
                 playsInline
+                className='VideoHolder'
               >
                 <source src={video} type='video/mp4' />
                 Your browser does not support the video tag.
@@ -81,7 +82,7 @@ const Wrapper = styled.section`
   position: relative;
 
   .section-center {
-    padding-top: 10%;
+    padding-top: 1%;
   }
 
   color: var(--clr-primary-1);
@@ -109,6 +110,12 @@ const Wrapper = styled.section`
       display: none;
     }
   }
+  @media (max-width: 767px) {
+    .section-center {
+      padding-top: 10%;
+    }
+   }
+ 
 `;
 
 const VideosContainer = styled.div`
@@ -117,8 +124,8 @@ const VideosContainer = styled.div`
   width: 100%;
   height: 30vh;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--clr-primary-5);
+  // border: 1px solid var(--clr-primary-5);
+  border:none;
   border-radius: 8px;
 `;
 
