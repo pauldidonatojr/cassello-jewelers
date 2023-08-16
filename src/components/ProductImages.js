@@ -106,7 +106,7 @@ const ProductImages = ({ images = [[]] }) => {
 
 const Wrapper = styled.section`
 
-width:500px;
+width:600px;
   .main {
     height: 600px;
   }
