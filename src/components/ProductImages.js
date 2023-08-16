@@ -185,7 +185,7 @@ width:600px;
     }
   }
   @media (max-width: 767px) {
-    width:350px;
+    width:100%;
     height:200px;
     margin-bottom:10%;
 
