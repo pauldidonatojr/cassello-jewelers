@@ -92,10 +92,6 @@ const Hero = () => {
           ))}
         </Swiper>
 
-
-            
-
-
         <p className="overlay-text">
           Welcome to Cassello Jewellers
           </p>

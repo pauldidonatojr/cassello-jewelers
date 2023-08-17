@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Navbar } from "../components";
 import ServicesReverse from "../components/ServicesReverse";
 import "../Scrollbar.css";
+import Reviews from "../components/Review";
 import CaselloImg from "../assets/Cassello.jpeg";
 import { AnimatePresence } from "framer-motion";
 import {
@@ -182,7 +183,9 @@ const HomePage = () => {
         <Hero />
         <Services />
         <FeaturedProducts />
-        <ServicesReverse />
+       <ServicesReverse />
+        <Reviews/> 
+          
       </main>
     );
   }
