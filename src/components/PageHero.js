@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import citrine from '../assets/citrine-earring.mov';
-import teardrop from '../assets/tear-drop.mov';
-import xearring from '../assets/x-earrings.mov';
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import citrine from "../assets/citrine-earring.mov";
+import teardrop from "../assets/tear-drop.mov";
+import xearring from "../assets/x-earrings.mov";
 
 const videos = [citrine, teardrop, xearring];
 
@@ -33,46 +33,48 @@ const PageHero = ({ title, product }) => {
     }
   }, [currentVideo]);
 
-  return (
+
+  const randomIndex = Math.floor(Math.random() * videos.length);
+  const selectedSource = videos[randomIndex];  return (
     <Wrapper>
-      <div className='section-center'>
-        <div className='video-dekstop'>
+      <div className="section-center">
+        <div className="video-dekstop">
           <VideosContainer>
             {videos.map((video, index) => (
               <Video
                 key={index}
                 ref={(el) => (videoRefs.current[index] = el)}
-                autoPlay={index === currentVideo || index === (currentVideo + 1) % videos.length}
+                autoPlay={
+                  index === currentVideo ||
+                  index === (currentVideo + 1) % videos.length
+                }
                 loop
                 muted
                 playsInline
-                className='VideoHolder'
+                className="VideoHolder"
               >
-                <source src={video} type='video/mp4' />
+                <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </Video>
             ))}
           </VideosContainer>
         </div>
 
-
-        <div className='video-mobile'>
+        <div className="video-mobile">
           <VideosContainer>
-              <Video
-                key={0}
-                ref={(el) => (videoRefs.current[0] = el)}
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={citrine} type='video/mp4' />
-                Your browser does not support the video tag.
-              </Video>
+            <Video
+              key={0}
+              ref={(el) => (videoRefs.current[0] = el)}
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={selectedSource} type="video/mp4" />
+              Your browser does not support the video tag.
+            </Video>
           </VideosContainer>
         </div>
-
-
       </div>
     </Wrapper>
   );
@@ -95,38 +97,48 @@ const Wrapper = styled.section`
     color: var(--clr-primary-1);
   }
 
-  .video-mobile{
+  .video-mobile {
     display: none;
   }
 
-
   @media (max-width: 992px) {
     padding-top: 20%;
-    .video-mobile{
+    .video-mobile {
       display: unset;
     }
 
-    .video-dekstop{
+    .video-dekstop {
       display: none;
     }
   }
   @media (max-width: 767px) {
+    
     .section-center {
       padding-top: 10%;
     }
-   }
- 
+  }
 `;
 
 const VideosContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  height: 30vh;
+  width: 25%;
+  height: 100vh;
   overflow: hidden;
-  // border: 1px solid var(--clr-primary-5);
-  border:none;
+  border: none;
   border-radius: 8px;
+  
+  @media (max-width: 767px) {
+    width: 100%;
+    height:20vh;
+  }
+
+  @media (min-width: 800px) and (max-width: 950px){
+    width: 100%;
+    height:20vh;
+  }
+
 `;
 
 const Video = styled.video`

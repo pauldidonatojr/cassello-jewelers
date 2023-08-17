@@ -154,7 +154,6 @@ const Filters = () => {
 
 const Wrapper = styled.section`
   font-family: 'Century Gothic', sans-serif;
-              
   .form-control {
     margin-bottom: 1.25rem;
     h5 {

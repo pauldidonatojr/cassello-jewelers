@@ -93,6 +93,7 @@ const Footer = () => {
 const Container = styled.footer`
   height: 100%;
   background-color: #272626;
+  
 
   .divider {
     width: 75%;
@@ -223,6 +224,9 @@ const Container = styled.footer`
       
       text-align:center;
     }
+  }
+  @media (min-width: 800px) and (max-width: 950px){
+    margin-top:5%;
   }
 
 `;
