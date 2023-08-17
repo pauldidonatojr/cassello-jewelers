@@ -3,6 +3,7 @@ import styled from "styled-components";
 import citrine from "../assets/citrine-earring.mov";
 import teardrop from "../assets/tear-drop.mov";
 import xearring from "../assets/x-earrings.mov";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const videos = [citrine, teardrop, xearring];
 
@@ -32,6 +33,11 @@ const PageHero = ({ title, product }) => {
       videoRefs.current[nextVideo].play();
     }
   }, [currentVideo]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleVideoLoad = () => {
+    setIsLoading(false);
+  };
 
 
   const randomIndex = Math.floor(Math.random() * videos.length);
@@ -39,10 +45,15 @@ const PageHero = ({ title, product }) => {
     <Wrapper>
       <div className="section-center">
         <div className="video-dekstop">
-          <VideosContainer>
-            {videos.map((video, index) => (
+        <VideosContainer>
+        {videos.map((video, index) => (
+          <div key={index} className="VideoHolder">
+            {isLoading[index] ? (
+              <div className="ProgressHolder">
+              <CircularProgress />
+              </div>
+            ) : (
               <Video
-                key={index}
                 ref={(el) => (videoRefs.current[index] = el)}
                 autoPlay={
                   index === currentVideo ||
@@ -51,17 +62,25 @@ const PageHero = ({ title, product }) => {
                 loop
                 muted
                 playsInline
-                className="VideoHolder"
+                onLoadedData={() => handleVideoLoad()}
               >
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </Video>
-            ))}
-          </VideosContainer>
+            )}
+          </div>
+        ))}
+      </VideosContainer>
         </div>
 
         <div className="video-mobile">
           <VideosContainer>
+          {isLoading ? (
+              <div className="ProgressHolder">
+              <CircularProgress />
+              </div>
+            ) : (
+           
             <Video
               key={0}
               ref={(el) => (videoRefs.current[0] = el)}
@@ -69,10 +88,13 @@ const PageHero = ({ title, product }) => {
               loop
               muted
               playsInline
+              onLoadedData={() => handleVideoLoad()}
             >
               <source src={selectedSource} type="video/mp4" />
               Your browser does not support the video tag.
             </Video>
+)}
+
           </VideosContainer>
         </div>
       </div>
@@ -83,6 +105,12 @@ const PageHero = ({ title, product }) => {
 const Wrapper = styled.section`
   position: relative;
 
+
+  .ProgressHolder{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
   .section-center {
     padding-top: 1%;
   }
