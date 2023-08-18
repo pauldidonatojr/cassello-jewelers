@@ -99,13 +99,9 @@ const Hero = () => {
         </Swiper>
 
         <p className="overlay-text">Welcome to Cassello Jewellers</p>
-        <p className="overlay-text2">
-          Your premier online destination for exclusive, handcrafted jewelry
-          designs. We specialize in offering an extensive collection of
-          high-quality, luxury pieces ranging from timeless classics to
-          contemporary trends. Our curated selection ensures that there's
-          something for everyone.
-        </p>
+        <Button variant="outlined" className="MoreTitle2">
+            Shop Now
+          </Button>
       </div>
 
       <div className="desktop-version">
@@ -196,6 +192,24 @@ const Wrapper = styled.section`
     border: none;
     color: white;
   }
+  .MoreTitle2 {
+    text-align: center;
+    font-size: 13px;
+    height: 60px;
+    width: 180px;
+    color: white;
+    border: 4px solid rgb(0, 0, 0, 1);
+    position:absolute;
+    top:50%;
+    right:25%;
+    z-index:10;
+  }
+
+  .MoreTitle2:hover {
+    background-color: black;
+    border: none;
+    color: white;
+  }
 
   .desktopTitle {
     font-size: 60px;
@@ -244,7 +258,6 @@ const Wrapper = styled.section`
 
   .overlay-text {
     position: absolute;
-    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
@@ -318,6 +331,9 @@ const Wrapper = styled.section`
       width: 85%;
       top: 15%;
       text-align: center;
+    }
+    .MoreTitle2{
+      right:40%;
     }
   }
 `;
