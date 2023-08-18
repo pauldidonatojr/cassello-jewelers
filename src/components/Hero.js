@@ -7,6 +7,7 @@ import { FaSearch } from "react-icons/fa";
 import Button from "@mui/material/Button";
 
 import heroBcg3 from "../assets/hero-bcg-3.jpg";
+import heroBcgt from "../assets/hero-bcg-2.jpg";
 import heroBcg4 from "../assets/hero-bcg-4.jpg";
 import heroBcg5 from "../assets/hero-bcg-5.jpg";
 import heroBcg6 from "../assets/hero-bcg-6.jpg";
@@ -100,6 +101,27 @@ const Hero = () => {
 
 
       </div>
+
+
+        <div className="desktop-version">
+            <p className="desktopTitle">
+          Welcome to Cassello Jewellers
+          </p>
+          <Button variant="outlined" className="MoreTitle">
+                    Shop Now
+                  </Button>
+
+        <img className="Image1" src ={heroBcg3}/>
+        <img className="Image2" src ={heroBcgt}/>
+
+        <img className="Image3" src ={heroBcg5}/>
+        <img className="Image4" src ={heroBcg4}/>
+
+        
+        </div>
+
+
+
     </Wrapper>
   );
 };
@@ -107,6 +129,94 @@ const Hero = () => {
 const Wrapper = styled.section`
   width: 100%;
   font-family: "Century Gothic", sans-serif;
+
+  .desktop-version{
+    height:90vh;
+    background:#eeeeee;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    position:relative;
+    background-color:reg(255,255,255,0.1);
+  }
+  .Image1{
+    background:none;
+    height:550px;
+    width:350px;
+    position:absolute;
+    left:3%;
+    top:10%;
+    // border-radius:7px;
+    object-fit:cover;
+  }
+  .Image2{
+    background:none;
+    height:250px;
+    width:300px;
+    position:absolute;
+    right:25%;
+    top:0%;
+    // border-radius:0px 0px 7px 7px;
+    object-fit:cover;
+
+  }
+  .Image3{
+    background:none;
+    height:400px;
+    width:350px;
+    position:absolute;
+    right:5%;
+    bottom:0%;
+    // border-radius:0px 0px 7px 7px;
+    object-fit:cover;
+    z-index:5;
+
+  }
+  .Image4{
+    background:none;
+    height:400px;
+    width:300px;
+    position:absolute;
+    right:0%;
+    bottom:5%;
+    // border-radius:0px 0px 7px 7px;
+    object-fit:cover;
+    z-index:5;
+
+  }
+  .MoreTitle {
+    text-align: center;
+    font-size: 13px;
+    height: 60px;
+    width: 180px;
+    color: #222831;
+    border: 4px solid rgb(0, 0, 0, 0.2);
+  }
+
+  .MoreTitle:hover {
+    background-color: black;
+    border: none;
+    color: white;
+  }
+
+  .desktopTitle{
+    font-size:60px;
+    font-weight:1000;
+    margin-top:15%;
+    width:50%;
+    text-align:center;
+    color:black;
+
+    z-index:10;
+  }
+  .desktopSubTitle{
+    font-size:30px;
+    font-weight:400;
+    text-align:center;
+    width:50%;
+    color:black;
+  }
 
   .mySwiper {
     width: 100%;
@@ -129,6 +239,11 @@ const Wrapper = styled.section`
 
   .swiper-container {
     position: relative;
+  }
+ 
+  
+  .swiper-container {
+    display:none;
   }
  
   .overlay-text {
@@ -163,6 +278,12 @@ const Wrapper = styled.section`
   }
 
   @media (max-width: 767px) {
+    .desktop-version{
+      display:none;
+    }
+    .swiper-container{
+      display:unset;
+    }
 
     margin-top:80px;
 
@@ -184,6 +305,12 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 800px) and (max-width: 950px) {
+    .swiper-container{
+      display:unset;
+    }
+    .desktop-version{
+      display:none;
+    }
     margin-top:10%;
     .overlay-text2{
       
