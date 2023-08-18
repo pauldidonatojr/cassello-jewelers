@@ -173,7 +173,7 @@ font-family: "Century Gothic", sans-serif;
     shadow: 10px;
   }
   .TitleLine{
-    font-size:75px;
+    font-size:50px;
     padding-top:1%;
     text-align:center;
     font-weight:100;
