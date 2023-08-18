@@ -247,6 +247,11 @@ font-family: "Century Gothic", sans-serif;
         height: 150px;
         border-radius: 75px;
       } 
+      .ReviewName{
+
+        text-align:center;
+        
+      }
   }
   @media (min-width: 800px) and (max-width: 950px){
     
@@ -258,6 +263,11 @@ font-family: "Century Gothic", sans-serif;
       }
       .ReviewText {
         text-align:center;
+      }
+      .ReviewName{
+
+        text-align:center;
+        
       }
   }
 `;
