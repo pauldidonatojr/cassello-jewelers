@@ -107,9 +107,11 @@ const Hero = () => {
             <p className="desktopTitle">
           Welcome to Cassello Jewellers
           </p>
+          <Link to="products">
           <Button variant="outlined" className="MoreTitle">
                     Shop Now
                   </Button>
+                  </Link>
 
         <img className="Image1" src ={heroBcg3}/>
         <img className="Image2" src ={heroBcgt}/>
