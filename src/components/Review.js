@@ -243,6 +243,7 @@ font-family: "Century Gothic", sans-serif;
         height: 80vh;
       }
       .ReviewImage {
+        margin-top:100%;
         width: 150px;
         height: 150px;
         border-radius: 75px;
