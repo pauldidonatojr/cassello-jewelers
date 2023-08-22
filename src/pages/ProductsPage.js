@@ -62,7 +62,7 @@ const ProductsPage = () => {
 
 const Wrapper = styled.div`
   background: "#eeeeee";
-
+  overflow:hidden;
  
   .CenteringDiv {
     margin-top:5%;
@@ -76,6 +76,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 767px) {
+    margin-bottom:5%;
     .products {
       display: flex;
       flex-direction:column;

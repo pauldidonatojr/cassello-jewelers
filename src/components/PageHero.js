@@ -103,9 +103,6 @@ const PageHero = ({ title, product }) => {
 };
 
 const Wrapper = styled.section`
-  position: relative;
-
-
   .ProgressHolder{
     display:flex;
     justify-content:center;
@@ -115,16 +112,11 @@ const Wrapper = styled.section`
     padding-top: 1%;
   }
 
-  color: var(--clr-primary-1);
-  a {
-    color: var(--clr-primary-3);
-    padding: 0.5rem;
-    transition: var(--transition);
+  .video-dekstop{
+    width:100%;
+    padding-right:0%;
+    margin-right:0%;
   }
-  a:hover {
-    color: var(--clr-primary-1);
-  }
-
   .video-mobile {
     display: none;
   }

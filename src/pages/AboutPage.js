@@ -60,6 +60,7 @@ padding-top:40px;
   right:10%;
   position:absolute;
   bottom:-200px;
+  object-fit:cover;
 }
 .AboutUsTextHolder{
   padding-left:5%;
@@ -71,10 +72,15 @@ padding-top:40px;
 .TitleText{
   font-size:150px;
   font-weight:1000;
-  color:white;
   position:absolute;
   top:-90px;
   left:2.5%;
+  background: url("https://cdn.pixabay.com/photo/2017/02/10/03/12/winter-2054297_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text; /* Corrected prefix */
+  color: transparent;
 }
 .Image{
   width:100%;
