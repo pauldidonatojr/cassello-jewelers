@@ -1,22 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import heroBcg from "../assets/hero-bcg-8.jpg";
-import heroBcg2 from "../assets/hero-bcg.jpg";
-import { FaSearch } from "react-icons/fa";
+
+import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
+import { motion } from 'framer-motion';
 
 import heroBcg3 from "../assets/hero-bcg-3.jpg";
 import heroBcgt from "../assets/hero-bcg-2.jpg";
 import heroBcg4 from "../assets/hero-bcg-4.jpg";
 import heroBcg5 from "../assets/hero-bcg-5.jpg";
-import heroBcg6 from "../assets/hero-bcg-6.jpg";
-import heroBcg7 from "../assets/hero-bcg-7.jpg";
 import heroBcg8 from "../assets/hero-bcg-8.jpg";
-import heroBcg9 from "../assets/hero-bcg-9.jpg";
-import heroBcg10 from "../assets/hero-bcg-10.jpg";
 
-import image_1 from "../assets/imag-2.jpeg";
 import image_2 from "../assets/image-3.jpg";
 import image_3 from "../assets/image-4.jpeg";
 import image_4 from "../assets/image-5.png";
@@ -28,6 +23,7 @@ import { Autoplay, Grid, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
+import { AllInbox } from "@mui/icons-material";
 
 const Hero = () => {
   const carouselTexts = [
@@ -36,44 +32,64 @@ const Hero = () => {
       content:
         "Welcome to Cassello Jewelers, your premier online destination for exclusive, handcrafted jewelry designs. We specialize in offering an extensive collection of high-quality, luxury pieces ranging from timeless classics to contemporary trends. Our curated selection of ethically-sourced diamonds, precious gemstones, and finely wrought gold and silver pieces ensures that there's something for everyone. ",
       image: image_2,
-      
     },
     {
       title: "Shaping Your Unique Sparkle",
       content:
         "Discover the magic of exquisite jewelry with Cassello Jewelers, your top-tier online store for unique and handcrafted jewelry masterpieces. We take pride in our wide array of top-notch luxury items that blend tradition and modernity. Our carefully chosen collection includes ethically mined diamonds, precious gems, and intricate gold and silver pieces.",
       image: heroBcg4,
-      
     },
     {
       title: "Where Precious Becomes Personal",
       content:
         "Whether you're searching for a stunning engagement ring, an elegant necklace, or personalized jewelry gifts, our expert team is dedicated to helping you discover the perfect piece. With a secure shopping experience, worldwide shipping, and top-notch customer service, Cassello Jewelers is your trusted jewelry partner for every occasion.",
       image: heroBcg5,
-      
     },
     {
       title: "Designing Your Personal Elegance",
       content:
         "From the perfect engagement ring to a memorable custom gift, our dedicated team will assist you in finding the right piece for your special moment. Experience the ease of secure shopping, international shipping, and outstanding customer service with Cassello Jewelers - your reliable partner for all jewelry needs.",
       image: image_3,
-      
     },
     {
       title: "Molding Your Precious Moments",
       content:
         "Seeking the ultimate engagement ring or a distinctive custom gift? Our committed team at Cassello Jewelers is here to help you pinpoint the perfect selection for your unique occasion. Benefit from our user-friendly online shopping platform, international delivery options, and superior customer care. Cassello Jewelers - your dependable source for all your jewelry desires.",
       image: heroBcg8,
-      
     },
     {
       title: "Sculpting Your Jewelry Dreams",
       content:
         "From the dreamiest engagement rings to personalized keepsake gifts, our devoted team at Cassello Jewelers stands ready to guide you towards your ideal piece. Enjoy seamless shopping, worldwide shipping, and unrivaled customer service as you embark on your jewelry journey. Choose Cassello Jewelers – your trusted ally in crafting unforgettable jewelry experiences.",
       image: image_4,
-      
     },
   ];
+  const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
+  const [loading3, setLoading3] = useState(true);
+  const [loading4, setLoading4] = useState(true);
+  const [allLoaded, setAllLoaded] = useState(false);
+
+  useEffect(() => {
+    // Check if all loading states are false
+    if (!loading && !loading2 && !loading3 && !loading4) {
+      setAllLoaded(true);
+    } else {
+      setAllLoaded(false);
+    }
+  }, [loading, loading2, loading3, loading4]);
+  function handleLoad() {
+    setLoading(false);
+  }
+  function handleLoad2() {
+    setLoading(false);
+  }
+  function handleLoad3() {
+    setLoading(false);
+  }
+  function handleLoad4() {
+    setLoading(false);
+  }
 
   return (
     <Wrapper>
@@ -100,8 +116,8 @@ const Hero = () => {
 
         <p className="overlay-text">Welcome to Cassello Jewellers</p>
         <Button variant="outlined" className="MoreTitle2">
-            Shop Now
-          </Button>
+          Shop Now
+        </Button>
       </div>
 
       <div className="desktop-version">
@@ -112,11 +128,42 @@ const Hero = () => {
           </Button>
         </Link>
 
-        <img className="Image1" src={heroBcg3} />
-        <img className="Image2" src={heroBcgt} />
-
-        <img className="Image3" src={heroBcg5} />
-        <img className="Image4" src={heroBcg4} />
+        {allLoaded && 
+          <div className="ProgressHolder">
+            <CircularProgress
+              style={{ height: 200, width: 200, color: "grey" }}
+            />
+          </div>
+         }
+          
+            <motion.img
+              className="Image1"
+              src={heroBcg3}
+              onLoad={handleLoad}
+              initial={{ opacity: 0 }} // Initial opacity value
+              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+              transition={{ duration: 1 }}
+            />
+            <motion.img className="Image2" 
+            src={heroBcgt} onLoad={handleLoad2}
+            initial={{ opacity: 0 }} // Initial opacity value
+              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+              transition={{ duration: 1 }}
+            />
+            <motion.img className="Image3"
+             style={{ opacity: allLoaded ? 0 : 1 }}
+            src={heroBcg5} onLoad={handleLoad3} 
+            initial={{ opacity: 0 }} // Initial opacity value
+              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+              transition={{ duration: 1 }}/>
+            <motion.img className="Image4"
+             style={{ opacity: allLoaded ? 0 : 1 }}
+            src={heroBcg4} onLoad={handleLoad4} 
+            initial={{ opacity: 0 }} // Initial opacity value
+              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+              transition={{ duration: 1 }}/>
+         
+        
       </div>
     </Wrapper>
   );
@@ -136,6 +183,13 @@ const Wrapper = styled.section`
     position: relative;
     background-color: reg(255, 255, 255, 0.1);
   }
+  .ProgressHolder {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .Image1 {
     background: none;
     height: 550px;
@@ -143,9 +197,12 @@ const Wrapper = styled.section`
     position: absolute;
     left: 3%;
     top: 10%;
-    // border-radius:7px;
     object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
+
   .Image2 {
     background: none;
     height: 250px;
@@ -155,6 +212,8 @@ const Wrapper = styled.section`
     top: 0%;
     // border-radius:0px 0px 7px 7px;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
   .Image3 {
     background: none;
@@ -166,6 +225,8 @@ const Wrapper = styled.section`
     // border-radius:0px 0px 7px 7px;
     object-fit: cover;
     z-index: 5;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
   .Image4 {
     background: none;
@@ -177,6 +238,8 @@ const Wrapper = styled.section`
     // border-radius:0px 0px 7px 7px;
     object-fit: cover;
     z-index: 5;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
   }
   .MoreTitle {
     text-align: center;
@@ -199,10 +262,10 @@ const Wrapper = styled.section`
     width: 180px;
     color: white;
     border: 4px solid rgb(0, 0, 0, 1);
-    position:absolute;
-    top:50%;
-    right:25%;
-    z-index:10;
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    z-index: 10;
   }
 
   .MoreTitle2:hover {
@@ -332,8 +395,8 @@ const Wrapper = styled.section`
       top: 15%;
       text-align: center;
     }
-    .MoreTitle2{
-      right:40%;
+    .MoreTitle2 {
+      right: 40%;
     }
   }
 `;
