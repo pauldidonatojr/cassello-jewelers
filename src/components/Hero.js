@@ -132,7 +132,7 @@ const Hero = () => {
         </Link>
         <Link to="AuctionPage">
           <Button variant="outlined" className="MoreTitle">
-            Our Auction
+            Auction Products
           </Button>
           
         </Link>
