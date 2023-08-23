@@ -19,7 +19,6 @@ import image_4 from "../assets/image-5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Grid, Pagination } from "swiper/modules";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
