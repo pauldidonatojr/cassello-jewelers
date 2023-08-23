@@ -122,12 +122,21 @@ const Hero = () => {
 
       <div className="desktop-version">
         <p className="desktopTitle">Welcome to Cassello Jewellers</p>
+      
+      <div className="ButtonHolder">
         <Link to="products">
           <Button variant="outlined" className="MoreTitle">
             Shop Now
           </Button>
+          
         </Link>
-
+        <Link to="AuctionPage">
+          <Button variant="outlined" className="MoreTitle">
+            Our Auction
+          </Button>
+          
+        </Link>
+        </div>
         {allLoaded && 
           <div className="ProgressHolder">
             <CircularProgress
@@ -140,27 +149,27 @@ const Hero = () => {
               className="Image1"
               src={heroBcg3}
               onLoad={handleLoad}
-              initial={{ opacity: 0 }} // Initial opacity value
-              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: loading ? 0 : 1 }} 
               transition={{ duration: 1 }}
             />
             <motion.img className="Image2" 
             src={heroBcgt} onLoad={handleLoad2}
-            initial={{ opacity: 0 }} // Initial opacity value
-              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+            initial={{ opacity: 0 }} 
+              animate={{ opacity: loading ? 0 : 1 }} 
               transition={{ duration: 1 }}
             />
             <motion.img className="Image3"
              style={{ opacity: allLoaded ? 0 : 1 }}
             src={heroBcg5} onLoad={handleLoad3} 
-            initial={{ opacity: 0 }} // Initial opacity value
-              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+            initial={{ opacity: 0 }} 
+              animate={{ opacity: loading ? 0 : 1 }} 
               transition={{ duration: 1 }}/>
             <motion.img className="Image4"
              style={{ opacity: allLoaded ? 0 : 1 }}
             src={heroBcg4} onLoad={handleLoad4} 
-            initial={{ opacity: 0 }} // Initial opacity value
-              animate={{ opacity: loading ? 0 : 1 }} // Target opacity value
+            initial={{ opacity: 0 }} 
+              animate={{ opacity: loading ? 0 : 1 }} 
               transition={{ duration: 1 }}/>
          
         
@@ -172,6 +181,13 @@ const Hero = () => {
 const Wrapper = styled.section`
   width: 100%;
   font-family: "Century Gothic", sans-serif;
+
+
+   .ButtonHolder{
+    display:flex;
+    justify-content:space-between;
+    width:22%;
+   }
 
   .desktop-version {
     height: 90vh;
