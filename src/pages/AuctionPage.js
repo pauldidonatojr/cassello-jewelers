@@ -10,84 +10,84 @@ import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import Grid from "@mui/material/Grid";
 
 const AuctionPage = () => {
-  return (
-    <Wrapper>
-      <Navbar />
+    return (
+        <Wrapper>
+            <Navbar />
 
-      <Grid container gap={2} className="CenteringDiv">
-        <Grid item lg={5} className="ImageGridItem">
-          <div className="ImageHolder">
-            <img src={heroBcg8} className="ActiveImage" />
-          </div>
-        </Grid>
-        
-        <Grid item lg={4} className="DetailGridItem">
-          <div>
-            <Grid container spacing={2}>
-              <Grid item lg={12}>
-                <div>
-                  <p className="ItemTitle">Eve's Necklace</p>
-                  <p className="MinimunBidText">Minimum bid <span style={{color:"#023535"}}>$ 100</span></p>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-                <div>
-                    <p className="DetailsTitle">Details</p>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-                <div>
-                    <p className="DetailsText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-                <div className="CollectionMain">
-                    <p className="CollectionTag">Collection</p>
-                    <div className="Collections">
-                    <div className="CollectionHolder">
-                        <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"}/>
-                        <p className="CollectionTitle">Cassello</p>
+            <Grid container gap={2} className="CenteringDiv">
+                <Grid item lg={5} className="ImageGridItem">
+                    <div className="ImageHolder">
+                        <img src={heroBcg8} className="ActiveImage" />
                     </div>
-                    <div className="CollectionHolder">
-                        <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"}/>
-                        <p className="CollectionTitle">Handmade</p>
+                </Grid>
+
+                <Grid item lg={4} className="DetailGridItem">
+                    <div>
+                        <Grid container spacing={2}>
+                            <Grid item lg={12}>
+                                <div>
+                                    <p className="ItemTitle">Eve's Necklace</p>
+                                    <p className="MinimunBidText">Minimum bid <span style={{ color: "#023535" }}>$ 100</span></p>
+                                </div>
+                            </Grid>
+                            <Grid item lg={12}>
+                                <div>
+                                    <p className="DetailsTitle">Details</p>
+                                </div>
+                            </Grid>
+                            <Grid item lg={12}>
+                                <div>
+                                    <p className="DetailsText">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                </div>
+                            </Grid>
+                            <Grid item lg={12}>
+                                <div className="CollectionMain">
+                                    <p className="CollectionTag">Collection</p>
+                                    <div className="Collections">
+                                        <div className="CollectionHolder">
+                                            <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
+                                            <p className="CollectionTitle">Cassello</p>
+                                        </div>
+                                        <div className="CollectionHolder">
+                                            <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
+                                            <p className="CollectionTitle">Handmade</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Grid>
+                            <Grid item lg={12}>
+
+                                <div className="MinimunTimeOuter">
+
+                                    <div className="MinimunTimeInner">
+                                        <p className="TitleMinimun">Minimun Bid</p>
+                                        <p className="SubTitleMinimun">$ 100</p>
+                                    </div>
+                                    <div className="MinimunTimeInner">
+                                        <p className="TitleMinimun">Time Left</p>
+                                        <p className="SubTitleMinimun">0 Days 5 Hours 15 Min 60 Sec</p>
+                                    </div>
+
+                                </div>
+
+                            </Grid>
+                            <Grid item lg={12}>
+                                <div>
+                                    <Button variant="outlined" className="BidButton">
+                                        Place a bid
+                                    </Button>
+                                </div>
+                            </Grid>
+                        </Grid>
                     </div>
-                    </div>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-
-                <div className="MinimunTimeOuter">
-                
-                <div className="MinimunTimeInner">
-        <p className="TitleMinimun">Minimun Bid</p>
-        <p className="SubTitleMinimun">$ 100</p>
-                </div>
-                <div className="MinimunTimeInner">
-        <p className="TitleMinimun">Time Left</p>
-        <p className="SubTitleMinimun">0 Days 5 Hours 15 Min 60 Sec</p>
-                </div>
-
-                </div>
-
-              </Grid>
-              <Grid item lg={12}>
-                <div>
-                <Button variant="outlined" className="BidButton">
-          Place a bid
-        </Button>
-                </div>
-              </Grid>
+                </Grid>
             </Grid>
-          </div>
-        </Grid>
-      </Grid>
-<p className="OnAuctionTitle">Products On Auction</p>
-      <ProductList/> 
-    </Wrapper>
-  );
+            <p className="OnAuctionTitle">Products On Auction</p>
+            <ProductList />
+        </Wrapper>
+    );
 };
 const Wrapper = styled.section`
 padding-bottom:5%;
@@ -97,6 +97,7 @@ padding-bottom:5%;
     text-align:center;
     font-size:45px;
     font-weight:bold;
+    margin-top: 200px;
 }
  .TitleMinimun{
     font-weight:700;
