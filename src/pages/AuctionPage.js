@@ -10,88 +10,87 @@ import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import Grid from "@mui/material/Grid";
 
 const AuctionPage = () => {
-    return (
-        <Wrapper>
-            <Navbar />
+  return (
+    <Wrapper>
+      <Navbar />
 
-            <Grid container gap={2} className="CenteringDiv">
-                <Grid item lg={5} className="ImageGridItem">
-                    <div className="ImageHolder">
-                        <img src={heroBcg8} className="ActiveImage" />
+      <Grid container gap={2} className="CenteringDiv">
+        <div className="ImageHolder">
+          <img src={heroBcg8} className="ActiveImage" />
+        </div>
+
+        <div className="ImageTopHolder">
+        </div>
+
+        <div className="DetailGridItem">
+          <div className="all-data">
+
+            <div className="ItemTitle">Eve's Necklace</div>
+            <div className="other-data">
+              <p className="MinimunBidText">Starting bid <span style={{ color: "#023535" }}>$ 100</span></p>
+
+              <Grid item lg={12}>
+                <div>
+                  <p className="DetailsTitle">Details</p>
+                </div>
+              </Grid>
+              <Grid item lg={12}>
+                <div>
+                  <p className="DetailsText">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </Grid>
+              <Grid item lg={12}>
+                <div className="CollectionMain">
+                  <p className="CollectionTag">Collection</p>
+                  <div className="Collections">
+                    <div className="CollectionHolder">
+                      <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
+                      <p className="CollectionTitle">Cassello</p>
                     </div>
-                </Grid>
-
-                <Grid item lg={4} className="DetailGridItem">
-                    <div>
-                        <Grid container spacing={2}>
-                            <Grid item lg={12}>
-                                <div>
-                                    <p className="ItemTitle">Eve's Necklace</p>
-                                    <p className="MinimunBidText">Minimum bid <span style={{ color: "#023535" }}>$ 100</span></p>
-                                </div>
-                            </Grid>
-                            <Grid item lg={12}>
-                                <div>
-                                    <p className="DetailsTitle">Details</p>
-                                </div>
-                            </Grid>
-                            <Grid item lg={12}>
-                                <div>
-                                    <p className="DetailsText">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                </div>
-                            </Grid>
-                            <Grid item lg={12}>
-                                <div className="CollectionMain">
-                                    <p className="CollectionTag">Collection</p>
-                                    <div className="Collections">
-                                        <div className="CollectionHolder">
-                                            <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
-                                            <p className="CollectionTitle">Cassello</p>
-                                        </div>
-                                        <div className="CollectionHolder">
-                                            <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
-                                            <p className="CollectionTitle">Handmade</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Grid>
-                            <Grid item lg={12}>
-
-                                <div className="MinimunTimeOuter">
-
-                                    <div className="MinimunTimeInner">
-                                        <p className="TitleMinimun">Minimun Bid</p>
-                                        <p className="SubTitleMinimun">$ 100</p>
-                                    </div>
-                                    <div className="MinimunTimeInner">
-                                        <p className="TitleMinimun">Time Left</p>
-                                        <p className="SubTitleMinimun">0 Days 5 Hours 15 Min 60 Sec</p>
-                                    </div>
-
-                                </div>
-
-                            </Grid>
-                            <Grid item lg={12}>
-                                <div>
-                                    <Button variant="outlined" className="BidButton">
-                                        Place a bid
-                                    </Button>
-                                </div>
-                            </Grid>
-                        </Grid>
+                    <div className="CollectionHolder">
+                      <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
+                      <p className="CollectionTitle">Handmade</p>
                     </div>
-                </Grid>
-            </Grid>
-            <p className="OnAuctionTitle">Products On Auction</p>
-            <ProductList />
-        </Wrapper>
-    );
+                  </div>
+                </div>
+              </Grid>
+              <Grid item lg={12}>
+
+                <div className="MinimunTimeOuter">
+
+                  <div className="MinimunTimeInner">
+                    <p className="TitleMinimun">Minimun Bid</p>
+                    <p className="SubTitleMinimun">$ 100</p>
+                  </div>
+                  <div className="MinimunTimeInner">
+                    <p className="TitleMinimun">Time Left</p>
+                    <p className="SubTitleMinimun">0 Days 5 Hours 15 Min 60 Sec</p>
+                  </div>
+
+                </div>
+
+              </Grid>
+              <Grid item lg={12}>
+                <div>
+                  <Button variant="outlined" className="BidButton">
+                    Place a bid
+                  </Button>
+                </div>
+              </Grid>
+            </div>
+          </div>
+        </div>
+      </Grid>
+      <p className="OnAuctionTitle">Products On Auction</p>
+      <ProductList />
+    </Wrapper>
+  );
 };
 const Wrapper = styled.section`
 padding-bottom:5%;
-  background-color: #eeeeee;
+background-color: #eeeeee;
 
 .OnAuctionTitle{
     text-align:center;
@@ -182,14 +181,20 @@ padding-bottom:5%;
 
   }
   .DetailGridItem{
-    height:80%;
+    height:100%;
+    z-index: 20;
   }
 
   .ItemTitle {
     font-size: 50px;
     margin-top:0px;
+    width: 100%;
     font-weight: bold;
     color: grey;
+    justify-content: center;
+    display: grid;
+    place-content: center;
+    z-index: 20;
   }
   .MinimunBidText {
     font-size: 18px;
@@ -207,10 +212,33 @@ padding-bottom:5%;
   .ActiveImage {
     height: 100%;
     width: 100%;
+    
+    object-fit: cover;
     border-radius:10px;
   }
   .ImageHolder{
-    height:100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .ImageTopHolder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .other-data{
+    display: grid;
+  }
+
+  .all-data{
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
   
 `;

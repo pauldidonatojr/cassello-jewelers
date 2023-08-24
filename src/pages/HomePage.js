@@ -10,6 +10,7 @@ import "../Scrollbar.css";
 import Reviews from "../components/Review";
 import CaselloImg from "../assets/Cassello.jpeg";
 import { AnimatePresence } from "framer-motion";
+import Sale from '../assets/sale.png';
 import {
   RecoilRoot,
   atom,
@@ -181,11 +182,21 @@ const HomePage = () => {
       <main style={{ backgroundColor: "#eeeeee" }}>
         <Navbar />
         <Hero />
+        <div style={{ width: '100%', height: '100px', backgroundColor: '#272626', marginTop: '10%', display: 'grid', justifyContent: 'center', verticalAlign: 'center', placeContent: 'center' }}>
+          <motion.h1
+            style={{ color: 'white' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 2 }}
+          >
+            10% Off
+          </motion.h1>
+        </div>
         <Services />
         <FeaturedProducts />
-       <ServicesReverse />
-        <Reviews/> 
-          
+        <ServicesReverse />
+        <Reviews />
+
       </main>
     );
   }

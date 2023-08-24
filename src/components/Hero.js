@@ -117,61 +117,68 @@ const Hero = () => {
         <Button variant="outlined" className="MoreTitle2">
           Shop Now
         </Button>
-      </div>
 
-      <div className="desktop-version">
-        <p className="desktopTitle">Welcome to Cassello Jewellers</p>
-      
-      <div className="ButtonHolder">
-        <Link to="products">
-          <Button variant="outlined" className="MoreTitle">
-            Shop Now
-          </Button>
-          
-        </Link>
         <Link to="AuctionPage">
           <Button variant="outlined" className="MoreTitle">
             Auction Products
           </Button>
-          
+
         </Link>
+      </div>
+
+      <div className="desktop-version">
+        <p className="desktopTitle">Welcome to Cassello Jewellers</p>
+
+        <div className="ButtonHolder">
+          <Link to="products">
+            <Button variant="outlined" className="MoreTitle">
+              Shop Now
+            </Button>
+
+          </Link>
+          <Link to="AuctionPage">
+            <Button variant="outlined" className="MoreTitle">
+              Auction Products
+            </Button>
+
+          </Link>
         </div>
-        {allLoaded && 
+        {allLoaded &&
           <div className="ProgressHolder">
             <CircularProgress
               style={{ height: 200, width: 200, color: "grey" }}
             />
           </div>
-         }
-          
-            <motion.img
-              className="Image1"
-              src={heroBcg3}
-              onLoad={handleLoad}
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: loading ? 0 : 1 }} 
-              transition={{ duration: 1 }}
-            />
-            <motion.img className="Image2" 
-            src={heroBcgt} onLoad={handleLoad2}
-            initial={{ opacity: 0 }} 
-              animate={{ opacity: loading ? 0 : 1 }} 
-              transition={{ duration: 1 }}
-            />
-            <motion.img className="Image3"
-             style={{ opacity: allLoaded ? 0 : 1 }}
-            src={heroBcg5} onLoad={handleLoad3} 
-            initial={{ opacity: 0 }} 
-              animate={{ opacity: loading ? 0 : 1 }} 
-              transition={{ duration: 1 }}/>
-            <motion.img className="Image4"
-             style={{ opacity: allLoaded ? 0 : 1 }}
-            src={heroBcg4} onLoad={handleLoad4} 
-            initial={{ opacity: 0 }} 
-              animate={{ opacity: loading ? 0 : 1 }} 
-              transition={{ duration: 1 }}/>
-         
-        
+        }
+
+        <motion.img
+          className="Image1"
+          src={heroBcg3}
+          onLoad={handleLoad}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0 : 1 }}
+          transition={{ duration: 1 }}
+        />
+        <motion.img className="Image2"
+          src={heroBcgt} onLoad={handleLoad2}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0 : 1 }}
+          transition={{ duration: 1 }}
+        />
+        <motion.img className="Image3"
+          style={{ opacity: allLoaded ? 0 : 1 }}
+          src={heroBcg5} onLoad={handleLoad3}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0 : 1 }}
+          transition={{ duration: 1 }} />
+        <motion.img className="Image4"
+          style={{ opacity: allLoaded ? 0 : 1 }}
+          src={heroBcg4} onLoad={handleLoad4}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0 : 1 }}
+          transition={{ duration: 1 }} />
+
+
       </div>
     </Wrapper>
   );
