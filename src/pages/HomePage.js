@@ -10,6 +10,7 @@ import "../Scrollbar.css";
 import Reviews from "../components/Review";
 import CaselloImg from "../assets/Cassello.jpeg";
 import { AnimatePresence } from "framer-motion";
+import Button from "@mui/material/Button";
 import Sale from '../assets/sale.png';
 import {
   RecoilRoot,
@@ -189,7 +190,7 @@ const HomePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2 }}
           >
-            10% Off
+            Clearence Sale Upto 20% OFF!
           </motion.h1>
         </div>
         <Services />
