@@ -119,7 +119,7 @@ const Hero = () => {
         </Button>
 
         <Link to="AuctionPage">
-          <Button variant="outlined" className="MoreTitle">
+          <Button variant="outlined" className="MoreTitle3">
             Auction Products
           </Button>
 
@@ -285,7 +285,19 @@ const Wrapper = styled.section`
     color: white;
     border: 4px solid rgb(0, 0, 0, 1);
     position: absolute;
-    top: 50%;
+    top: 40%;
+    right: 25%;
+    z-index: 10;
+  }
+  .MoreTitle3 {
+    text-align: center;
+    font-size: 13px;
+    height: 60px;
+    width: 180px;
+    color: white;
+    border: 4px solid rgb(0, 0, 0, 1);
+    position: absolute;
+    top: 60%;
     right: 25%;
     z-index: 10;
   }

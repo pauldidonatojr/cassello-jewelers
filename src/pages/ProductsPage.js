@@ -44,7 +44,7 @@ const ProductsPage = () => {
       <Grid item lg={12}>
         <div className="TopAuctionBanner">
               <div className="AuctionHolder">
-              <p className="AuctionTitle">Clearence Sale with 20% OFF!</p>
+              <p className="AuctionTitle">Clearence Sale Upto 20% OFF!</p>
               <Button variant="outlined" className="MoreTitleTop" >
           Check Out Now
         </Button>
@@ -236,11 +236,13 @@ const Wrapper = styled.div`
     .OlderVersion{
       display:unset;
     }
-    .TopAuctionBanner{
+    .TopAuctionBanner
+    {
       margin-top:80px;
       height:100%;
     }
-    .AuctionHolder{
+    .AuctionHolder
+    {
       height:30vh;
       width:75%;
       padding:5%;
@@ -250,15 +252,15 @@ const Wrapper = styled.div`
       align-items:center;
       background-color:black;
      }
-     }
+     
      .MoreTitle{
       width:75%;
      }
      .AuctionTitle{
       font-size:35px;
      }
-   
   }
+  
   @media (min-width: 800px) and (max-width: 950px) {
     .products {
       display: flex;
@@ -287,8 +289,7 @@ const Wrapper = styled.div`
      .MoreTitle{
       width:50%;
      }
-     
-  }
+    
 `;
 
 export default ProductsPage;
