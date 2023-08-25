@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Navbar } from "../components";
 import Button from "@mui/material/Button";
-// import ProductList from "../components";
 import { Filters, ProductList, Sort, PageHero } from "../components";
 
 import heroBcg8 from "../assets/hero-bcg-8.jpg";
@@ -14,232 +12,139 @@ const AuctionPage = () => {
     <Wrapper>
       <Navbar />
 
-      <Grid container gap={2} className="CenteringDiv">
-        <div className="ImageHolder">
-          <img src={heroBcg8} className="ActiveImage" />
-        </div>
+      <Card>
+        <CardContent>
+          <CardImage src={heroBcg8} alt="Auction Product" />
+          <AuctionDetails>
+            <Price>Premium Diamond Ring Exclusively On Auction</Price>
+            <CountdownTimer>
+              <TimerLabel>Time Remaining:</TimerLabel>
+              <TimerValue>01:23:45</TimerValue>
+            </CountdownTimer>
+            <Price>$500</Price>
 
-        <div className="ImageTopHolder">
-        </div>
+            <BidButton>
+              <Button className='b1' variant="contained" color="primary">Checkout Item</Button>
+              <Button className='b1' variant="contained" color="primary">LOGIN TO BID</Button>
+            </BidButton>
+          </AuctionDetails>
+        </CardContent>
+      </Card>
 
-        <div className="DetailGridItem">
-          <div className="all-data">
-
-            <div className="ItemTitle">Eve's Necklace</div>
-            <div className="other-data">
-              <p className="MinimunBidText">Starting bid <span style={{ color: "#023535" }}>$ 100</span></p>
-
-              <Grid item lg={12}>
-                <div>
-                  <p className="DetailsTitle">Details</p>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-                <div>
-                  <p className="DetailsText">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-                <div className="CollectionMain">
-                  <p className="CollectionTag">Collection</p>
-                  <div className="Collections">
-                    <div className="CollectionHolder">
-                      <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
-                      <p className="CollectionTitle">Cassello</p>
-                    </div>
-                    <div className="CollectionHolder">
-                      <img className="CollectionImage" src={"https://img.freepik.com/premium-photo/metal-corroded-texture-background_136401-1872.jpg?w=900"} />
-                      <p className="CollectionTitle">Handmade</p>
-                    </div>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item lg={12}>
-
-                <div className="MinimunTimeOuter">
-
-                  <div className="MinimunTimeInner">
-                    <p className="TitleMinimun">Minimun Bid</p>
-                    <p className="SubTitleMinimun">$ 100</p>
-                  </div>
-                  <div className="MinimunTimeInner">
-                    <p className="TitleMinimun">Time Left</p>
-                    <p className="SubTitleMinimun">0 Days 5 Hours 15 Min 60 Sec</p>
-                  </div>
-
-                </div>
-
-              </Grid>
-              <Grid item lg={12}>
-                <div>
-                  <Button variant="outlined" className="BidButton">
-                    Place a bid
-                  </Button>
-                </div>
-              </Grid>
-            </div>
-          </div>
-        </div>
-      </Grid>
       <p className="OnAuctionTitle">Products On Auction</p>
-      <ProductList />
+      <div style={{ padding: "2rem" }}>
+        <ProductList />
+      </div>
     </Wrapper>
   );
 };
+
 const Wrapper = styled.section`
-padding-bottom:5%;
-background-color: #eeeeee;
+  padding-bottom: 5%;
+  background-color: #eeeeee;
 
-.OnAuctionTitle{
-    text-align:center;
-    font-size:45px;
-    font-weight:bold;
-    margin-top: 200px;
-}
- .TitleMinimun{
-    font-weight:700;
-    font-size:20px;
-    margin-bottom:5px;
-    opacity:0.60;
- }
-
- .SubTitleMinimun{
-    font-weight:700;
-    font-size:22px;
-    margin-bottom:5px;
- }
-
-  .MinimunTimeOuter{
-
-    display:flex;
-  }
-  .MinimunTimeInner{
-    padding-left:5%;
-  }
-
-  .CollectionMain{
-  }
-  .CollectionImage{
-    height:30px;
-    width:30px;
-    border-radius:50%;
-  }
-  .BidButton{
-    width:75%;
-    height:55px;
-    border-radius:10px;
-    background-color:#272626;
-    color:white;
-    font-weight:800;
-  }
-  .BidButton:hover{
-    background-color:white;
-    color:#272626;
-    border:none;
-    outline:none;
-  }
-  .CollectionHolder{
-    padding-left:2.5%;
-    margin-top:0%;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    align-content:center;
-  }
-  .CollectionTag{
-    font-size:18px;
-    font-weight:700;
-    margin-top:0%;
-    margin-bottom:0%;
-  }
-  .Collections{
-    display:flex;
-  }
-
-  .CollectionTitle{
-    padding-top:17px;
-    padding-left:2%;
-    font-weight:700;
-  }
-
-  .DetailsTitle{
-    font-size:18px;
-    font-weight:700;
-    margin-top:0%;
-    margin-bottom:0%;
-  }
-  .DetailsText{
-    font-size:17px;
-    margin-top:0%;
-    margin-bottom:0%;
-  }
-
-  .ImageGridItem{
-    height:80%;
-
-  }
-  .DetailGridItem{
-    height:100%;
-    z-index: 20;
-  }
-
-  .ItemTitle {
-    font-size: 50px;
-    margin-top:0px;
-    width: 100%;
+  .OnAuctionTitle {
+    text-align: center;
+    font-size: 45px;
     font-weight: bold;
-    color: grey;
-    justify-content: center;
-    display: grid;
-    place-content: center;
-    z-index: 20;
+    margin-top: 100px;
   }
-  .MinimunBidText {
-    font-size: 18px;
-    font-weight: 700;
-    color:#97A6A0;
-  }
-  .CenteringDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    padding-bottom:2.5%;
-  }
-  .ActiveImage {
-    height: 100%;
-    width: 100%;
-    
-    object-fit: cover;
-    border-radius:10px;
-  }
-  .ImageHolder{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  .ImageTopHolder{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: black;
-    opacity: 0.7;
-    z-index: 1;
-  }
-
-  .other-data{
-    display: grid;
-  }
-
-  .all-data{
-    width: 100%;
-    height: 100%;
-    display: flex;
-  }
-  
 `;
+
+const Card = styled.div`
+font-family: "Century Gothic", sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #272626;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+`;
+
+const CardContent = styled.div`
+font-family: "Century Gothic", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  
+  @media (max-width: 767px) {
+    display: grid;
+  }
+`;
+
+const CardImage = styled.img`
+  width: 40%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const AuctionDetails = styled.div`
+font-family: "Century Gothic", sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 20px;
+`;
+
+const CountdownTimer = styled.div`
+font-family: "Century Gothic", sans-serif;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+const TimerLabel = styled.p`
+font-family: "Century Gothic", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: white;
+`;
+
+const TimerValue = styled.p`
+font-family: "Century Gothic", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+`;
+
+const Price = styled.p`
+font-family: "Century Gothic", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #A6705D;
+`;
+
+const BidButton = styled.div`
+font-family: "Century Gothic", sans-serif;
+width: 100%;
+.b1{
+  width: 40%;
+  margin-left: 5%;
+  background-color:#A6705D;
+  &:hover{
+    background-color: black;
+  }
+}
+
+@media (max-width: 767px) {
+  .b1{
+      width: 95%;
+      margin-left: 0%;
+      margin-top: 5%;
+      background-color:#A6705D;
+      &:hover{
+        background-color: black;
+      }
+    }
+  }
+`;
+
 export default AuctionPage;
