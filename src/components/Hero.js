@@ -420,6 +420,7 @@ const Wrapper = styled.section`
     z-index: 10;
     font-weight: 1000;
     width: 100%;
+    display: none;
   }
   .overlay-text2 {
     position: absolute;
@@ -455,6 +456,7 @@ const Wrapper = styled.section`
       top: 60%;
       height: 65%;
       font-weight: 700;
+      
     }
     .overlay-text {
       font-weight: 1000;
@@ -468,6 +470,7 @@ const Wrapper = styled.section`
       transform: translate(0%, 0%);
       padding: 0px;
       vertical-align: middle;
+      display: unset;
     }
   }
   @media (min-width: 800px) and (max-width: 950px) {

@@ -15,6 +15,8 @@ const TickerWrapper = styled.div`
     display: inline-block;
     white-space: nowrap;
     animation: slide-left 60s linear infinite; /* Updated animation duration */
+    vertical-align: middle;
+    text-align: center;
   }
 
   .ticker-item {

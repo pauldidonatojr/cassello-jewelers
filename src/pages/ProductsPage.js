@@ -5,102 +5,102 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import JewelImage from "../assets/imag-2.jpeg";
 
-import { Filters, ProductList, Sort ,PageHero} from "../components";
+import { Filters, ProductList, Sort, PageHero } from "../components";
 const ProductsPage = () => {
   return (
     <>
-    <Wrapper>
-    <main className="OlderVersion">
-      <Navbar />
+      <Wrapper>
+        <main className="OlderVersion">
+          <Navbar />
 
-      <div className="TopAuctionBanner">
-              <div className="AuctionHolder">
+          <div className="TopAuctionBanner">
+            <div className="AuctionHolder">
               <p className="AuctionTitle">Join the Auction Action Now!</p>
               <Button variant="outlined" className="MoreTitle" >
-          Place a bid
-        </Button>
+                Place a bid
+              </Button>
 
-              </div>
-              </div>
-
-      <Wrapper className="page">
-        {/* <PageHero title='products' /> */}
-        <div className="section-center products">
-          <Filters />
-          
-          <div>
-            <Sort />
-            <ProductList />
+            </div>
           </div>
-        </div>
+
+          <Wrapper className="page">
+            {/* <PageHero title='products' /> */}
+            <div className="section-center products">
+              <Filters />
+
+              <div>
+                <Sort />
+                <ProductList />
+              </div>
+            </div>
+          </Wrapper>
+        </main>
       </Wrapper>
-    </main>
-    </Wrapper>
 
-    <Wrapper  >
-      <div className="NewVersion">
-      <Navbar />
-      <Grid container gap={1} className="CenteringDiv">
-      <Grid item lg={12}>
-        <div className="TopAuctionBanner">
-              <div className="AuctionHolder">
-              <p className="AuctionTitle">Clearence Sale Upto 20% OFF!</p>
-              <Button variant="outlined" className="MoreTitleTop" >
-          Check Out Now
-        </Button>
-        <div className="LightLeffect"/>
-
-              </div>
-              </div>
-      </Grid>
-      
-        <Grid item lg={2}>
-         
-          <Filters />
-        </Grid>
-        <Grid item lg={7}>
+      <Wrapper  >
+        <div className="NewVersion">
+          <Navbar />
           <Grid container gap={1} className="CenteringDiv">
             <Grid item lg={12}>
-              <div>
-              <Sort />
+              <div className="TopAuctionBanner">
+                <div className="AuctionHolder">
+                  <p className="AuctionTitle">Clearence Sale Upto 20% OFF!</p>
+                  <Button variant="outlined" className="MoreTitleTop" >
+                    Check Out Now
+                  </Button>
+                  <div className="LightLeffect" />
+
+                </div>
               </div>
             </Grid>
-            <Grid item lg={12}>
-              <div >
-              <ProductList />
-              </div>
+
+            <Grid item lg={2}>
+
+              <Filters />
             </Grid>
+            <Grid item lg={7}>
+              <Grid container gap={1} className="CenteringDiv">
+                <Grid item lg={12}>
+                  <div>
+                    <Sort />
+                  </div>
+                </Grid>
+                <Grid item lg={12}>
+                  <div >
+                    <ProductList />
+                  </div>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item lg={2}>
+
+              <div className="AuctioBanner">
+                {/* <img src={"https://images.unsplash.com/photo-1503480207415-fdddcc21d5fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"} className="BannerImage" /> */}
+
+                <p className="AuctionTitle">Join the Auction Action Now!</p>
+
+                <div className="ImageHolder">
+                  <img src={JewelImage} className="Image1" />
+                  <img src={JewelImage} className="Image2" />
+                </div>
+                <div className="ImageHolder">
+                  <img src={JewelImage} className="Image1" />
+                  <img src={JewelImage} className="Image2" />
+                </div>
+
+                <Button variant="outlined" className="MoreTitle2" >
+                  Place a bid
+                </Button>
+
+
+              </div>
+
+            </Grid>
+
+
           </Grid>
-        </Grid>
-        <Grid item lg={2}>
-          
-          <div className="AuctioBanner">
-          {/* <img src={"https://images.unsplash.com/photo-1503480207415-fdddcc21d5fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"} className="BannerImage" /> */}
-          
-          <p className="AuctionTitle">Join the Auction Action Now!</p>
-
-          <div className="ImageHolder">
-          <img src={JewelImage} className="Image1"/>
-          <img src={JewelImage} className="Image2"/>
-          </div>
-          <div className="ImageHolder">
-          <img src={JewelImage} className="Image1"/>
-          <img src={JewelImage} className="Image2"/>
-          </div>
-
-          <Button variant="outlined" className="MoreTitle2" >
-          Place a bid
-        </Button>
-
-
-          </div>
-
-        </Grid>
-        
-      
-      </Grid>
-      </div>
-    </Wrapper>
+        </div>
+      </Wrapper>
     </>
   );
 };
