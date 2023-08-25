@@ -8,6 +8,27 @@ import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import Grid from "@mui/material/Grid";
 
 const AuctionPage = () => {
+
+  const [remainingTime, setRemainingTime] = useState(5025); 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setRemainingTime((prevTime) => prevTime - 1);
+    }, 1000); 
+
+    return () => clearInterval(intervalId); 
+  }, []);
+
+  const formatTime = (timeInSeconds) => {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+
   return (
     <Wrapper>
       <Navbar />
@@ -19,7 +40,7 @@ const AuctionPage = () => {
             <Price>Premium Diamond Ring</Price>
             <CountdownTimer>
               <TimerLabel>Time Remaining:</TimerLabel>
-              <TimerValue>01:23:45</TimerValue>
+              <TimerValue>{formatTime(remainingTime)}</TimerValue>
             </CountdownTimer>
             <Price>$500</Price>
 
