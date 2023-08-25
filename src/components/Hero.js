@@ -113,18 +113,31 @@ const Hero = () => {
           ))}
         </Swiper>
 
-        <p className="overlay-text">Welcome to Cassello Jewellers</p>
-        <Button variant="outlined" className="MoreTitle2">
-          Shop Now
-        </Button>
+        <div className="overlay-text">Welcome to Cassello Jewellers</div>
 
-        <Link to="AuctionPage">
-          <Button variant="outlined" className="MoreTitle3">
-            Auction Products
-          </Button>
 
-        </Link>
+
       </div>
+
+
+
+
+      <ButtonsHolder2>
+        <Link to="products" className="link-holder">
+          <Button variant="outlined" className="b1">
+            Shop Now
+          </Button>
+        </Link>
+      </ButtonsHolder2>
+
+
+      <ButtonsHolder>
+        <Link to="AuctionPage" className="link-holder">
+          <Button variant="outlined" className="b1">
+            Check Auction Listings
+          </Button>
+        </Link>
+      </ButtonsHolder>
 
       <div className="desktop-version">
         <p className="desktopTitle">Welcome to Cassello Jewellers</p>
@@ -183,6 +196,58 @@ const Hero = () => {
     </Wrapper>
   );
 };
+
+
+const ButtonsHolder = styled.div`
+display: none;
+@media (max-width: 767px) {
+  display: grid;
+  height: 100px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 1rem;
+
+  .link-holder{
+    width: 100%;
+    height: 100%;
+  }
+
+  .b1{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    border: 4px solid rgb(0, 0, 0, 1);
+  }
+}
+`;
+
+const ButtonsHolder2 = styled.div`
+display: none;
+@media (max-width: 767px) {
+  display: grid;
+  height: 100px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 1rem;
+
+
+  .link-holder{
+    width: 100%;
+    height: 100%;
+  }
+
+  .b1{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    border: 4px solid rgb(0, 0, 0, 1);
+  }
+}
+`;
 
 const Wrapper = styled.section`
   width: 100%;
@@ -284,10 +349,9 @@ const Wrapper = styled.section`
     width: 180px;
     color: white;
     border: 4px solid rgb(0, 0, 0, 1);
-    position: absolute;
-    top: 40%;
-    right: 25%;
+    position: relative;
     z-index: 10;
+    background-color: brown;
   }
   .MoreTitle3 {
     text-align: center;
@@ -296,17 +360,13 @@ const Wrapper = styled.section`
     width: 180px;
     color: white;
     border: 4px solid rgb(0, 0, 0, 1);
-    position: absolute;
+    position: relative;
     top: 60%;
     right: 25%;
     z-index: 10;
   }
 
-  .MoreTitle2:hover {
-    background-color: black;
-    border: none;
-    color: white;
-  }
+  
 
   .desktopTitle {
     font-size: 60px;
@@ -364,6 +424,7 @@ const Wrapper = styled.section`
     border-radius: 5px;
     z-index: 10;
     font-weight: 1000;
+    width: 100%;
   }
   .overlay-text2 {
     position: absolute;
@@ -402,10 +463,16 @@ const Wrapper = styled.section`
     }
     .overlay-text {
       font-weight: 1000;
-      font-size: 150%;
-      width: 95%;
-      top: 15%;
+      font-size: 2rem;
+      width: 100%;
+      height: 100px;
+      top: 40%;
       text-align: center;
+      position: absolute;
+      left: 0;
+      transform: translate(0%, 0%);
+      padding: 0px;
+      vertical-align: middle;
     }
   }
   @media (min-width: 800px) and (max-width: 950px) {
@@ -429,9 +496,7 @@ const Wrapper = styled.section`
       top: 15%;
       text-align: center;
     }
-    .MoreTitle2 {
-      right: 40%;
-    }
+    
   }
 `;
 

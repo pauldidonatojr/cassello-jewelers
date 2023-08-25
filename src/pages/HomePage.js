@@ -228,6 +228,7 @@ const HomePage = () => {
 
 export default HomePage;
 
+
 const Wrapper = styled.div`
   font-family: cursive;
   width: 100%;
