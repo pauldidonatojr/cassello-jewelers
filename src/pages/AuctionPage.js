@@ -78,7 +78,7 @@ font-family: "Century Gothic", sans-serif;
   font-size: 28px;
   margin-top: 40px;
   @media (max-width: 767px) {
-    margin-top: 90px;
+    display: none;
   }
 `;
 
@@ -90,6 +90,9 @@ const Card = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  @media (max-width: 767px) {
+    margin-top: 100px;
+  }
 `;
 
 const CardContent = styled.div`
