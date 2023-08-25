@@ -92,6 +92,9 @@ const Hero = () => {
 
   return (
     <Wrapper>
+
+      <div className="overlay-text">Welcome to Cassello Jewellers</div>
+
       <div className="swiper-container">
         <Swiper
           slidesPerView={3}
@@ -112,11 +115,6 @@ const Hero = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        <div className="overlay-text">Welcome to Cassello Jewellers</div>
-
-
-
       </div>
 
 
@@ -415,12 +413,9 @@ const Wrapper = styled.section`
 
   .overlay-text {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-size: 50px;
     color: #222831;
     background-color: rgba(238, 238, 238, 0.5);
-    padding: 10px;
     border-radius: 5px;
     z-index: 10;
     font-weight: 1000;
