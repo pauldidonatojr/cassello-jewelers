@@ -9,13 +9,13 @@ import Grid from "@mui/material/Grid";
 
 const AuctionPage = () => {
 
-  const [remainingTime, setRemainingTime] = useState(5025); 
+  const [remainingTime, setRemainingTime] = useState(5025);
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 1);
-    }, 1000); 
+    }, 1000);
 
-    return () => clearInterval(intervalId); 
+    return () => clearInterval(intervalId);
   }, []);
 
   const formatTime = (timeInSeconds) => {
@@ -30,33 +30,35 @@ const AuctionPage = () => {
 
 
   return (
-    <Wrapper>
+    <div style={{backgroundColor:'#eeeeee'}}>
       <Navbar />
-      <AuctionTitle>Exclusively Available on Auction</AuctionTitle>
-      <Card>
-        <CardContent>
-          <CardImage src={heroBcg8} alt="Auction Product" />
-          <AuctionDetails>
-            <Price>Premium Diamond Ring</Price>
-            <CountdownTimer>
-              <TimerLabel>Time Remaining:</TimerLabel>
-              <TimerValue>{formatTime(remainingTime)}</TimerValue>
-            </CountdownTimer>
-            <Price>$500</Price>
+      <Wrapper>
+        <AuctionTitle>Exclusively Available on Auction</AuctionTitle>
+        <Card>
+          <CardContent>
+            <CardImage src={heroBcg8} alt="Auction Product" />
+            <AuctionDetails>
+              <Price>Premium Diamond Ring</Price>
+              <CountdownTimer>
+                <TimerLabel>Time Remaining:</TimerLabel>
+                <TimerValue>{formatTime(remainingTime)}</TimerValue>
+              </CountdownTimer>
+              <Price>$500</Price>
 
-            <BidButton>
-              <Button className='b1' variant="contained" color="primary">Checkout Item</Button>
-              <Button className='b1' variant="contained" color="primary">LOGIN TO BID</Button>
-            </BidButton>
-          </AuctionDetails>
-        </CardContent>
-      </Card>
+              <BidButton>
+                <Button className='b1' variant="contained" color="primary">Checkout Item</Button>
+                <Button className='b1' variant="contained" color="primary">LOGIN TO BID</Button>
+              </BidButton>
+            </AuctionDetails>
+          </CardContent>
+        </Card>
 
-      <p className="OnAuctionTitle">Products On Auction</p>
-      <div style={{ padding: "2rem" }}>
-        <ProductList />
-      </div>
-    </Wrapper>
+        <p className="OnAuctionTitle">Products On Auction</p>
+        <div style={{ padding: "2rem" }}>
+          <ProductList />
+        </div>
+      </Wrapper>
+    </div>
   );
 };
 
@@ -73,6 +75,7 @@ const Wrapper = styled.section`
 `;
 
 const AuctionTitle = styled.h2`
+background: #eeeeee;
 font-family: "Century Gothic", sans-serif;
   text-align: center;
   font-size: 28px;

@@ -9,14 +9,15 @@ import { Filters, ProductList, Sort, PageHero } from "../components";
 const ProductsPage = () => {
   return (
     <>
+      <Navbar/>
       <Wrapper>
         <main className="OlderVersion">
-          <Navbar />
+
 
           <div className="TopAuctionBanner">
             <div className="AuctionHolder">
               <p className="AuctionTitle">Join the Auction Action Now!</p>
-              <Button variant="outlined" className="MoreTitle" >
+              <Button variant="outlined" className="MoreTitle2" >
                 Place a bid
               </Button>
 
@@ -26,8 +27,11 @@ const ProductsPage = () => {
           <Wrapper className="page">
             {/* <PageHero title='products' /> */}
             <div className="section-center products">
-              <Filters />
 
+
+              <div style={{ marginTop: '50px' }}>
+                <Filters />
+              </div>
               <div>
                 <Sort />
                 <ProductList />
@@ -39,13 +43,12 @@ const ProductsPage = () => {
 
       <Wrapper  >
         <div className="NewVersion">
-          <Navbar />
           <Grid container gap={1} className="CenteringDiv">
             <Grid item lg={12}>
               <div className="TopAuctionBanner">
                 <div className="AuctionHolder">
                   <p className="AuctionTitle">Clearence Sale Upto 20% OFF!</p>
-                  <Button variant="outlined" className="MoreTitleTop" >
+                  <Button variant="outlined" className="MoreTitle2" >
                     Check Out Now
                   </Button>
                   <div className="LightLeffect" />
@@ -56,12 +59,14 @@ const ProductsPage = () => {
 
             <Grid item lg={2}>
 
-              <Filters />
+              <div style={{ marginTop: '50px' }}>
+                <Filters />
+              </div>
             </Grid>
             <Grid item lg={7}>
               <Grid container gap={1} className="CenteringDiv">
                 <Grid item lg={12}>
-                  <div>
+                  <div style={{ marginTop: '30px' }}>
                     <Sort />
                   </div>
                 </Grid>
@@ -89,7 +94,7 @@ const ProductsPage = () => {
                 </div>
 
                 <Button variant="outlined" className="MoreTitle2" >
-                  Place a bid
+                  LOGIN TO BID
                 </Button>
 
 
@@ -106,6 +111,7 @@ const ProductsPage = () => {
 };
 
 const Wrapper = styled.div`
+font-family: "Century Gothic", sans-serif;
   background: "#eeeeee";
   overflow:hidden;
  .AuctionHolder{
@@ -132,7 +138,7 @@ const Wrapper = styled.div`
     border-radius:10px;
     background-color:rgb(0,0,0,1);
     position:relative;
-    padding:5%;
+    padding:1rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -141,11 +147,14 @@ const Wrapper = styled.div`
   .MoreTitle2{
     height:50px;
     width:75%;
-    background-color:#BF0426;
     border:none;
     outline:none;
     color:white;
     font-weight:1000;
+    background-color:#A6705D;
+    &:hover{
+    background-color: black;
+  }
   }
 
   .LightLeffect{
@@ -214,7 +223,7 @@ const Wrapper = styled.div`
   }
 
   .CenteringDiv {
-    margin-top:5%;
+    margin-top:1%;
     margin-bottom:5%;
     display:flex;
     justify-content: center;
@@ -225,7 +234,7 @@ const Wrapper = styled.div`
   }
 
   @media (max-width: 767px) {
-    margin-bottom:5%;
+    margin-bottom:100px;
     .products {
       display: flex;
       flex-direction:column;
