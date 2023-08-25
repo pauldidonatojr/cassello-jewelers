@@ -11,12 +11,12 @@ const AuctionPage = () => {
   return (
     <Wrapper>
       <Navbar />
-
+      <AuctionTitle>Exclusively Available on Auction</AuctionTitle>
       <Card>
         <CardContent>
           <CardImage src={heroBcg8} alt="Auction Product" />
           <AuctionDetails>
-            <Price>Premium Diamond Ring Exclusively On Auction</Price>
+            <Price>Premium Diamond Ring</Price>
             <CountdownTimer>
               <TimerLabel>Time Remaining:</TimerLabel>
               <TimerValue>01:23:45</TimerValue>
@@ -51,14 +51,24 @@ const Wrapper = styled.section`
   }
 `;
 
-const Card = styled.div`
+const AuctionTitle = styled.h2`
 font-family: "Century Gothic", sans-serif;
+  text-align: center;
+  font-size: 28px;
+  margin-top: 40px;
+  @media (max-width: 767px) {
+    margin-top: 90px;
+  }
+`;
+
+const Card = styled.div`
+  font-family: "Century Gothic", sans-serif;
   width: 80%;
   margin: 0 auto;
   background-color: #272626;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 100px;
+  margin-top: 20px;
 `;
 
 const CardContent = styled.div`
@@ -117,7 +127,7 @@ font-family: "Century Gothic", sans-serif;
 const Price = styled.p`
 font-family: "Century Gothic", sans-serif;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 200px;
   margin-bottom: 10px;
   color: #A6705D;
 `;
