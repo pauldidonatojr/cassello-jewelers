@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import { motion } from 'framer-motion';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 
 import heroBcg3 from "../assets/hero-bcg-3.jpg";
 import heroBcgt from "../assets/hero-bcg-2.jpg";
@@ -23,8 +25,19 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import { AllInbox } from "@mui/icons-material";
+import DekstopImages from "./DekstopImages";
 
 const Hero = () => {
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
+
   const carouselTexts = [
     {
       title: "Tailoring Elegance, Just for You",
@@ -154,42 +167,48 @@ const Hero = () => {
 
           </Link>
         </div>
-        {allLoaded &&
+        {/* {allLoaded &&
           <div className="ProgressHolder">
             <CircularProgress
               style={{ height: 200, width: 200, color: "grey" }}
             />
           </div>
-        }
-
-        <motion.img
-          className="Image1"
-          src={heroBcg3}
-          onLoad={handleLoad}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loading ? 0 : 1 }}
-          transition={{ duration: 1 }}
-        />
-        <motion.img className="Image2"
-          src={heroBcgt} onLoad={handleLoad2}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loading ? 0 : 1 }}
-          transition={{ duration: 1 }}
-        />
-        <motion.img className="Image3"
-          style={{ opacity: allLoaded ? 0 : 1 }}
-          src={heroBcg5} onLoad={handleLoad3}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loading ? 0 : 1 }}
-          transition={{ duration: 1 }} />
-        <motion.img className="Image4"
-          style={{ opacity: allLoaded ? 0 : 1 }}
-          src={heroBcg4} onLoad={handleLoad4}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: loading ? 0 : 1 }}
-          transition={{ duration: 1 }} />
-
-
+        } */}
+        {/* <motion.img
+            className="Image1"
+            src={heroBcg3}
+            onLoad={handleLoad}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loading ? 0 : 1 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.img
+            className="Image2"
+            src={heroBcgt}
+            onLoad={handleLoad2}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loading ? 0 : 1 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.img
+            className="Image3"
+            style={{ opacity: allLoaded ? 0 : 1 }}
+            src={heroBcg5}
+            onLoad={handleLoad3}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loading ? 0 : 1 }}
+            transition={{ duration: 1 }}
+          />
+          <motion.img
+            className="Image4"
+            style={{ opacity: allLoaded ? 0 : 1 }}
+            src={heroBcg4}
+            onLoad={handleLoad4}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: loading ? 0 : 1 }}
+            transition={{ duration: 1 }}
+          /> */}
+          <DekstopImages/>
       </div>
     </Wrapper>
   );
@@ -275,10 +294,23 @@ const Wrapper = styled.section`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+
+  .image-container {
+    display: grid;
+    background-color: black;
+    grid-template-rows: 100% auto;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "big-image image2"
+      "image3 image4";
+  }
+
   .Image1 {
+    grid-area: big-image;
     background: none;
     height: 550px;
-    width: 350px;
+    width: 300px;
     position: absolute;
     left: 3%;
     top: 10%;
@@ -289,6 +321,7 @@ const Wrapper = styled.section`
   }
 
   .Image2 {
+    grid-area: image2;
     background: none;
     height: 250px;
     width: 300px;
@@ -301,6 +334,7 @@ const Wrapper = styled.section`
     transition: opacity 2s ease-in-out;
   }
   .Image3 {
+    grid-area: image3;
     background: none;
     height: 400px;
     width: 350px;
@@ -314,6 +348,7 @@ const Wrapper = styled.section`
     transition: opacity 2s ease-in-out;
   }
   .Image4 {
+    grid-area: image4;
     background: none;
     height: 400px;
     width: 300px;
@@ -372,10 +407,10 @@ const Wrapper = styled.section`
     margin-top: 15%;
     width: 50%;
     text-align: center;
-    color: black;
-
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
     z-index: 10;
-  }
+}
   .desktopSubTitle {
     font-size: 30px;
     font-weight: 400;
