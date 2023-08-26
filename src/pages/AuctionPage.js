@@ -6,6 +6,7 @@ import { Filters, ProductList, Sort, PageHero } from "../components";
 
 import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import Grid from "@mui/material/Grid";
+import AuctionProductList from "../components/AuctionProductList";
 
 const AuctionPage = () => {
 
@@ -55,7 +56,7 @@ const AuctionPage = () => {
 
         <p className="OnAuctionTitle">Products On Auction</p>
         <div style={{ padding: "2rem" }}>
-          <ProductList />
+          <AuctionProductList />
         </div>
       </Wrapper>
     </div>
