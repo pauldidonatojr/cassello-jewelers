@@ -275,6 +275,7 @@ const Wrapper = styled.section`
     display:flex;
     justify-content:space-between;
     width:22%;
+    z-index: 10;
    }
 
   .desktop-version {
@@ -366,14 +367,17 @@ const Wrapper = styled.section`
     font-size: 13px;
     height: 60px;
     width: 180px;
-    color: #222831;
-    border: 4px solid rgb(0, 0, 0, 0.2);
+    color: white;
+    
+    background-color: black;
+    margin-left: 10px;
   }
 
   .MoreTitle:hover {
     background-color: black;
     border: none;
-    color: white;
+    color: #A6705D;
+    opacity: 1;
   }
   .MoreTitle2 {
     text-align: center;
