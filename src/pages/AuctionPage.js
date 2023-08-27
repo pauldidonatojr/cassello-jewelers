@@ -7,9 +7,19 @@ import { Filters, ProductList, Sort, PageHero } from "../components";
 import heroBcg8 from "../assets/hero-bcg-8.jpg";
 import Grid from "@mui/material/Grid";
 import AuctionProductList from "../components/AuctionProductList";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination } from "swiper/modules";
 
 const AuctionPage = () => {
-
   const [remainingTime, setRemainingTime] = useState(5025);
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -28,12 +38,74 @@ const AuctionPage = () => {
       .toString()
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
-
+  const UpComingAuction = [
+    {
+      title: "Sapphire Elegance Necklace",
+      description: "Exquisite sapphire pendant with a touch of elegance.",
+      cost: "$299.99",
+      startingDate: "September 15, 2023",
+      startingTime: "12 : 00",
+      image:
+        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+    },
+    {
+      title: "Diamond Infinity Earrings",
+      description: "Timeless diamond earrings symbolizing endless beauty.",
+      cost: "$499.99",
+      startingDate: "October 5, 2023",
+      startingTime: "12 : 00",
+      image:
+        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+    },
+    {
+      title: "Emerald Enchantment Ring",
+      description: "Captivating emerald ring that enchants hearts.",
+      cost: "$399.99",
+      startingDate: "October 20, 2023",
+      startingTime: "12 : 00",
+      image:
+        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+    },
+    {
+      title: "Pearl Harmony Bracelet",
+      description: "Harmonious pearls in a bracelet that radiates grace.",
+      cost: "$249.99",
+      startingDate: "November 2, 2023",
+      startingTime: "12 : 00",
+      image:
+        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+    },
+  ];
 
   return (
-    <div style={{backgroundColor:'#eeeeee'}}>
+    <div style={{ backgroundColor: "#eeeeee" }}>
       <Navbar />
       <Wrapper>
+        <div className="InformationHolder"> 
+            
+            <div className="Upper">
+            <div className="Information">
+                <p className="InfoNumber">650,000</p>
+                <p className="InfoTitle">Bids</p>
+            </div>
+
+            <div className="Information">
+                <p className="InfoNumber">259,947</p>
+                <p className="InfoTitle">Members</p>
+            </div>
+            </div>
+
+            <div className="Lower">
+            <div className="Information">
+                <p className="InfoNumber">746</p>
+                <p className="InfoTitle">Open Auction</p>
+            </div>
+            <div className="Information">
+                <p className="InfoNumber">97,016</p>
+                <p className="InfoTitle">Sold Product</p>
+            </div>
+            </div>
+        </div>
         <AuctionTitle>Exclusively Available on Auction</AuctionTitle>
         <Card>
           <CardContent>
@@ -47,8 +119,12 @@ const AuctionPage = () => {
               <Price>$500</Price>
 
               <BidButton>
-                <Button className='b1' variant="contained" color="primary">Checkout Item</Button>
-                <Button className='b1' variant="contained" color="primary">LOGIN TO BID</Button>
+                <Button className="b1" variant="contained" color="primary">
+                  Checkout Item
+                </Button>
+                <Button className="b1" variant="contained" color="primary">
+                  LOGIN TO BID
+                </Button>
               </BidButton>
             </AuctionDetails>
           </CardContent>
@@ -58,6 +134,57 @@ const AuctionPage = () => {
         <div style={{ padding: "2rem" }}>
           <AuctionProductList />
         </div>
+        <p className="UpComingText">Up Coming Bids</p>
+        <div>
+          <Swiper
+            // slidesPerView={1}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+            breakpoints={{
+              767: {
+                slidesPerView: 3, // 1 slide per view on screens up to 767px
+              },
+              1200: {
+                slidesPerView: 3, // 2 slides per view on screens up to 1024px
+              },
+              2000: {
+                slidesPerView: 3, // 2 slides per view on screens up to 1024px
+              },
+            }}
+          >
+            {UpComingAuction.map((item, index) => (
+              <SwiperSlide key={index} className="MySlide">
+                
+
+                <img src={item.image} className="SlideImage" />
+                <div className="InfoHolder">
+                  <p className="SlideTitle">{item.title}</p>
+                  <p className="SlideSubTitle">{item.description}</p>
+                </div>
+                <div className="CenteringDiv">
+                  <hr className="Divider" />
+                </div>
+
+                <p className="StartingTitle">Starting On</p>
+                <div className="StartingHolder">
+                  <div className="TimeHolder">
+                    <CalendarTodayIcon className="Icon" />
+
+                    <p className="DateTimeText">{item.startingDate}</p>
+                  </div>
+                  <div className="TimeHolder">
+                    <AccessTimeIcon className="Icon" />
+                    <p className="DateTimeText">{item.startingTime}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </Wrapper>
     </div>
   );
@@ -66,6 +193,43 @@ const AuctionPage = () => {
 const Wrapper = styled.section`
   padding-bottom: 5%;
   background-color: #eeeeee;
+  .InformationHolder{
+    height:100%;
+  }
+
+ .InformationHolder{
+  display:flex;
+  justify-content:space-between;
+  padding:2%;
+  background-color:#272626;
+
+ }
+ .Upper{
+  display:flex;
+  justify-content:space-evenly;
+  width:50%;
+ }
+ .Lower{
+  display:flex;
+  justify-content:space-evenly;
+  width:50%;
+ }
+
+.InfoNumber{
+  font-size:50px;
+  text-align:center;
+  color:white;
+  font-weight:1000;
+  letter-spacing:5px;
+  color:white;
+}
+.InfoTitle{
+  font-size:50px;
+  text-align:center;
+  font-weight:700;
+  letter-spacing:5px;
+  color:#A6705D;
+}
 
   .OnAuctionTitle {
     text-align: center;
@@ -73,11 +237,148 @@ const Wrapper = styled.section`
     font-weight: bold;
     margin-top: 100px;
   }
+  .StartingHolder {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 5%;
+  }
+  .DateHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .TimeHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .DateHolder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .DateTimeText {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 255, 255, 0.95);
+  }
+  .Icon {
+    font-size: 25px;
+    margin-right: 5px;
+    color: rgb(255, 255, 255, 0.95);
+  }
+  .UpComingText {
+    text-align: center;
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+  .mySwiper {
+    width: 80%;
+  }
+  .MySlide {
+    height: 350px;
+    background-color: black;
+    border-radius: 10px;
+    height: 100%;
+  }
+  .StartingTitle {
+    font-size: 20px;
+    color: white;
+    font-weight: 100;
+    text-align: left;
+    padding-left: 5%;
+  }
+
+  .Divider {
+    width: 75%;
+    opacity: 0.4;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .CenteringDiv {
+    display: flex;
+    justify-content: center;
+  }
+  .SlideTitle {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    letter-spacing: 5px;
+    width: 75%;
+    margin-bottom: 5px;
+  }
+  .SlideSubTitle {
+    font-size: 20px;
+    width: 85%;
+    letter-spacing: 2px;
+    font-weight: 100;
+    color: white;
+    text-align: left;
+  }
+  .swiper-pagination-bullet {
+    background-color: white; /* Change this to your desired inactive color */
+    height: 10px;
+    width: 10px;
+  }
+
+  /* Active dot */
+  .swiper-pagination-bullet-active {
+    background-color: white; /* Change this to your desired active color */
+  }
+  .InfoHolder {
+    padding-left: 5%;
+    padding-top: 2.5%;
+  }
+  .SlideImage {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0px 0px;
+    object-fit: cover;
+  }
+  @media (max-width: 767px) {
+    .MySlide{
+        height:600px;
+    }
+    .InformationHolder{
+      margin-top:80px;
+    }
+    .InfoNumber{
+      font-size:15px;
+      text-align:center;
+      color:white;
+      font-weight:1000;
+      letter-spacing:5px;
+      color:white;
+    }
+    .InfoTitle{
+      font-size:15px;
+      text-align:center;
+      font-weight:700;
+      letter-spacing:5px;
+      color:#A6705D;
+    }
+    .InformationHolder{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+     }
+     .Upper{
+      width:100%;
+     }
+     .Lower{
+      width:100%;
+     }
+  }
+  
 `;
 
 const AuctionTitle = styled.h2`
-background: #eeeeee;
-font-family: "Century Gothic", sans-serif;
+  background: #eeeeee;
+  font-family: "Century Gothic", sans-serif;
   text-align: center;
   font-size: 28px;
   margin-top: 40px;
@@ -100,11 +401,11 @@ const Card = styled.div`
 `;
 
 const CardContent = styled.div`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   display: flex;
   align-items: center;
   padding: 20px;
-  
+
   @media (max-width: 767px) {
     display: grid;
   }
@@ -121,7 +422,7 @@ const CardImage = styled.img`
 `;
 
 const AuctionDetails = styled.div`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -131,14 +432,14 @@ font-family: "Century Gothic", sans-serif;
 `;
 
 const CountdownTimer = styled.div`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 `;
 
 const TimerLabel = styled.p`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   font-size: 14px;
   font-weight: bold;
   margin-right: 10px;
@@ -146,39 +447,39 @@ font-family: "Century Gothic", sans-serif;
 `;
 
 const TimerValue = styled.p`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   font-size: 18px;
   font-weight: bold;
   color: white;
 `;
 
 const Price = styled.p`
-font-family: "Century Gothic", sans-serif;
+  font-family: "Century Gothic", sans-serif;
   font-size: 24px;
   font-weight: 200px;
   margin-bottom: 10px;
-  color: #A6705D;
+  color: #a6705d;
 `;
 
 const BidButton = styled.div`
-font-family: "Century Gothic", sans-serif;
-width: 100%;
-.b1{
-  width: 40%;
-  margin-left: 5%;
-  background-color:#A6705D;
-  &:hover{
-    background-color: black;
+  font-family: "Century Gothic", sans-serif;
+  width: 100%;
+  .b1 {
+    width: 40%;
+    margin-left: 5%;
+    background-color: #a6705d;
+    &:hover {
+      background-color: black;
+    }
   }
-}
 
-@media (max-width: 767px) {
-  .b1{
+  @media (max-width: 767px) {
+    .b1 {
       width: 95%;
       margin-left: 0%;
       margin-top: 5%;
-      background-color:#A6705D;
-      &:hover{
+      background-color: #a6705d;
+      &:hover {
         background-color: black;
       }
     }
