@@ -242,7 +242,7 @@ const Wrapper = styled.section`
  }
 
 .InfoNumber{
-  font-size:45px;
+  font-size:30px;
   text-align:center;
   color:white;
   font-weight:1000;
