@@ -81,7 +81,7 @@ const AuctionPage = () => {
     <div style={{ backgroundColor: "#eeeeee" }}>
       <Navbar />
       <Wrapper>
-        <div className="InformationHolder"> 
+        <div className="informationHolderMobile"> 
             
             <div className="Upper">
             <div className="Information">
@@ -106,6 +106,32 @@ const AuctionPage = () => {
             </div>
             </div>
         </div>
+
+
+          <div className="informationHolderDesktop">
+
+          <div className="Information">
+                <p className="InfoNumber">650,000</p>
+                <p className="InfoTitle">Bids</p>
+            </div>
+
+          <div className="Information">
+                <p className="InfoNumber">259,947</p>
+                <p className="InfoTitle">Members</p>
+            </div>
+            
+          <div className="Information">
+                <p className="InfoNumber">746</p>
+                <p className="InfoTitle">Open Auction</p>
+            </div>
+
+          <div className="Information">
+                <p className="InfoNumber">97,016</p>
+                <p className="InfoTitle">Sold Product</p>
+            </div>
+          </div>
+
+
         <AuctionTitle>Exclusively Available on Auction</AuctionTitle>
         <Card>
           <CardContent>
@@ -193,16 +219,10 @@ const AuctionPage = () => {
 const Wrapper = styled.section`
   padding-bottom: 5%;
   background-color: #eeeeee;
-  .InformationHolder{
-    height:100%;
-  }
+  font-family: "Century Gothic", sans-serif;
 
- .InformationHolder{
-  display:flex;
-  justify-content:space-between;
-  padding:2%;
-  background-color:#272626;
-
+ .informationHolderMobile{
+  display:none;
  }
  .Upper{
   display:flex;
@@ -214,9 +234,15 @@ const Wrapper = styled.section`
   justify-content:space-evenly;
   width:50%;
  }
+ .informationHolderDesktop{
+  display:flex;
+  justify-content:space-evenly;
+  padding:2%;
+  background-color:black;
+ }
 
 .InfoNumber{
-  font-size:50px;
+  font-size:45px;
   text-align:center;
   color:white;
   font-weight:1000;
@@ -224,9 +250,9 @@ const Wrapper = styled.section`
   color:white;
 }
 .InfoTitle{
-  font-size:50px;
+  font-size:20px;
   text-align:center;
-  font-weight:700;
+  font-weight:100;
   letter-spacing:5px;
   color:#A6705D;
 }
@@ -342,11 +368,12 @@ const Wrapper = styled.section`
     .MySlide{
         height:600px;
     }
-    .InformationHolder{
+   
+    .informationHolderMobile{
       margin-top:80px;
     }
     .InfoNumber{
-      font-size:15px;
+      font-size:22.5px;
       text-align:center;
       color:white;
       font-weight:1000;
@@ -354,18 +381,25 @@ const Wrapper = styled.section`
       color:white;
     }
     .InfoTitle{
-      font-size:15px;
+      font-size:14px;
       text-align:center;
       font-weight:700;
       letter-spacing:5px;
       color:#A6705D;
     }
-    .InformationHolder{
+    .informationHolderMobile{
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
+      padding:2%;
+      height:100%;
+      background-color:black;
      }
+     .informationHolderDesktop{
+        display:none;
+     }
+     
      .Upper{
       width:100%;
      }
